@@ -9,3 +9,4 @@
 - Pull code mới về:
   - chuyển về nhánh main: git checkout main
   - pull: git pull origin
+- Trước khi push code: git status để check xem còn file nào chưa commit
