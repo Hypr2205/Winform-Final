@@ -55,6 +55,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BuildPC.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BuildPC.Designer.cs">
+      <DependentUpon>BuildPC.cs</DependentUpon>
+    </Compile>
     <Compile Include="BuyLaptop.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -78,8 +84,17 @@
     <Compile Include="Model\LaptopModel\LaptopDBContext.cs" />
     <Compile Include="Model\LaptopModel\LaptopInvoice.cs" />
     <Compile Include="Model\LaptopModel\LaptopOrder.cs" />
+    <Compile Include="OrderHistory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="OrderHistory.Designer.cs">
+      <DependentUpon>OrderHistory.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="BuyLaptop.resx">
+      <DependentUpon>BuyLaptop.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Main.resx">
       <DependentUpon>Main.cs</DependentUpon>
     </EmbeddedResource>
