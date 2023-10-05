@@ -1,57 +1,69 @@
 use master
 go
 
-if not exists (select *
-               from sys.databases
-               where name = 'TKB')
+if not exists(select *
+              from sys.databases
+              where name = 'ProductDB')
     begin
-        create database TKB
+        create database ProductDB
     end
 go
 
-use TKB
+use ProductDB
 go
 
 begin
-    create table Teachers
+    create table Product
     (
-        TeacherID   varchar(8)    not null,
-        TeacherName nvarchar(200) not null,
-        SubjectID   varchar(6)    not null,
-        constraint PK_Teacher primary key (TeacherID asc)
+        ProductID   varchar(8)     not null,
+        ProductName nvarchar(255)  not null,
+        Unit        nvarchar(20)   not null,
+        Quantity    int            not null,
+        SellPrice   decimal(18, 0) not null,
+        Sale        int default 0,
+        CategoryID  varchar(8)     not null,
+        constraint PK_Product primary key (ProductID asc)
     )
 
-    create table Subjects
+    create table Category
     (
-        SubjectID   varchar(6)  not null,
-        SubjectName nvarchar(6) not null,
-        constraint PK_Subject primary key (SubjectID asc)
+        CategoryID   varchar(8)    not null,
+        CategoryName nvarchar(100) not null,
+        constraint PK_Category primary key (CategoryID asc)
     )
 
-    create table DaysOfWeek
+    create table Invoice
     (
-        DayID   int          not null,
-        DayName nvarchar(20) not null,
-        constraint PK_Day primary key (DayID asc)
+        InvoiceID    varchar(10)   not null,
+        OrderDate    datetime      not null,
+        DeliveryDate datetime      not null,
+        Note         nvarchar(255) not null,
+        constraint PK_Invoice primary key (InvoiceID asc)
     )
 
-    create table TeachingSchedule
+    create table Orders
     (
-        AvailabilityID       int        not null,
-        TeacherID            varchar(8) not null,
-        SubjectID            varchar(6) not null,
-        DayID                int        not null,
-        IsMorningAvailable   bit        not null, -- (0 hoặc 1) Cho biết giảng viên có thể dạy vào buổi sáng hay không
-        IsAfternoonAvailable bit        not null, -- (0 hoặc 1) Cho biết giảng viên có thể dạy vào buổi chiều hay không
-        IsEveningAvailable   bit        not null, -- (0 hoặc 1) Cho biết giảng viên có thể dạy vào buổi tối hay không,
-        constraint PK_Availability primary key (AvailabilityID, TeacherID, SubjectID, DayID)
+        InvoiceID    varchar(10)    not null,
+        No           int            not null,
+        ProductID    varchar(8)     not null,
+        ProductName  nvarchar(255)  not null,
+        CategoryID   varchar(8)     not null,
+        CategoryName nvarchar(100)  not null,
+        Unit         nvarchar(20)   not null,
+        Quantity     int            not null,
+        SellPrice    decimal(18, 0) not null,
+        Sale         int default 0,
+        constraint PK_Order primary key (InvoiceID asc, No asc)
     )
 
+    alter table Product
+        with check
+            add constraint FK_Category foreign key (CategoryID) references Category (CategoryID)
 
-    alter table TeachingSchedule
+    alter table Orders
         with check
             add
-            constraint FK_Teacher foreign key (TeacherID) references Teachers (TeacherID),
-            constraint FK_Subject foreign key (SubjectID) references Subjects (SubjectID),
-            constraint FK_DaysOfWeek foreign key (DayID) references DaysOfWeek (DayID)
+            constraint FK_Invoice_Order foreign key (InvoiceID) references Invoice (InvoiceID),
+            constraint FK_Product_Order foreign key (ProductID) references Product (ProductID),
+            constraint FK_Category_Order foreign key (CategoryID) references Category (CategoryID)
 end
