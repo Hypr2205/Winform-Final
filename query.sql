@@ -1,18 +1,13 @@
 use master
 go
 
-if not exists(select *
-              from sys.databases
-              where name = 'ComputerShopManagement')
-create database ComputerShopManagement
+create database ComputerShop
 go
 
-
-use ComputerShopManagement
+use ComputerShop
 go
 
-begin
-    create table Laptop
+create table Laptop
     (
         LaptopID   varchar(10)    not null,
         LaptopName nvarchar(100)  not null,
@@ -123,4 +118,3 @@ begin
             constraint FK_Custom_Accessory foreign key (AccessoryID) references Accessory (AccessoryID),
             constraint FK_Custom_Category foreign key (CategoryID) references AccessoryCategory (CategoryID),
             constraint FK_Custom_Brand foreign key (BrandID) references AccessoryBrand (BrandID)
-end
