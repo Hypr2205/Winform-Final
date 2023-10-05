@@ -3,67 +3,124 @@ go
 
 if not exists(select *
               from sys.databases
-              where name = 'ProductDB')
-    begin
-        create database ProductDB
-    end
+              where name = 'ComputerShopManagement')
+create database ComputerShopManagement
 go
 
-use ProductDB
+
+use ComputerShopManagement
 go
 
 begin
-    create table Product
+    create table Laptop
     (
-        ProductID   varchar(8)     not null,
-        ProductName nvarchar(255)  not null,
-        Unit        nvarchar(20)   not null,
-        Quantity    int            not null,
-        SellPrice   decimal(18, 0) not null,
-        Sale        int default 0,
-        CategoryID  varchar(8)     not null,
-        constraint PK_Product primary key (ProductID asc)
+        LaptopID   varchar(10)    not null,
+        LaptopName nvarchar(100)  not null,
+        SellPrice  decimal(18, 0) not null,
+        Sale       int default 0  not null,
+        CategoryID varchar(10)    not null,
+        constraint PK_Laptop primary key (LaptopID asc)
     )
 
-    create table Category
+    create table LaptopCategory
     (
-        CategoryID   varchar(8)    not null,
+        CategoryID   varchar(10)   not null,
         CategoryName nvarchar(100) not null,
         constraint PK_Category primary key (CategoryID asc)
     )
 
-    create table Invoice
+    create table Accessory
     (
-        InvoiceID    varchar(10)   not null,
-        OrderDate    datetime      not null,
-        DeliveryDate datetime      not null,
-        Note         nvarchar(255) not null,
-        constraint PK_Invoice primary key (InvoiceID asc)
+        AccessoryID   varchar(10)    not null,
+        AccessoryName nvarchar(100)  not null,
+        SalePrice     decimal(18, 0) not null,
+        Sale          int default 0  not null,
+        BrandID       varchar(10)    not null,
+        CategoryID    varchar(10)    not null,
+        constraint PK_Accessory primary key (AccessoryID asc)
     )
 
-    create table Orders
+    create table AccessoryCategory
+    (
+        CategoryID   varchar(10)   not null,
+        CategoryName nvarchar(100) not null,
+        constraint PK_Accessory_Category primary key (CategoryID asc)
+    )
+
+    create table AccessoryBrand
+    (
+        BrandID    varchar(10)   not null,
+        BrandName  nvarchar(100) not null,
+        constraint PK_Accessory_Brand primary key (BrandID)
+    )
+
+    create table LaptopInvoice
+    (
+        InvoiceID    varchar(10) not null,
+        OrderDate    datetime    not null,
+        DeliveryDate datetime    not null,
+        Note         nvarchar(255),
+        constraint PK_Laptop_Invoice primary key (InvoiceID asc)
+    )
+
+    create table CustomPCInvoice
+    (
+         InvoiceID    varchar(10) not null,
+        OrderDate    datetime    not null,
+        DeliveryDate datetime    not null,
+        Note         nvarchar(255),
+        constraint  PK_Custom_Invoice primary key (InvoiceID asc)
+    )
+
+    create table LaptopOrder
     (
         InvoiceID    varchar(10)    not null,
-        No           int            not null,
-        ProductID    varchar(8)     not null,
-        ProductName  nvarchar(255)  not null,
-        CategoryID   varchar(8)     not null,
-        CategoryName nvarchar(100)  not null,
-        Unit         nvarchar(20)   not null,
-        Quantity     int            not null,
+        OrderID      varchar(10)    not null,
+        LaptopID     varchar(10)    not null,
+        LaptopName   nvarchar(100)  not null,
         SellPrice    decimal(18, 0) not null,
-        Sale         int default 0,
-        constraint PK_Order primary key (InvoiceID asc, No asc)
+        Sale         int default 0  not null,
+        CategoryID   varchar(10)    not null,
+        CategoryName nvarchar(100)  not null,
+        constraint PK_Laptop_Order primary key (InvoiceID asc, OrderID asc)
+    )
+    create table CustomPCOrder
+    (
+        InvoiceID     varchar(10)    not null,
+        OrderID       varchar(10)    not null,
+        AccessoryID   varchar(10)    not null,
+        AccessoryName nvarchar(100)  not null,
+        SalePrice     decimal(18, 0) not null,
+        Sale          int default 0  not null,
+        BrandID       varchar(10)    not null,
+        BrandName     nvarchar(100)  not null,
+        CategoryID    varchar(10)    not null,
+        CategoryName  nvarchar(100)  not null,
+        constraint PK_Custom_PC_Order primary key (InvoiceID asc, OrderID asc)
     )
 
-    alter table Product
+    alter table Laptop
         with check
-            add constraint FK_Category foreign key (CategoryID) references Category (CategoryID)
+            add constraint FK_Laptop_Category foreign key (CategoryID) references LaptopCategory (CategoryID)
 
-    alter table Orders
+    alter table LaptopOrder
         with check
             add
-            constraint FK_Invoice_Order foreign key (InvoiceID) references Invoice (InvoiceID),
-            constraint FK_Product_Order foreign key (ProductID) references Product (ProductID),
-            constraint FK_Category_Order foreign key (CategoryID) references Category (CategoryID)
+            constraint FK_Laptop_Invoice foreign key (InvoiceID) references LaptopInvoice (InvoiceID),
+            constraint FK_Laptop foreign key (LaptopID) references Laptop (LaptopID),
+            constraint FK_Laptop_Category_Invoice foreign key (CategoryID) references LaptopCategory (CategoryID)
+
+    alter table Accessory
+        with check
+            add
+            constraint FK_Accessory_Category foreign key (CategoryID) references AccessoryCategory (CategoryID),
+            constraint FK_Accessory_Brand foreign key (BrandID) references AccessoryBrand (BrandID)
+
+    alter table CustomPCOrder
+        with check
+            add
+            constraint FK_Custom_Invoice foreign key (InvoiceID) references CustomPCInvoice (InvoiceID),
+            constraint FK_Custom_Accessory foreign key (AccessoryID) references Accessory (AccessoryID),
+            constraint FK_Custom_Category foreign key (CategoryID) references AccessoryCategory (CategoryID),
+            constraint FK_Custom_Brand foreign key (BrandID) references AccessoryBrand (BrandID)
 end
