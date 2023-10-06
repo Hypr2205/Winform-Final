@@ -13,6 +13,7 @@ create table Laptop
         LaptopName nvarchar(100)  not null,
         SellPrice  decimal(18, 0) not null,
         Sale       int default 0  not null,
+        Quantity   int            not null,
         CategoryID varchar(10)    not null,
         constraint PK_Laptop primary key (LaptopID asc)
     )
