@@ -63,7 +63,7 @@ namespace Final {
             TbLaptopCategory.Text = row.Cells[2].Value.ToString();
             TbLaptopPrice.Text = row.Cells[3].Value.ToString();
             if (int.Parse(row.Cells[4].Value.ToString()) != 0) {
-                TbSalePercent.Text = row.Cells[4].Value.ToString();
+                TbSalePercent.Text = row.Cells[4].Value.ToString() + "%";
             } else {
                 TbSalePercent.Text = "Không có khuyến mãi";
             }
