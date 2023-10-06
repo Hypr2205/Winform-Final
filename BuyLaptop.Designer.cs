@@ -26,18 +26,20 @@
             this.LbTime = new System.Windows.Forms.Label();
             this.LbTitle = new System.Windows.Forms.Label();
             this.DgvLaptops = new System.Windows.Forms.DataGridView();
-            this.LaptopIDCell = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.LaptopNameCell = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CategoryCell = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SellPriceCell = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SaleCell = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.LaptopInfoContainer = new System.Windows.Forms.GroupBox();
+            this.TbSalePercent = new System.Windows.Forms.TextBox();
+            this.TbLaptopPrice = new System.Windows.Forms.TextBox();
+            this.TbLaptopCategory = new System.Windows.Forms.TextBox();
+            this.TbLaptopName = new System.Windows.Forms.TextBox();
+            this.TbLaptopID = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.FilterContainer = new System.Windows.Forms.GroupBox();
+            this.TbLaptopIdFilter = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
             this.BtnCancel = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.CbxPriceRange = new System.Windows.Forms.ComboBox();
@@ -52,13 +54,12 @@
             this.FilterAction = new System.Windows.Forms.ToolStripMenuItem();
             this.ViewCartAction = new System.Windows.Forms.ToolStripMenuItem();
             this.BtnAddToCart = new System.Windows.Forms.Button();
-            this.TbLaptopID = new System.Windows.Forms.TextBox();
-            this.TbLaptopName = new System.Windows.Forms.TextBox();
-            this.TbLaptopCategory = new System.Windows.Forms.TextBox();
-            this.TbLaptopPrice = new System.Windows.Forms.TextBox();
-            this.TbSalePercent = new System.Windows.Forms.TextBox();
-            this.label9 = new System.Windows.Forms.Label();
-            this.TbLaptopIdFilter = new System.Windows.Forms.TextBox();
+            this.LaptopNameCell = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.LaptopIDCell = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CategoryCell = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SellPriceCell = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SaleCell = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.QuantityCell = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.DgvLaptops)).BeginInit();
             this.LaptopInfoContainer.SuspendLayout();
             this.FilterContainer.SuspendLayout();
@@ -91,11 +92,12 @@
             this.DgvLaptops.AllowUserToDeleteRows = false;
             this.DgvLaptops.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DgvLaptops.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.LaptopIDCell,
             this.LaptopNameCell,
+            this.LaptopIDCell,
             this.CategoryCell,
             this.SellPriceCell,
-            this.SaleCell});
+            this.SaleCell,
+            this.QuantityCell});
             this.DgvLaptops.Location = new System.Drawing.Point(605, 243);
             this.DgvLaptops.Name = "DgvLaptops";
             this.DgvLaptops.ReadOnly = true;
@@ -104,46 +106,6 @@
             this.DgvLaptops.Size = new System.Drawing.Size(849, 468);
             this.DgvLaptops.TabIndex = 2;
             this.DgvLaptops.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvLaptops_CellContentClick);
-            // 
-            // LaptopIDCell
-            // 
-            this.LaptopIDCell.HeaderText = "Mã máy";
-            this.LaptopIDCell.MinimumWidth = 6;
-            this.LaptopIDCell.Name = "LaptopIDCell";
-            this.LaptopIDCell.ReadOnly = true;
-            this.LaptopIDCell.Width = 125;
-            // 
-            // LaptopNameCell
-            // 
-            this.LaptopNameCell.HeaderText = "Tên máy";
-            this.LaptopNameCell.MinimumWidth = 6;
-            this.LaptopNameCell.Name = "LaptopNameCell";
-            this.LaptopNameCell.ReadOnly = true;
-            this.LaptopNameCell.Width = 125;
-            // 
-            // CategoryCell
-            // 
-            this.CategoryCell.HeaderText = "Hãng";
-            this.CategoryCell.MinimumWidth = 6;
-            this.CategoryCell.Name = "CategoryCell";
-            this.CategoryCell.ReadOnly = true;
-            this.CategoryCell.Width = 125;
-            // 
-            // SellPriceCell
-            // 
-            this.SellPriceCell.HeaderText = "Giá bán";
-            this.SellPriceCell.MinimumWidth = 6;
-            this.SellPriceCell.Name = "SellPriceCell";
-            this.SellPriceCell.ReadOnly = true;
-            this.SellPriceCell.Width = 125;
-            // 
-            // SaleCell
-            // 
-            this.SaleCell.HeaderText = "Khuyến mãi";
-            this.SaleCell.MinimumWidth = 6;
-            this.SaleCell.Name = "SaleCell";
-            this.SaleCell.ReadOnly = true;
-            this.SaleCell.Width = 125;
             // 
             // LaptopInfoContainer
             // 
@@ -163,6 +125,51 @@
             this.LaptopInfoContainer.TabIndex = 3;
             this.LaptopInfoContainer.TabStop = false;
             this.LaptopInfoContainer.Text = "Thông tin Laptop";
+            // 
+            // TbSalePercent
+            // 
+            this.TbSalePercent.Location = new System.Drawing.Point(203, 357);
+            this.TbSalePercent.Name = "TbSalePercent";
+            this.TbSalePercent.ReadOnly = true;
+            this.TbSalePercent.Size = new System.Drawing.Size(334, 30);
+            this.TbSalePercent.TabIndex = 8;
+            this.TbSalePercent.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // TbLaptopPrice
+            // 
+            this.TbLaptopPrice.Location = new System.Drawing.Point(203, 271);
+            this.TbLaptopPrice.Name = "TbLaptopPrice";
+            this.TbLaptopPrice.ReadOnly = true;
+            this.TbLaptopPrice.Size = new System.Drawing.Size(334, 30);
+            this.TbLaptopPrice.TabIndex = 7;
+            this.TbLaptopPrice.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // TbLaptopCategory
+            // 
+            this.TbLaptopCategory.Location = new System.Drawing.Point(203, 191);
+            this.TbLaptopCategory.Name = "TbLaptopCategory";
+            this.TbLaptopCategory.ReadOnly = true;
+            this.TbLaptopCategory.Size = new System.Drawing.Size(334, 30);
+            this.TbLaptopCategory.TabIndex = 6;
+            this.TbLaptopCategory.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // TbLaptopName
+            // 
+            this.TbLaptopName.Location = new System.Drawing.Point(203, 120);
+            this.TbLaptopName.Name = "TbLaptopName";
+            this.TbLaptopName.ReadOnly = true;
+            this.TbLaptopName.Size = new System.Drawing.Size(334, 30);
+            this.TbLaptopName.TabIndex = 5;
+            this.TbLaptopName.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // TbLaptopID
+            // 
+            this.TbLaptopID.Location = new System.Drawing.Point(203, 50);
+            this.TbLaptopID.Name = "TbLaptopID";
+            this.TbLaptopID.ReadOnly = true;
+            this.TbLaptopID.Size = new System.Drawing.Size(334, 30);
+            this.TbLaptopID.TabIndex = 4;
+            this.TbLaptopID.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label8
             // 
@@ -228,6 +235,21 @@
             this.FilterContainer.TabIndex = 4;
             this.FilterContainer.TabStop = false;
             this.FilterContainer.Text = "Lọc";
+            // 
+            // TbLaptopIdFilter
+            // 
+            this.TbLaptopIdFilter.Location = new System.Drawing.Point(637, 27);
+            this.TbLaptopIdFilter.Name = "TbLaptopIdFilter";
+            this.TbLaptopIdFilter.Size = new System.Drawing.Size(234, 30);
+            this.TbLaptopIdFilter.TabIndex = 10;
+            // 
+            // label9
+            // 
+            this.label9.Location = new System.Drawing.Point(511, 26);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(101, 30);
+            this.label9.TabIndex = 9;
+            this.label9.Text = "Mã máy";
             // 
             // BtnCancel
             // 
@@ -355,65 +377,53 @@
             this.BtnAddToCart.Text = "Thêm vào giỏ hàng";
             this.BtnAddToCart.UseVisualStyleBackColor = true;
             // 
-            // TbLaptopID
+            // LaptopNameCell
             // 
-            this.TbLaptopID.Location = new System.Drawing.Point(203, 50);
-            this.TbLaptopID.Name = "TbLaptopID";
-            this.TbLaptopID.ReadOnly = true;
-            this.TbLaptopID.Size = new System.Drawing.Size(334, 30);
-            this.TbLaptopID.TabIndex = 4;
-            this.TbLaptopID.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.LaptopNameCell.HeaderText = "Tên máy";
+            this.LaptopNameCell.MinimumWidth = 6;
+            this.LaptopNameCell.Name = "LaptopNameCell";
+            this.LaptopNameCell.ReadOnly = true;
+            this.LaptopNameCell.Width = 125;
             // 
-            // TbLaptopName
+            // LaptopIDCell
             // 
-            this.TbLaptopName.Location = new System.Drawing.Point(203, 120);
-            this.TbLaptopName.Name = "TbLaptopName";
-            this.TbLaptopName.ReadOnly = true;
-            this.TbLaptopName.Size = new System.Drawing.Size(334, 30);
-            this.TbLaptopName.TabIndex = 5;
-            this.TbLaptopName.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.LaptopIDCell.HeaderText = "Mã máy";
+            this.LaptopIDCell.MinimumWidth = 6;
+            this.LaptopIDCell.Name = "LaptopIDCell";
+            this.LaptopIDCell.ReadOnly = true;
+            this.LaptopIDCell.Width = 125;
             // 
-            // TbLaptopCategory
+            // CategoryCell
             // 
-            this.TbLaptopCategory.Location = new System.Drawing.Point(203, 191);
-            this.TbLaptopCategory.Name = "TbLaptopCategory";
-            this.TbLaptopCategory.ReadOnly = true;
-            this.TbLaptopCategory.Size = new System.Drawing.Size(334, 30);
-            this.TbLaptopCategory.TabIndex = 6;
-            this.TbLaptopCategory.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.CategoryCell.HeaderText = "Hãng";
+            this.CategoryCell.MinimumWidth = 6;
+            this.CategoryCell.Name = "CategoryCell";
+            this.CategoryCell.ReadOnly = true;
+            this.CategoryCell.Width = 125;
             // 
-            // TbLaptopPrice
+            // SellPriceCell
             // 
-            this.TbLaptopPrice.Location = new System.Drawing.Point(203, 271);
-            this.TbLaptopPrice.Name = "TbLaptopPrice";
-            this.TbLaptopPrice.ReadOnly = true;
-            this.TbLaptopPrice.Size = new System.Drawing.Size(334, 30);
-            this.TbLaptopPrice.TabIndex = 7;
-            this.TbLaptopPrice.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.SellPriceCell.HeaderText = "Giá bán";
+            this.SellPriceCell.MinimumWidth = 6;
+            this.SellPriceCell.Name = "SellPriceCell";
+            this.SellPriceCell.ReadOnly = true;
+            this.SellPriceCell.Width = 125;
             // 
-            // TbSalePercent
+            // SaleCell
             // 
-            this.TbSalePercent.Location = new System.Drawing.Point(203, 357);
-            this.TbSalePercent.Name = "TbSalePercent";
-            this.TbSalePercent.ReadOnly = true;
-            this.TbSalePercent.Size = new System.Drawing.Size(334, 30);
-            this.TbSalePercent.TabIndex = 8;
-            this.TbSalePercent.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.SaleCell.HeaderText = "Khuyến mãi";
+            this.SaleCell.MinimumWidth = 6;
+            this.SaleCell.Name = "SaleCell";
+            this.SaleCell.ReadOnly = true;
+            this.SaleCell.Width = 125;
             // 
-            // label9
+            // QuantityCell
             // 
-            this.label9.Location = new System.Drawing.Point(511, 26);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(101, 30);
-            this.label9.TabIndex = 9;
-            this.label9.Text = "Mã máy";
-            // 
-            // TbLaptopIdFilter
-            // 
-            this.TbLaptopIdFilter.Location = new System.Drawing.Point(637, 27);
-            this.TbLaptopIdFilter.Name = "TbLaptopIdFilter";
-            this.TbLaptopIdFilter.Size = new System.Drawing.Size(234, 30);
-            this.TbLaptopIdFilter.TabIndex = 10;
+            this.QuantityCell.HeaderText = "Số lượng";
+            this.QuantityCell.MinimumWidth = 6;
+            this.QuantityCell.Name = "QuantityCell";
+            this.QuantityCell.ReadOnly = true;
+            this.QuantityCell.Width = 125;
             // 
             // BuyLaptop
             // 
@@ -467,11 +477,6 @@
         private System.Windows.Forms.ToolStripMenuItem ViewCartAction;
         private System.Windows.Forms.Button BtnCancel;
         private System.Windows.Forms.Button BtnAddToCart;
-        private System.Windows.Forms.DataGridViewTextBoxColumn LaptopIDCell;
-        private System.Windows.Forms.DataGridViewTextBoxColumn LaptopNameCell;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CategoryCell;
-        private System.Windows.Forms.DataGridViewTextBoxColumn SellPriceCell;
-        private System.Windows.Forms.DataGridViewTextBoxColumn SaleCell;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
@@ -484,5 +489,11 @@
         private System.Windows.Forms.TextBox TbLaptopID;
         private System.Windows.Forms.TextBox TbLaptopIdFilter;
         private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.DataGridViewTextBoxColumn LaptopNameCell;
+        private System.Windows.Forms.DataGridViewTextBoxColumn LaptopIDCell;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CategoryCell;
+        private System.Windows.Forms.DataGridViewTextBoxColumn SellPriceCell;
+        private System.Windows.Forms.DataGridViewTextBoxColumn SaleCell;
+        private System.Windows.Forms.DataGridViewTextBoxColumn QuantityCell;
     }
 }

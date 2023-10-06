@@ -64,6 +64,7 @@ namespace Final {
                 } else {
                     DgvLaptops.Rows[index].Cells[4].Value = "";
                 }
+                DgvLaptops.Rows[index].Cells[5].Value = lap.Quantity.ToString();
             }
         }
 
