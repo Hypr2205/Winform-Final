@@ -34,6 +34,8 @@ namespace Final.Model.BuildPCModel
         [StringLength(10)]
         public string CategoryID { get; set; }
 
+        public int Quantity { get; set; }
+
         public virtual AccessoryBrand AccessoryBrand { get; set; }
 
         public virtual AccessoryCategory AccessoryCategory { get; set; }

@@ -30,6 +30,8 @@ namespace Final.Model.LaptopModel
         [StringLength(10)]
         public string CategoryID { get; set; }
 
+        public int Quantity { get; set; }
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<LaptopOrder> LaptopOrder { get; set; }
 
