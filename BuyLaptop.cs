@@ -33,22 +33,10 @@ namespace Final {
 
         private void FilterAction_Click(object sender, EventArgs e) {
             FilterContainer.Visible = true;
-            try {
-                LaptopDBContext context = new LaptopDBContext();
-                FillLaptopCategoryFilter(context.LaptopCategory.ToList());
-            } catch (Exception ex) {
-                MessageBox.Show(ex.Message);
-            }
         }
 
         private void BtnCancel_Click(object sender, EventArgs e) {
             FilterContainer.Visible = false;
-        }
-
-        private void FillLaptopCategoryFilter(List<LaptopCategory> categories) {
-            CbxLaptopCategoryFilter.DataSource = categories;
-            CbxLaptopCategoryFilter.DisplayMember = "CategoryName";
-            CbxLaptopCategoryFilter.ValueMember = "CategoryID";
         }
 
         private void FillDataView(List<Laptop> laptops) {
@@ -85,10 +73,6 @@ namespace Final {
             LaptopDBContext context = new LaptopDBContext();
 
             //Lọc theo tên hãng 
-            var filterByCategoryName = context.Laptop.Where(l => l.LaptopCategory.CategoryName == (CbxLaptopCategoryFilter.SelectedItem as LaptopCategory).CategoryName).ToList();
-            if (filterByCategoryName != null) {
-                FillDataView(filterByCategoryName);
-            }
 
             //Lọc theo tên máy hoặc mã máy
             if (TbLaptopNameFilter.Text != "" || TbLaptopIdFilter.Text != "") {
@@ -111,6 +95,21 @@ namespace Final {
             } else if (selectedPriceRange == 3) {
                 FillDataView(context.Laptop.Where(l => l.SellPrice > 30_000_000).ToList());
             }
+        }
+
+        private void BtnAddToCart_Click(object sender, EventArgs e) {
+            LaptopDBContext context = new LaptopDBContext();
+            var find = context.Laptop.FirstOrDefault(l => l.LaptopID == TbLaptopID.Text);
+            if (find != null) {
+                if (find.Quantity == 0) {
+                    MessageBox.Show("Hết hàng");
+                }
+                find.Quantity -= 1;
+            }
+        }
+
+        private void FilterContainer_Enter(object sender, EventArgs e) {
+
         }
     }
 }

@@ -26,6 +26,12 @@
             this.LbTime = new System.Windows.Forms.Label();
             this.LbTitle = new System.Windows.Forms.Label();
             this.DgvLaptops = new System.Windows.Forms.DataGridView();
+            this.LaptopNameCell = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.LaptopIDCell = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CategoryCell = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SellPriceCell = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SaleCell = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.QuantityCell = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.LaptopInfoContainer = new System.Windows.Forms.GroupBox();
             this.TbSalePercent = new System.Windows.Forms.TextBox();
             this.TbLaptopPrice = new System.Windows.Forms.TextBox();
@@ -47,19 +53,11 @@
             this.BtnFilter = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.TbLaptopNameFilter = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.CbxLaptopCategoryFilter = new System.Windows.Forms.ComboBox();
             this.MenuFuntion = new System.Windows.Forms.MenuStrip();
             this.ChooseFunctionStrip = new System.Windows.Forms.ToolStripMenuItem();
             this.FilterAction = new System.Windows.Forms.ToolStripMenuItem();
             this.ViewCartAction = new System.Windows.Forms.ToolStripMenuItem();
             this.BtnAddToCart = new System.Windows.Forms.Button();
-            this.LaptopNameCell = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.LaptopIDCell = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CategoryCell = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SellPriceCell = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SaleCell = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.QuantityCell = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.DgvLaptops)).BeginInit();
             this.LaptopInfoContainer.SuspendLayout();
             this.FilterContainer.SuspendLayout();
@@ -106,6 +104,54 @@
             this.DgvLaptops.Size = new System.Drawing.Size(849, 468);
             this.DgvLaptops.TabIndex = 2;
             this.DgvLaptops.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvLaptops_CellContentClick);
+            // 
+            // LaptopNameCell
+            // 
+            this.LaptopNameCell.HeaderText = "Tên máy";
+            this.LaptopNameCell.MinimumWidth = 6;
+            this.LaptopNameCell.Name = "LaptopNameCell";
+            this.LaptopNameCell.ReadOnly = true;
+            this.LaptopNameCell.Width = 125;
+            // 
+            // LaptopIDCell
+            // 
+            this.LaptopIDCell.HeaderText = "Mã máy";
+            this.LaptopIDCell.MinimumWidth = 6;
+            this.LaptopIDCell.Name = "LaptopIDCell";
+            this.LaptopIDCell.ReadOnly = true;
+            this.LaptopIDCell.Width = 125;
+            // 
+            // CategoryCell
+            // 
+            this.CategoryCell.HeaderText = "Hãng";
+            this.CategoryCell.MinimumWidth = 6;
+            this.CategoryCell.Name = "CategoryCell";
+            this.CategoryCell.ReadOnly = true;
+            this.CategoryCell.Width = 125;
+            // 
+            // SellPriceCell
+            // 
+            this.SellPriceCell.HeaderText = "Giá bán";
+            this.SellPriceCell.MinimumWidth = 6;
+            this.SellPriceCell.Name = "SellPriceCell";
+            this.SellPriceCell.ReadOnly = true;
+            this.SellPriceCell.Width = 125;
+            // 
+            // SaleCell
+            // 
+            this.SaleCell.HeaderText = "Khuyến mãi";
+            this.SaleCell.MinimumWidth = 6;
+            this.SaleCell.Name = "SaleCell";
+            this.SaleCell.ReadOnly = true;
+            this.SaleCell.Width = 125;
+            // 
+            // QuantityCell
+            // 
+            this.QuantityCell.HeaderText = "Số lượng";
+            this.QuantityCell.MinimumWidth = 6;
+            this.QuantityCell.Name = "QuantityCell";
+            this.QuantityCell.ReadOnly = true;
+            this.QuantityCell.Width = 125;
             // 
             // LaptopInfoContainer
             // 
@@ -227,25 +273,24 @@
             this.FilterContainer.Controls.Add(this.BtnFilter);
             this.FilterContainer.Controls.Add(this.label2);
             this.FilterContainer.Controls.Add(this.TbLaptopNameFilter);
-            this.FilterContainer.Controls.Add(this.label1);
-            this.FilterContainer.Controls.Add(this.CbxLaptopCategoryFilter);
             this.FilterContainer.Location = new System.Drawing.Point(12, 80);
             this.FilterContainer.Name = "FilterContainer";
-            this.FilterContainer.Size = new System.Drawing.Size(1255, 141);
+            this.FilterContainer.Size = new System.Drawing.Size(1070, 141);
             this.FilterContainer.TabIndex = 4;
             this.FilterContainer.TabStop = false;
             this.FilterContainer.Text = "Lọc";
+            this.FilterContainer.Enter += new System.EventHandler(this.FilterContainer_Enter);
             // 
             // TbLaptopIdFilter
             // 
-            this.TbLaptopIdFilter.Location = new System.Drawing.Point(637, 27);
+            this.TbLaptopIdFilter.Location = new System.Drawing.Point(142, 27);
             this.TbLaptopIdFilter.Name = "TbLaptopIdFilter";
-            this.TbLaptopIdFilter.Size = new System.Drawing.Size(234, 30);
+            this.TbLaptopIdFilter.Size = new System.Drawing.Size(298, 30);
             this.TbLaptopIdFilter.TabIndex = 10;
             // 
             // label9
             // 
-            this.label9.Location = new System.Drawing.Point(511, 26);
+            this.label9.Location = new System.Drawing.Point(19, 27);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(101, 30);
             this.label9.TabIndex = 9;
@@ -253,7 +298,7 @@
             // 
             // BtnCancel
             // 
-            this.BtnCancel.Location = new System.Drawing.Point(1118, 96);
+            this.BtnCancel.Location = new System.Drawing.Point(928, 87);
             this.BtnCancel.Name = "BtnCancel";
             this.BtnCancel.Size = new System.Drawing.Size(124, 39);
             this.BtnCancel.TabIndex = 8;
@@ -263,7 +308,7 @@
             // 
             // label3
             // 
-            this.label3.Location = new System.Drawing.Point(511, 73);
+            this.label3.Location = new System.Drawing.Point(513, 30);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(101, 30);
             this.label3.TabIndex = 7;
@@ -277,14 +322,14 @@
             "Từ 15 đến 20 triệu",
             "Từ 20 đến 30 triệu",
             "Trên 30 triệu"});
-            this.CbxPriceRange.Location = new System.Drawing.Point(637, 70);
+            this.CbxPriceRange.Location = new System.Drawing.Point(631, 30);
             this.CbxPriceRange.Name = "CbxPriceRange";
             this.CbxPriceRange.Size = new System.Drawing.Size(236, 30);
             this.CbxPriceRange.TabIndex = 6;
             // 
             // CbIsSale
             // 
-            this.CbIsSale.Location = new System.Drawing.Point(962, 30);
+            this.CbIsSale.Location = new System.Drawing.Point(517, 70);
             this.CbIsSale.Name = "CbIsSale";
             this.CbIsSale.Size = new System.Drawing.Size(186, 35);
             this.CbIsSale.TabIndex = 5;
@@ -293,7 +338,7 @@
             // 
             // BtnFilter
             // 
-            this.BtnFilter.Location = new System.Drawing.Point(962, 96);
+            this.BtnFilter.Location = new System.Drawing.Point(928, 21);
             this.BtnFilter.Name = "BtnFilter";
             this.BtnFilter.Size = new System.Drawing.Size(124, 39);
             this.BtnFilter.TabIndex = 4;
@@ -316,23 +361,6 @@
             this.TbLaptopNameFilter.Name = "TbLaptopNameFilter";
             this.TbLaptopNameFilter.Size = new System.Drawing.Size(298, 30);
             this.TbLaptopNameFilter.TabIndex = 2;
-            // 
-            // label1
-            // 
-            this.label1.Enabled = false;
-            this.label1.Location = new System.Drawing.Point(22, 30);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(84, 29);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Hãng";
-            // 
-            // CbxLaptopCategoryFilter
-            // 
-            this.CbxLaptopCategoryFilter.FormattingEnabled = true;
-            this.CbxLaptopCategoryFilter.Location = new System.Drawing.Point(142, 29);
-            this.CbxLaptopCategoryFilter.Name = "CbxLaptopCategoryFilter";
-            this.CbxLaptopCategoryFilter.Size = new System.Drawing.Size(298, 30);
-            this.CbxLaptopCategoryFilter.TabIndex = 0;
             // 
             // MenuFuntion
             // 
@@ -376,60 +404,13 @@
             this.BtnAddToCart.TabIndex = 6;
             this.BtnAddToCart.Text = "Thêm vào giỏ hàng";
             this.BtnAddToCart.UseVisualStyleBackColor = true;
-            // 
-            // LaptopNameCell
-            // 
-            this.LaptopNameCell.HeaderText = "Tên máy";
-            this.LaptopNameCell.MinimumWidth = 6;
-            this.LaptopNameCell.Name = "LaptopNameCell";
-            this.LaptopNameCell.ReadOnly = true;
-            this.LaptopNameCell.Width = 125;
-            // 
-            // LaptopIDCell
-            // 
-            this.LaptopIDCell.HeaderText = "Mã máy";
-            this.LaptopIDCell.MinimumWidth = 6;
-            this.LaptopIDCell.Name = "LaptopIDCell";
-            this.LaptopIDCell.ReadOnly = true;
-            this.LaptopIDCell.Width = 125;
-            // 
-            // CategoryCell
-            // 
-            this.CategoryCell.HeaderText = "Hãng";
-            this.CategoryCell.MinimumWidth = 6;
-            this.CategoryCell.Name = "CategoryCell";
-            this.CategoryCell.ReadOnly = true;
-            this.CategoryCell.Width = 125;
-            // 
-            // SellPriceCell
-            // 
-            this.SellPriceCell.HeaderText = "Giá bán";
-            this.SellPriceCell.MinimumWidth = 6;
-            this.SellPriceCell.Name = "SellPriceCell";
-            this.SellPriceCell.ReadOnly = true;
-            this.SellPriceCell.Width = 125;
-            // 
-            // SaleCell
-            // 
-            this.SaleCell.HeaderText = "Khuyến mãi";
-            this.SaleCell.MinimumWidth = 6;
-            this.SaleCell.Name = "SaleCell";
-            this.SaleCell.ReadOnly = true;
-            this.SaleCell.Width = 125;
-            // 
-            // QuantityCell
-            // 
-            this.QuantityCell.HeaderText = "Số lượng";
-            this.QuantityCell.MinimumWidth = 6;
-            this.QuantityCell.Name = "QuantityCell";
-            this.QuantityCell.ReadOnly = true;
-            this.QuantityCell.Width = 125;
+            this.BtnAddToCart.Click += new System.EventHandler(this.BtnAddToCart_Click);
             // 
             // BuyLaptop
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 22F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1466, 833);
+            this.ClientSize = new System.Drawing.Size(1466, 741);
             this.Controls.Add(this.BtnAddToCart);
             this.Controls.Add(this.FilterContainer);
             this.Controls.Add(this.LaptopInfoContainer);
@@ -463,8 +444,6 @@
         private System.Windows.Forms.DataGridView DgvLaptops;
         private System.Windows.Forms.GroupBox LaptopInfoContainer;
         private System.Windows.Forms.GroupBox FilterContainer;
-        private System.Windows.Forms.ComboBox CbxLaptopCategoryFilter;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.CheckBox CbIsSale;
         private System.Windows.Forms.Button BtnFilter;
         private System.Windows.Forms.Label label2;

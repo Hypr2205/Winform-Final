@@ -26,10 +26,12 @@
             this.LbTitle = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.BoxContainer = new System.Windows.Forms.GroupBox();
+            this.BtnSellHistory = new System.Windows.Forms.Button();
             this.BtnBuildPC = new System.Windows.Forms.Button();
             this.BtnChooseLaptop = new System.Windows.Forms.Button();
             this.BtnExit = new System.Windows.Forms.Button();
-            this.BtnSellHistory = new System.Windows.Forms.Button();
+            this.BtnAccessoryManagement = new System.Windows.Forms.Button();
+            this.BtnLaptopMangement = new System.Windows.Forms.Button();
             this.BoxContainer.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -56,6 +58,8 @@
             // BoxContainer
             // 
             this.BoxContainer.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.BoxContainer.Controls.Add(this.BtnLaptopMangement);
+            this.BoxContainer.Controls.Add(this.BtnAccessoryManagement);
             this.BoxContainer.Controls.Add(this.BtnSellHistory);
             this.BoxContainer.Controls.Add(this.BtnBuildPC);
             this.BoxContainer.Controls.Add(this.BtnChooseLaptop);
@@ -66,11 +70,21 @@
             this.BoxContainer.TabStop = false;
             this.BoxContainer.Text = "Chọn chức năng";
             // 
+            // BtnSellHistory
+            // 
+            this.BtnSellHistory.Location = new System.Drawing.Point(413, 62);
+            this.BtnSellHistory.Name = "BtnSellHistory";
+            this.BtnSellHistory.Size = new System.Drawing.Size(126, 114);
+            this.BtnSellHistory.TabIndex = 2;
+            this.BtnSellHistory.Text = "Xem lịch sử đơn hàng";
+            this.BtnSellHistory.UseVisualStyleBackColor = true;
+            this.BtnSellHistory.Click += new System.EventHandler(this.BtnSellHistory_Click);
+            // 
             // BtnBuildPC
             // 
-            this.BtnBuildPC.Location = new System.Drawing.Point(219, 70);
+            this.BtnBuildPC.Location = new System.Drawing.Point(19, 141);
             this.BtnBuildPC.Name = "BtnBuildPC";
-            this.BtnBuildPC.Size = new System.Drawing.Size(126, 114);
+            this.BtnBuildPC.Size = new System.Drawing.Size(126, 60);
             this.BtnBuildPC.TabIndex = 1;
             this.BtnBuildPC.Text = "Build PC";
             this.BtnBuildPC.UseVisualStyleBackColor = true;
@@ -78,9 +92,9 @@
             // 
             // BtnChooseLaptop
             // 
-            this.BtnChooseLaptop.Location = new System.Drawing.Point(31, 70);
+            this.BtnChooseLaptop.Location = new System.Drawing.Point(19, 43);
             this.BtnChooseLaptop.Name = "BtnChooseLaptop";
-            this.BtnChooseLaptop.Size = new System.Drawing.Size(126, 114);
+            this.BtnChooseLaptop.Size = new System.Drawing.Size(126, 60);
             this.BtnChooseLaptop.TabIndex = 0;
             this.BtnChooseLaptop.Text = "Mua Laptop";
             this.BtnChooseLaptop.UseVisualStyleBackColor = true;
@@ -96,15 +110,25 @@
             this.BtnExit.UseVisualStyleBackColor = true;
             this.BtnExit.Click += new System.EventHandler(this.BtnExit_Click);
             // 
-            // BtnSellHistory
+            // BtnAccessoryManagement
             // 
-            this.BtnSellHistory.Location = new System.Drawing.Point(406, 70);
-            this.BtnSellHistory.Name = "BtnSellHistory";
-            this.BtnSellHistory.Size = new System.Drawing.Size(126, 114);
-            this.BtnSellHistory.TabIndex = 2;
-            this.BtnSellHistory.Text = "Xem lịch sử đơn hàng";
-            this.BtnSellHistory.UseVisualStyleBackColor = true;
-            this.BtnSellHistory.Click += new System.EventHandler(this.BtnSellHistory_Click);
+            this.BtnAccessoryManagement.Location = new System.Drawing.Point(221, 141);
+            this.BtnAccessoryManagement.Name = "BtnAccessoryManagement";
+            this.BtnAccessoryManagement.Size = new System.Drawing.Size(126, 60);
+            this.BtnAccessoryManagement.TabIndex = 3;
+            this.BtnAccessoryManagement.Text = "Quản lý kho linh kiện";
+            this.BtnAccessoryManagement.UseVisualStyleBackColor = true;
+            this.BtnAccessoryManagement.Click += new System.EventHandler(this.BtnAccessoryManagement_Click);
+            // 
+            // BtnLaptopMangement
+            // 
+            this.BtnLaptopMangement.Location = new System.Drawing.Point(221, 43);
+            this.BtnLaptopMangement.Name = "BtnLaptopMangement";
+            this.BtnLaptopMangement.Size = new System.Drawing.Size(126, 60);
+            this.BtnLaptopMangement.TabIndex = 4;
+            this.BtnLaptopMangement.Text = "Quản lý kho laptop";
+            this.BtnLaptopMangement.UseVisualStyleBackColor = true;
+            this.BtnLaptopMangement.Click += new System.EventHandler(this.BtnLaptopMangement_Click);
             // 
             // Main
             // 
@@ -138,6 +162,8 @@
         private System.Windows.Forms.Button BtnExit;
         private System.Windows.Forms.Button BtnBuildPC;
         private System.Windows.Forms.Button BtnSellHistory;
+        private System.Windows.Forms.Button BtnLaptopMangement;
+        private System.Windows.Forms.Button BtnAccessoryManagement;
     }
 }
 

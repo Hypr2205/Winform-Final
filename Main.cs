@@ -46,5 +46,27 @@ namespace Final {
         private void OrderHistoryForm_FormClosed(object sender, FormClosedEventArgs e) {
             Show();
         }
+
+        private void BtnLaptopMangement_Click(object sender, System.EventArgs e) {
+            LaptopManagement laptopManagement = new LaptopManagement();
+            laptopManagement.FormClosed += LaptopManagement_FormClosed;
+            laptopManagement.Show();
+            Hide();
+        }
+
+        private void LaptopManagement_FormClosed(object sender, FormClosedEventArgs e) {
+            Show();
+        }
+
+        private void BtnAccessoryManagement_Click(object sender, System.EventArgs e) {
+            AccessoryManagement accessoryManagement = new AccessoryManagement();
+            accessoryManagement.FormClosed += AccessoryManagement_FormClosed;
+            accessoryManagement.Show();
+            Hide();
+        }
+
+        private void AccessoryManagement_FormClosed(object sender, FormClosedEventArgs e) {
+            Show();
+        }
     }
 }

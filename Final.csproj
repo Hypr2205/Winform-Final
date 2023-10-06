@@ -55,6 +55,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AccessoryManagement.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AccessoryManagement.Designer.cs">
+      <DependentUpon>AccessoryManagement.cs</DependentUpon>
+    </Compile>
     <Compile Include="BuildPC.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -66,6 +72,12 @@
     </Compile>
     <Compile Include="BuyLaptop.Designer.cs">
       <DependentUpon>BuyLaptop.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LaptopManagement.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LaptopManagement.Designer.cs">
+      <DependentUpon>LaptopManagement.cs</DependentUpon>
     </Compile>
     <Compile Include="Main.cs">
       <SubType>Form</SubType>
@@ -92,8 +104,14 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="AccessoryManagement.resx">
+      <DependentUpon>AccessoryManagement.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="BuyLaptop.resx">
       <DependentUpon>BuyLaptop.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LaptopManagement.resx">
+      <DependentUpon>LaptopManagement.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Main.resx">
       <DependentUpon>Main.cs</DependentUpon>
