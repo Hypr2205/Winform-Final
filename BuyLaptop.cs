@@ -106,6 +106,7 @@ namespace Final {
                 }
                 find.Quantity -= 1;
             }
+            FillDataView(context.Laptop.ToList());
         }
 
         private void FilterContainer_Enter(object sender, EventArgs e) {
