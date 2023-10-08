@@ -15,7 +15,8 @@ namespace Final {
                 LaptopDBContext context = new LaptopDBContext();
                 FillCategoryData(context.LaptopCategory.ToList());
                 FillDataView(context.Laptop.ToList());
-            } catch (Exception ex) {
+            }
+            catch (Exception ex) {
                 MessageBox.Show(ex.Message);
             }
         }
@@ -26,30 +27,39 @@ namespace Final {
                 var find = context.Laptop.FirstOrDefault(l => l.LaptopID == TblaptopID.Text);
                 //Nếu đã tồn tại
                 if (find != null) {
-                    if (TbLaptopName.Text == "" || TblaptopID.Text == "" || TbPrice.Text == "" || TbQuantity.Text == "") {
+                    if (TbLaptopName.Text == "" || TblaptopID.Text == "" || TbPrice.Text == "" ||
+                        TbQuantity.Text == "") {
                         MessageBox.Show("Vui lòng điền đầy đủ thông tin");
                     }
+
                     find.LaptopName = TbLaptopName.Text;
                     find.CategoryID = (CbxLaptopCategory.SelectedItem as LaptopCategory).CategoryID;
                     if (decimal.TryParse(TbPrice.Text, out decimal price)) {
                         find.SellPrice = price;
-                    } else {
+                    }
+                    else {
                         MessageBox.Show("Giá trị nhập vào không đúng");
                     }
+
                     if (!(TbSale.Text == "") && int.TryParse(TbSale.Text, out int sale)) {
                         find.Sale = sale;
-                    } else {
+                    }
+                    else {
                         MessageBox.Show("Giá trị nhập vào không đúng");
                     }
+
                     if (int.TryParse(TbQuantity.Text, out int quantity)) {
                         find.Quantity = quantity;
-                    } else {
+                    }
+                    else {
                         MessageBox.Show("Giá trị nhập vào không đúng");
                     }
+
                     //Lưu thay đổi
                     context.SaveChanges();
                     FillDataView(context.Laptop.ToList());
-                } else {
+                }
+                else {
                     Laptop lap = new Laptop() {
                         LaptopID = TblaptopID.Text,
                         LaptopName = TbLaptopName.Text,
@@ -64,43 +74,37 @@ namespace Final {
                     context = new LaptopDBContext();
                     FillDataView(context.Laptop.ToList());
                 }
-            } catch (Exception ex) {
+            }
+            catch (Exception ex) {
                 MessageBox.Show(ex.Message);
             }
         }
 
         private void BtnDelete_Click(object sender, EventArgs e) {
             //Làm phần xoá, khi xoá sẽ kiểm tra số lượng trong ô Số lượng xoá chỉ trừ đi số lượng sau đó lưu thay đổi và gọi lại hàm FillDataView()
-            try
-            {
+            try {
                 LaptopDBContext context = new LaptopDBContext();
                 var find = context.Laptop.FirstOrDefault(l => l.LaptopID == TblaptopID.Text);
                 //Nếu không tồn tại
-                if (find == null)
-                {
+                if (find == null) {
                     MessageBox.Show("Laptop này không tồn tại nên không xoá được!");
                     return;
                 }
-                DialogResult dialog = MessageBox.Show("Bạn có muốn xoá ?","YES/NO",MessageBoxButtons.YesNo)
 
-                if (int.Parse(TbQuantity.Text) < find.Quantity)
-                {
-                    if(dialog == DialogResult.Yes)
-                    {
+                DialogResult dialog = MessageBox.Show("Bạn có muốn xoá ?", "YES/NO", MessageBoxButtons.YesNo);
+
+                if (int.Parse(TbQuantity.Text) < find.Quantity) {
+                    if (dialog == DialogResult.Yes) {
                         find.Quantity = find.Quantity - int.Parse(TbQuantity.Text);
                         context.SaveChanges();
                         FillDataView(context.Laptop.ToList());
                     }
                 }
-                else
-                {
+                else {
                     MessageBox.Show("Số lượng Xoá ngoài phạm vi có thể Xoá !");
                 }
-                    
-                
             }
-            catch (Exception ex)
-            {
+            catch (Exception ex) {
                 MessageBox.Show(ex.Message);
             }
         }
@@ -115,9 +119,11 @@ namespace Final {
                 TbPrice.Text = find.SellPrice.ToString();
                 if (find.Sale != 0) {
                     TbSale.Text = find.Sale.ToString();
-                } else {
+                }
+                else {
                     TbSale.Text = "";
                 }
+
                 CbxLaptopCategory.SelectedValue = find.CategoryID;
             }
         }
