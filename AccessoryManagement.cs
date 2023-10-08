@@ -12,7 +12,7 @@ namespace Final {
 
         private void AccessoryManagement_Load(object sender, EventArgs e) {
             try {
-                BuildPcDBContext context = new BuildPcDBContext();
+                var context = new BuildPcDBContext();
                 FillBrandBox(context.AccessoryBrand.ToList());
                 FillCategoryBox(context.AccessoryCategory.ToList());
                 FillDataView(context.Accessory.ToList());
@@ -37,8 +37,8 @@ namespace Final {
 
                     find.AccessoryID = TbAccessoryID.Text;
                     find.AccessoryName = TbAccessoryName.Text;
-                    find.BrandID = (CbxAccessoryBrand.SelectedItem as AccessoryBrand).BrandID;
-                    find.CategoryID = (CbxAccessoryCategory.SelectedItem as AccessoryCategory).CategoryID;
+                    find.BrandID = ((AccessoryBrand)CbxAccessoryBrand.SelectedItem).BrandID;
+                    find.CategoryID = ((AccessoryCategory)CbxAccessoryCategory.SelectedItem).CategoryID;
                     if (decimal.TryParse(TbPrice.Text, out decimal price)) {
                         find.SalePrice = price;
                     } else {
@@ -60,11 +60,11 @@ namespace Final {
                         TbSale.Text = "";
                     }
                 } else {
-                    Accessory accessory = new Accessory();
+                    var accessory = new Accessory();
                     accessory.AccessoryID = TbAccessoryID.Text;
                     accessory.AccessoryName = TbAccessoryID.Text;
-                    accessory.BrandID = (CbxAccessoryBrand.SelectedItem as AccessoryBrand).BrandID;
-                    accessory.CategoryID = (CbxAccessoryCategory.SelectedItem as AccessoryCategory).CategoryID;
+                    accessory.BrandID = ((AccessoryBrand)CbxAccessoryBrand.SelectedItem).BrandID;
+                    accessory.CategoryID = ((AccessoryCategory)CbxAccessoryCategory.SelectedItem).CategoryID;
                     if (decimal.TryParse(TbPrice.Text, out decimal price)) {
                         accessory.SalePrice = price;
                     } else {
@@ -96,13 +96,13 @@ namespace Final {
             //Khi xoá chỉ thay đổi số lượng, không xoá trong db
         }
 
-        private void FillCategoryBox(List<AccessoryCategory> categories) {
+        private void FillCategoryBox(IReadOnlyCollection<AccessoryCategory> categories) {
             CbxAccessoryCategory.DataSource = categories;
             CbxAccessoryCategory.DisplayMember = "CategoryName";
             CbxAccessoryCategory.ValueMember = "CategoryID";
         }
 
-        private void FillBrandBox(List<AccessoryBrand> brands) {
+        private void FillBrandBox(IReadOnlyCollection<AccessoryBrand> brands) {
             CbxAccessoryBrand.DataSource = brands;
             CbxAccessoryBrand.DisplayMember = "BrandName";
             CbxAccessoryBrand.ValueMember = "BrandID";
