@@ -96,12 +96,12 @@
             this.SellPriceCell,
             this.SaleCell,
             this.QuantityCell});
-            this.DgvLaptops.Location = new System.Drawing.Point(605, 243);
+            this.DgvLaptops.Location = new System.Drawing.Point(605, 318);
             this.DgvLaptops.Name = "DgvLaptops";
             this.DgvLaptops.ReadOnly = true;
             this.DgvLaptops.RowHeadersWidth = 51;
             this.DgvLaptops.RowTemplate.Height = 24;
-            this.DgvLaptops.Size = new System.Drawing.Size(849, 468);
+            this.DgvLaptops.Size = new System.Drawing.Size(849, 393);
             this.DgvLaptops.TabIndex = 2;
             this.DgvLaptops.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvLaptops_CellContentClick);
             // 
@@ -177,7 +177,7 @@
             this.TbSalePercent.Location = new System.Drawing.Point(203, 357);
             this.TbSalePercent.Name = "TbSalePercent";
             this.TbSalePercent.ReadOnly = true;
-            this.TbSalePercent.Size = new System.Drawing.Size(334, 30);
+            this.TbSalePercent.Size = new System.Drawing.Size(334, 26);
             this.TbSalePercent.TabIndex = 8;
             this.TbSalePercent.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -186,7 +186,7 @@
             this.TbLaptopPrice.Location = new System.Drawing.Point(203, 271);
             this.TbLaptopPrice.Name = "TbLaptopPrice";
             this.TbLaptopPrice.ReadOnly = true;
-            this.TbLaptopPrice.Size = new System.Drawing.Size(334, 30);
+            this.TbLaptopPrice.Size = new System.Drawing.Size(334, 26);
             this.TbLaptopPrice.TabIndex = 7;
             this.TbLaptopPrice.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -195,7 +195,7 @@
             this.TbLaptopCategory.Location = new System.Drawing.Point(203, 191);
             this.TbLaptopCategory.Name = "TbLaptopCategory";
             this.TbLaptopCategory.ReadOnly = true;
-            this.TbLaptopCategory.Size = new System.Drawing.Size(334, 30);
+            this.TbLaptopCategory.Size = new System.Drawing.Size(334, 26);
             this.TbLaptopCategory.TabIndex = 6;
             this.TbLaptopCategory.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -204,7 +204,7 @@
             this.TbLaptopName.Location = new System.Drawing.Point(203, 120);
             this.TbLaptopName.Name = "TbLaptopName";
             this.TbLaptopName.ReadOnly = true;
-            this.TbLaptopName.Size = new System.Drawing.Size(334, 30);
+            this.TbLaptopName.Size = new System.Drawing.Size(334, 26);
             this.TbLaptopName.TabIndex = 5;
             this.TbLaptopName.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -213,7 +213,7 @@
             this.TbLaptopID.Location = new System.Drawing.Point(203, 50);
             this.TbLaptopID.Name = "TbLaptopID";
             this.TbLaptopID.ReadOnly = true;
-            this.TbLaptopID.Size = new System.Drawing.Size(334, 30);
+            this.TbLaptopID.Size = new System.Drawing.Size(334, 26);
             this.TbLaptopID.TabIndex = 4;
             this.TbLaptopID.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -285,7 +285,7 @@
             // 
             this.TbLaptopIdFilter.Location = new System.Drawing.Point(142, 27);
             this.TbLaptopIdFilter.Name = "TbLaptopIdFilter";
-            this.TbLaptopIdFilter.Size = new System.Drawing.Size(298, 30);
+            this.TbLaptopIdFilter.Size = new System.Drawing.Size(298, 26);
             this.TbLaptopIdFilter.TabIndex = 10;
             // 
             // label9
@@ -324,7 +324,7 @@
             "Trên 30 triệu"});
             this.CbxPriceRange.Location = new System.Drawing.Point(631, 30);
             this.CbxPriceRange.Name = "CbxPriceRange";
-            this.CbxPriceRange.Size = new System.Drawing.Size(236, 30);
+            this.CbxPriceRange.Size = new System.Drawing.Size(236, 27);
             this.CbxPriceRange.TabIndex = 6;
             // 
             // CbIsSale
@@ -359,7 +359,7 @@
             // 
             this.TbLaptopNameFilter.Location = new System.Drawing.Point(142, 70);
             this.TbLaptopNameFilter.Name = "TbLaptopNameFilter";
-            this.TbLaptopNameFilter.Size = new System.Drawing.Size(298, 30);
+            this.TbLaptopNameFilter.Size = new System.Drawing.Size(298, 26);
             this.TbLaptopNameFilter.TabIndex = 2;
             // 
             // MenuFuntion
@@ -370,7 +370,7 @@
             this.ChooseFunctionStrip});
             this.MenuFuntion.Location = new System.Drawing.Point(0, 0);
             this.MenuFuntion.Name = "MenuFuntion";
-            this.MenuFuntion.Size = new System.Drawing.Size(1466, 30);
+            this.MenuFuntion.Size = new System.Drawing.Size(1370, 27);
             this.MenuFuntion.TabIndex = 5;
             this.MenuFuntion.Text = "menuStrip1";
             // 
@@ -380,20 +380,20 @@
             this.FilterAction,
             this.ViewCartAction});
             this.ChooseFunctionStrip.Name = "ChooseFunctionStrip";
-            this.ChooseFunctionStrip.Size = new System.Drawing.Size(108, 26);
+            this.ChooseFunctionStrip.Size = new System.Drawing.Size(89, 23);
             this.ChooseFunctionStrip.Text = "Chức năng";
             // 
             // FilterAction
             // 
             this.FilterAction.Name = "FilterAction";
-            this.FilterAction.Size = new System.Drawing.Size(200, 26);
+            this.FilterAction.Size = new System.Drawing.Size(163, 24);
             this.FilterAction.Text = "Lọc sản phẩm";
             this.FilterAction.Click += new System.EventHandler(this.FilterAction_Click);
             // 
             // ViewCartAction
             // 
             this.ViewCartAction.Name = "ViewCartAction";
-            this.ViewCartAction.Size = new System.Drawing.Size(200, 26);
+            this.ViewCartAction.Size = new System.Drawing.Size(163, 24);
             this.ViewCartAction.Text = "Xem giỏ hàng";
             // 
             // BtnAddToCart
@@ -408,9 +408,9 @@
             // 
             // BuyLaptop
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 22F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1466, 741);
+            this.ClientSize = new System.Drawing.Size(1370, 741);
             this.Controls.Add(this.BtnAddToCart);
             this.Controls.Add(this.FilterContainer);
             this.Controls.Add(this.LaptopInfoContainer);

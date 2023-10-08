@@ -71,6 +71,38 @@ namespace Final {
 
         private void BtnDelete_Click(object sender, EventArgs e) {
             //Làm phần xoá, khi xoá sẽ kiểm tra số lượng trong ô Số lượng xoá chỉ trừ đi số lượng sau đó lưu thay đổi và gọi lại hàm FillDataView()
+            try
+            {
+                LaptopDBContext context = new LaptopDBContext();
+                var find = context.Laptop.FirstOrDefault(l => l.LaptopID == TblaptopID.Text);
+                //Nếu không tồn tại
+                if (find == null)
+                {
+                    MessageBox.Show("Laptop này không tồn tại nên không xoá được!");
+                    return;
+                }
+                DialogResult dialog = MessageBox.Show("Bạn có muốn xoá ?","YES/NO",MessageBoxButtons.YesNo)
+
+                if (int.Parse(TbQuantity.Text) < find.Quantity)
+                {
+                    if(dialog == DialogResult.Yes)
+                    {
+                        find.Quantity = find.Quantity - int.Parse(TbQuantity.Text);
+                        context.SaveChanges();
+                        FillDataView(context.Laptop.ToList());
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Số lượng Xoá ngoài phạm vi có thể Xoá !");
+                }
+                    
+                
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void DgvLaptops_CellContentClick(object sender, DataGridViewCellEventArgs e) {
