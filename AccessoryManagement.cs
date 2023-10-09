@@ -60,11 +60,12 @@ namespace Final {
                         TbSale.Text = "";
                     }
                 } else {
-                    var accessory = new Accessory();
-                    accessory.AccessoryID = TbAccessoryID.Text;
-                    accessory.AccessoryName = TbAccessoryID.Text;
-                    accessory.BrandID = ((AccessoryBrand)CbxAccessoryBrand.SelectedItem).BrandID;
-                    accessory.CategoryID = ((AccessoryCategory)CbxAccessoryCategory.SelectedItem).CategoryID;
+                    var accessory = new Accessory {
+                        AccessoryID = TbAccessoryID.Text,
+                        AccessoryName = TbAccessoryID.Text,
+                        BrandID = ((AccessoryBrand)CbxAccessoryBrand.SelectedItem).BrandID,
+                        CategoryID = ((AccessoryCategory)CbxAccessoryCategory.SelectedItem).CategoryID
+                    };
                     if (decimal.TryParse(TbPrice.Text, out decimal price)) {
                         accessory.SalePrice = price;
                     } else {
@@ -100,12 +101,14 @@ namespace Final {
             CbxAccessoryCategory.DataSource = categories;
             CbxAccessoryCategory.DisplayMember = "CategoryName";
             CbxAccessoryCategory.ValueMember = "CategoryID";
+            CbxAccessoryCategory.SelectedIndex = -1;
         }
 
         private void FillBrandBox(IReadOnlyCollection<AccessoryBrand> brands) {
             CbxAccessoryBrand.DataSource = brands;
             CbxAccessoryBrand.DisplayMember = "BrandName";
             CbxAccessoryBrand.ValueMember = "BrandID";
+            CbxAccessoryBrand.SelectedIndex = -1;
         }
 
         private void FillDataView(List<Accessory> accessories) {
