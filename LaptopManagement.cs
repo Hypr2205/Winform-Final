@@ -16,8 +16,7 @@ namespace Final {
                 FillCategoryData(context.LaptopCategory.ToList());
                 FillDataView(context.Laptop.ToList());
                 CbxLaptopCategory.SelectedItem = null;
-            }
-            catch (Exception ex) {
+            } catch (Exception ex) {
                 MessageBox.Show(ex.Message);
             }
         }
@@ -34,37 +33,33 @@ namespace Final {
                     }
 
                     find.LaptopName = TbLaptopName.Text;
-                    find.CategoryID = (CbxLaptopCategory.SelectedItem as LaptopCategory).CategoryID;
+                    find.CategoryID = ((LaptopCategory)CbxLaptopCategory.SelectedItem).CategoryID;
                     if (decimal.TryParse(TbPrice.Text, out decimal price)) {
                         find.SellPrice = price;
-                    }
-                    else {
+                    } else {
                         MessageBox.Show("Giá trị nhập vào không đúng");
                     }
 
-                    if (!(TbSale.Text == "") && int.TryParse(TbSale.Text, out int sale)) {
+                    if (TbSale.Text != "" && int.TryParse(TbSale.Text, out int sale)) {
                         find.Sale = sale;
-                    }
-                    else {
+                    } else {
                         MessageBox.Show("Giá trị nhập vào không đúng");
                     }
 
                     if (int.TryParse(TbQuantity.Text, out int quantity)) {
-                        find.Quantity = find.Quantity + quantity; // update SL len
-                    }
-                    else {
+                        find.Quantity += quantity; // update SL len
+                    } else {
                         MessageBox.Show("Giá trị nhập vào không đúng");
                     }
 
                     //Lưu thay đổi
                     context.SaveChanges();
                     FillDataView(context.Laptop.ToList());
-                }
-                else {
+                } else {
                     Laptop lap = new Laptop() {
                         LaptopID = TblaptopID.Text,
                         LaptopName = TbLaptopName.Text,
-                        CategoryID = (CbxLaptopCategory.SelectedItem as LaptopCategory).CategoryID,
+                        CategoryID = ((LaptopCategory)CbxLaptopCategory.SelectedItem).CategoryID,
                         SellPrice = decimal.Parse(TbSale.Text),
                         Sale = int.Parse(TbSale.Text),
                         Quantity = int.Parse(TbQuantity.Text),
@@ -75,8 +70,7 @@ namespace Final {
                     context = new LaptopDBContext();
                     FillDataView(context.Laptop.ToList());
                 }
-            }
-            catch (Exception ex) {
+            } catch (Exception ex) {
                 MessageBox.Show(ex.Message);
             }
         }
@@ -88,110 +82,63 @@ namespace Final {
                 var find = context.Laptop.FirstOrDefault(l => l.LaptopID == TblaptopID.Text);
                 //Nếu không tồn tại
                 if (find == null) {
-                    MessageBox.Show("Laptop này không tồn tại nên không xoá được!");
+                    MessageBox.Show("Laptop này không tồn tại!");
                     return;
                 }
 
                 DialogResult dialog = MessageBox.Show("Bạn có muốn xoá ?", "YES/NO", MessageBoxButtons.YesNo);
-
-                if (int.Parse(TbQuantity.Text) < find.Quantity) {
+                if (int.TryParse(TbQuantity.Text, out int quantity) && quantity > 0 && quantity <= find.Quantity) {
                     if (dialog == DialogResult.Yes) {
-                        find.Quantity = find.Quantity - int.Parse(TbQuantity.Text);
+                        find.Quantity -= quantity;
                         context.SaveChanges();
                         FillDataView(context.Laptop.ToList());
                     }
-                }
-                else {
-                    MessageBox.Show("Số lượng Xoá ngoài phạm vi có thể Xoá !",
-                        "LOI",
+                } else {
+                    MessageBox.Show("Số lượng xoá ngoài phạm vi có thể xoá !",
+                        "Lỗi",
                         MessageBoxButtons.OK,
                         MessageBoxIcon.Error);
                 }
-            }
-            catch (Exception ex) {
+            } catch (Exception ex) {
                 MessageBox.Show(ex.Message);
             }
         }
 
         private void DgvLaptops_CellContentClick(object sender, DataGridViewCellEventArgs e) {
             var lapId = DgvLaptops.Rows[e.RowIndex].Cells[0].Value.ToString();
-            LaptopDBContext context = new LaptopDBContext();
+            var context = new LaptopDBContext();
             var find = context.Laptop.FirstOrDefault(l => l.LaptopID == lapId);
-            if (find != null) {
-                TblaptopID.Text = lapId;
-                TbLaptopName.Text = find.LaptopName;
-                TbPrice.Text = find.SellPrice.ToString();
-                if (find.Sale != 0) {
-                    TbSale.Text = find.Sale.ToString();
-                }
-                else {
-                    TbSale.Text = "";
-                }
-
-                CbxLaptopCategory.SelectedValue = find.CategoryID;
+            if (find == null) {
+                return;
             }
+
+            TblaptopID.Text = lapId;
+            TbLaptopName.Text = find.LaptopName;
+            TbPrice.Text = find.SellPrice.ToString();
+            TbSale.Text = find.Sale != 0 ? find.Sale.ToString() : "";
+            CbxLaptopCategory.SelectedValue = find.CategoryID;
         }
 
         private void BtnSearch_Click(object sender, EventArgs e) {
             //Tìm kiếm: thoả mãn 1 trong các ô: mã máy, tên máy, tìm xong gọi hàm FillDataView() để load giá trị 
             try {
-                LaptopDBContext context = new LaptopDBContext();
-                String laptopID = TblaptopID.Text;
-                string laptopName = TbLaptopName.Text;
-                int categoryID = -1;
-
-                if (CbxLaptopCategory.SelectedValue != null) {
-                    categoryID = int.Parse(CbxLaptopCategory.SelectedValue.ToString());
-                }
-
-                var query = context.Laptop.AsQueryable(); // luon bat dau voi tat ca may tinh 
-
-                if (!string.IsNullOrWhiteSpace(laptopID)) {
-                    query = query.Where(x => x.LaptopID == laptopID);
-                }
-
-                if (!string.IsNullOrWhiteSpace(laptopName)) {
-                    query = query.Where(x => x.LaptopName == laptopName);
-                }
-
-                if (categoryID != -1) {
-                    string categoryId = categoryID.ToString();
-                    query = query.Where(x => x.CategoryID == categoryId);
-                }
-
-
-                // hien thi truy van tao ra ket qua
-
-                var laptops = query.ToList();
-                if (laptops.Count == 0) {
-                    if (categoryID == 5) {
-                        FillDataView(context.Laptop.ToList());
-                        CbxLaptopCategory.SelectedItem = null;
-                        TblaptopID.Text = string.Empty;
-                        TbLaptopName.Text = string.Empty;
-                        TbPrice.Text = string.Empty;
-                        TbQuantity.Text = string.Empty;
-                    }
-                    else
-                        MessageBox.Show("Khong Co Laptop Nao Thao Man Dieu Kien",
-                            "LỖI",
-                            MessageBoxButtons.OK,
-                            MessageBoxIcon.Error);
-
-                    return;
-                }
-                else
-                    FillDataView(laptops);
-            }
-            catch (Exception ex) {
+                var context = new LaptopDBContext();
+                var findById = context.Laptop.Where(l => l.LaptopID == TblaptopID.Text);
+                var findByName = context.Laptop.Where(l => l.LaptopName == TbLaptopName.Text);
+                var findByCategory = context.Laptop.Where(l =>
+                    l.CategoryID == ((LaptopCategory)CbxLaptopCategory.SelectedItem).CategoryID);
+                var findByPrice = context.Laptop.Where(l => l.SellPrice <= decimal.Parse(TbPrice.Text));
+                FillDataView(findById.Union(findByName).Union(findByCategory).Union(findByPrice).ToList());
+            } catch (Exception ex) {
                 MessageBox.Show(ex.Message);
             }
         }
 
-        private void FillCategoryData(List<LaptopCategory> categories) {
+        private void FillCategoryData(IReadOnlyCollection<LaptopCategory> categories) {
             CbxLaptopCategory.DataSource = categories;
             CbxLaptopCategory.DisplayMember = "CategoryName";
             CbxLaptopCategory.ValueMember = "CategoryID";
+            CbxLaptopCategory.SelectedIndex = -1;
         }
 
         private void FillDataView(List<Laptop> laptops) {
@@ -201,7 +148,7 @@ namespace Final {
                 DgvLaptops.Rows[index].Cells[0].Value = item.LaptopID;
                 DgvLaptops.Rows[index].Cells[1].Value = item.LaptopName;
                 DgvLaptops.Rows[index].Cells[2].Value = item.LaptopCategory.CategoryName;
-                DgvLaptops.Rows[index].Cells[3].Value = item.SellPrice.ToString();
+                DgvLaptops.Rows[index].Cells[3].Value = item.SellPrice;
                 DgvLaptops.Rows[index].Cells[4].Value = item.Sale.ToString();
                 DgvLaptops.Rows[index].Cells[5].Value = item.Quantity.ToString();
             }
