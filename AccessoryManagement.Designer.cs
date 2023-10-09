@@ -61,7 +61,7 @@
             this.DgvAccessories.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DgvAccessories.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] { this.Column1, this.Column2, this.Column3, this.Column5, this.Column6, this.Column7, this.Column8 });
             this.DgvAccessories.Location = new System.Drawing.Point(358, 9);
-            this.DgvAccessories.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.DgvAccessories.Margin = new System.Windows.Forms.Padding(2);
             this.DgvAccessories.Name = "DgvAccessories";
             this.DgvAccessories.ReadOnly = true;
             this.DgvAccessories.RowHeadersWidth = 51;
@@ -135,9 +135,9 @@
             this.AccessoryInfoContainer.Controls.Add(this.label2);
             this.AccessoryInfoContainer.Controls.Add(this.label1);
             this.AccessoryInfoContainer.Location = new System.Drawing.Point(-2, 9);
-            this.AccessoryInfoContainer.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.AccessoryInfoContainer.Margin = new System.Windows.Forms.Padding(2);
             this.AccessoryInfoContainer.Name = "AccessoryInfoContainer";
-            this.AccessoryInfoContainer.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.AccessoryInfoContainer.Padding = new System.Windows.Forms.Padding(2);
             this.AccessoryInfoContainer.Size = new System.Drawing.Size(354, 400);
             this.AccessoryInfoContainer.TabIndex = 1;
             this.AccessoryInfoContainer.TabStop = false;
@@ -146,7 +146,7 @@
             // TbQuantity
             // 
             this.TbQuantity.Location = new System.Drawing.Point(127, 344);
-            this.TbQuantity.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.TbQuantity.Margin = new System.Windows.Forms.Padding(2);
             this.TbQuantity.Name = "TbQuantity";
             this.TbQuantity.Size = new System.Drawing.Size(212, 22);
             this.TbQuantity.TabIndex = 13;
@@ -155,7 +155,7 @@
             // TbSale
             // 
             this.TbSale.Location = new System.Drawing.Point(127, 292);
-            this.TbSale.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.TbSale.Margin = new System.Windows.Forms.Padding(2);
             this.TbSale.Name = "TbSale";
             this.TbSale.Size = new System.Drawing.Size(212, 22);
             this.TbSale.TabIndex = 12;
@@ -165,7 +165,7 @@
             // 
             this.CbxAccessoryBrand.FormattingEnabled = true;
             this.CbxAccessoryBrand.Location = new System.Drawing.Point(127, 134);
-            this.CbxAccessoryBrand.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.CbxAccessoryBrand.Margin = new System.Windows.Forms.Padding(2);
             this.CbxAccessoryBrand.Name = "CbxAccessoryBrand";
             this.CbxAccessoryBrand.Size = new System.Drawing.Size(212, 24);
             this.CbxAccessoryBrand.TabIndex = 11;
@@ -173,7 +173,7 @@
             // TbPrice
             // 
             this.TbPrice.Location = new System.Drawing.Point(127, 240);
-            this.TbPrice.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.TbPrice.Margin = new System.Windows.Forms.Padding(2);
             this.TbPrice.Name = "TbPrice";
             this.TbPrice.Size = new System.Drawing.Size(212, 22);
             this.TbPrice.TabIndex = 10;
@@ -192,7 +192,7 @@
             // 
             this.CbxAccessoryCategory.FormattingEnabled = true;
             this.CbxAccessoryCategory.Location = new System.Drawing.Point(127, 183);
-            this.CbxAccessoryCategory.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.CbxAccessoryCategory.Margin = new System.Windows.Forms.Padding(2);
             this.CbxAccessoryCategory.Name = "CbxAccessoryCategory";
             this.CbxAccessoryCategory.Size = new System.Drawing.Size(212, 24);
             this.CbxAccessoryCategory.TabIndex = 8;
@@ -200,7 +200,7 @@
             // TbAccessoryName
             // 
             this.TbAccessoryName.Location = new System.Drawing.Point(127, 79);
-            this.TbAccessoryName.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.TbAccessoryName.Margin = new System.Windows.Forms.Padding(2);
             this.TbAccessoryName.Name = "TbAccessoryName";
             this.TbAccessoryName.Size = new System.Drawing.Size(212, 22);
             this.TbAccessoryName.TabIndex = 7;
@@ -209,7 +209,7 @@
             // TbAccessoryID
             // 
             this.TbAccessoryID.Location = new System.Drawing.Point(127, 26);
-            this.TbAccessoryID.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.TbAccessoryID.Margin = new System.Windows.Forms.Padding(2);
             this.TbAccessoryID.Name = "TbAccessoryID";
             this.TbAccessoryID.Size = new System.Drawing.Size(212, 22);
             this.TbAccessoryID.TabIndex = 6;
@@ -272,7 +272,7 @@
             // BtnDelete
             // 
             this.BtnDelete.Location = new System.Drawing.Point(262, 413);
-            this.BtnDelete.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.BtnDelete.Margin = new System.Windows.Forms.Padding(2);
             this.BtnDelete.Name = "BtnDelete";
             this.BtnDelete.Size = new System.Drawing.Size(90, 39);
             this.BtnDelete.TabIndex = 2;
@@ -283,7 +283,7 @@
             // BtnSearch
             // 
             this.BtnSearch.Location = new System.Drawing.Point(46, 413);
-            this.BtnSearch.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.BtnSearch.Margin = new System.Windows.Forms.Padding(2);
             this.BtnSearch.Name = "BtnSearch";
             this.BtnSearch.Size = new System.Drawing.Size(90, 39);
             this.BtnSearch.TabIndex = 3;
@@ -294,7 +294,7 @@
             // BtnEdit
             // 
             this.BtnEdit.Location = new System.Drawing.Point(154, 413);
-            this.BtnEdit.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.BtnEdit.Margin = new System.Windows.Forms.Padding(2);
             this.BtnEdit.Name = "BtnEdit";
             this.BtnEdit.Size = new System.Drawing.Size(90, 39);
             this.BtnEdit.TabIndex = 4;
@@ -307,7 +307,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(640, 327);
+            this.ClientSize = new System.Drawing.Size(1037, 469);
             this.Controls.Add(this.BtnEdit);
             this.Controls.Add(this.BtnSearch);
             this.Controls.Add(this.BtnDelete);
