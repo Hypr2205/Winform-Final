@@ -15,8 +15,8 @@ namespace Final {
                 LaptopDBContext context = new LaptopDBContext();
                 FillCategoryData(context.LaptopCategory.ToList());
                 FillDataView(context.Laptop.ToList());
-            }
-            catch (Exception ex) {
+                CbxLaptopCategory.SelectedItem = null;
+            } catch (Exception ex) {
                 MessageBox.Show(ex.Message);
             }
         }
@@ -36,30 +36,26 @@ namespace Final {
                     find.CategoryID = (CbxLaptopCategory.SelectedItem as LaptopCategory).CategoryID;
                     if (decimal.TryParse(TbPrice.Text, out decimal price)) {
                         find.SellPrice = price;
-                    }
-                    else {
+                    } else {
                         MessageBox.Show("Giá trị nhập vào không đúng");
                     }
 
                     if (!(TbSale.Text == "") && int.TryParse(TbSale.Text, out int sale)) {
                         find.Sale = sale;
-                    }
-                    else {
+                    } else {
                         MessageBox.Show("Giá trị nhập vào không đúng");
                     }
 
                     if (int.TryParse(TbQuantity.Text, out int quantity)) {
-                        find.Quantity = quantity;
-                    }
-                    else {
+                        find.Quantity = find.Quantity + quantity; // update SL len
+                    } else {
                         MessageBox.Show("Giá trị nhập vào không đúng");
                     }
 
                     //Lưu thay đổi
                     context.SaveChanges();
                     FillDataView(context.Laptop.ToList());
-                }
-                else {
+                } else {
                     Laptop lap = new Laptop() {
                         LaptopID = TblaptopID.Text,
                         LaptopName = TbLaptopName.Text,
@@ -74,8 +70,7 @@ namespace Final {
                     context = new LaptopDBContext();
                     FillDataView(context.Laptop.ToList());
                 }
-            }
-            catch (Exception ex) {
+            } catch (Exception ex) {
                 MessageBox.Show(ex.Message);
             }
         }
@@ -126,6 +121,53 @@ namespace Final {
 
         private void BtnSearch_Click(object sender, EventArgs e) {
             //Tìm kiếm: thoả mãn 1 trong các ô: mã máy, tên máy, tìm xong gọi hàm FillDataView() để load giá trị 
+            try {
+                LaptopDBContext context = new LaptopDBContext();
+                String laptopID = TblaptopID.Text;
+                string laptopName = TbLaptopName.Text;
+                int categoryID = -1;
+
+                if (CbxLaptopCategory.SelectedValue != null) {
+                    categoryID = int.Parse(CbxLaptopCategory.SelectedValue.ToString());
+                }
+
+                var query = context.Laptop.AsQueryable();// luon bat dau voi tat ca may tinh 
+
+                if (!string.IsNullOrWhiteSpace(laptopID)) {
+                    query = query.Where(x => x.LaptopID == laptopID);
+                }
+                if (!string.IsNullOrWhiteSpace(laptopName)) {
+                    query = query.Where(x => x.LaptopName == laptopName);
+                }
+                if (categoryID != -1) {
+                    string categoryId = categoryID.ToString();
+                    query = query.Where(x => x.CategoryID == categoryId);
+                }
+
+
+                // hien thi truy van tao ra ket qua
+
+                var laptops = query.ToList();
+                if (laptops.Count == 0) {
+                    if (categoryID == 5) {
+                        FillDataView(context.Laptop.ToList());
+                        CbxLaptopCategory.SelectedItem = null;
+                        TblaptopID.Text = string.Empty;
+                        TbLaptopName.Text = string.Empty;
+                        TbPrice.Text = string.Empty;
+                        TbQuantity.Text = string.Empty;
+                    } else
+                        MessageBox.Show("Khong Co Laptop Nao Thao Man Dieu Kien", "LỖI", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                } else
+                    FillDataView(laptops);
+
+
+
+            } catch (Exception ex) {
+                MessageBox.Show(ex.Message);
+            }
+
         }
 
         private void FillCategoryData(List<LaptopCategory> categories) {
