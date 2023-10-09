@@ -16,7 +16,8 @@ namespace Final {
                 FillCategoryData(context.LaptopCategory.ToList());
                 FillDataView(context.Laptop.ToList());
                 CbxLaptopCategory.SelectedItem = null;
-            } catch (Exception ex) {
+            }
+            catch (Exception ex) {
                 MessageBox.Show(ex.Message);
             }
         }
@@ -36,26 +37,30 @@ namespace Final {
                     find.CategoryID = (CbxLaptopCategory.SelectedItem as LaptopCategory).CategoryID;
                     if (decimal.TryParse(TbPrice.Text, out decimal price)) {
                         find.SellPrice = price;
-                    } else {
+                    }
+                    else {
                         MessageBox.Show("Giá trị nhập vào không đúng");
                     }
 
                     if (!(TbSale.Text == "") && int.TryParse(TbSale.Text, out int sale)) {
                         find.Sale = sale;
-                    } else {
+                    }
+                    else {
                         MessageBox.Show("Giá trị nhập vào không đúng");
                     }
 
                     if (int.TryParse(TbQuantity.Text, out int quantity)) {
                         find.Quantity = find.Quantity + quantity; // update SL len
-                    } else {
+                    }
+                    else {
                         MessageBox.Show("Giá trị nhập vào không đúng");
                     }
 
                     //Lưu thay đổi
                     context.SaveChanges();
                     FillDataView(context.Laptop.ToList());
-                } else {
+                }
+                else {
                     Laptop lap = new Laptop() {
                         LaptopID = TblaptopID.Text,
                         LaptopName = TbLaptopName.Text,
@@ -70,7 +75,8 @@ namespace Final {
                     context = new LaptopDBContext();
                     FillDataView(context.Laptop.ToList());
                 }
-            } catch (Exception ex) {
+            }
+            catch (Exception ex) {
                 MessageBox.Show(ex.Message);
             }
         }
@@ -85,6 +91,7 @@ namespace Final {
                     MessageBox.Show("Laptop này không tồn tại nên không xoá được!");
                     return;
                 }
+
                 DialogResult dialog = MessageBox.Show("Bạn có muốn xoá ?", "YES/NO", MessageBoxButtons.YesNo);
 
                 if (int.Parse(TbQuantity.Text) < find.Quantity) {
@@ -93,10 +100,15 @@ namespace Final {
                         context.SaveChanges();
                         FillDataView(context.Laptop.ToList());
                     }
-                } else {
-                    MessageBox.Show("Số lượng Xoá ngoài phạm vi có thể Xoá !", "LOI", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-            } catch (Exception ex) {
+                else {
+                    MessageBox.Show("Số lượng Xoá ngoài phạm vi có thể Xoá !",
+                        "LOI",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Error);
+                }
+            }
+            catch (Exception ex) {
                 MessageBox.Show(ex.Message);
             }
         }
@@ -111,7 +123,8 @@ namespace Final {
                 TbPrice.Text = find.SellPrice.ToString();
                 if (find.Sale != 0) {
                     TbSale.Text = find.Sale.ToString();
-                } else {
+                }
+                else {
                     TbSale.Text = "";
                 }
 
@@ -131,14 +144,16 @@ namespace Final {
                     categoryID = int.Parse(CbxLaptopCategory.SelectedValue.ToString());
                 }
 
-                var query = context.Laptop.AsQueryable();// luon bat dau voi tat ca may tinh 
+                var query = context.Laptop.AsQueryable(); // luon bat dau voi tat ca may tinh 
 
                 if (!string.IsNullOrWhiteSpace(laptopID)) {
                     query = query.Where(x => x.LaptopID == laptopID);
                 }
+
                 if (!string.IsNullOrWhiteSpace(laptopName)) {
                     query = query.Where(x => x.LaptopName == laptopName);
                 }
+
                 if (categoryID != -1) {
                     string categoryId = categoryID.ToString();
                     query = query.Where(x => x.CategoryID == categoryId);
@@ -156,18 +171,21 @@ namespace Final {
                         TbLaptopName.Text = string.Empty;
                         TbPrice.Text = string.Empty;
                         TbQuantity.Text = string.Empty;
-                    } else
-                        MessageBox.Show("Khong Co Laptop Nao Thao Man Dieu Kien", "LỖI", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    else
+                        MessageBox.Show("Khong Co Laptop Nao Thao Man Dieu Kien",
+                            "LỖI",
+                            MessageBoxButtons.OK,
+                            MessageBoxIcon.Error);
+
                     return;
-                } else
+                }
+                else
                     FillDataView(laptops);
-
-
-
-            } catch (Exception ex) {
+            }
+            catch (Exception ex) {
                 MessageBox.Show(ex.Message);
             }
-
         }
 
         private void FillCategoryData(List<LaptopCategory> categories) {
