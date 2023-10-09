@@ -90,7 +90,6 @@ namespace Final {
                     MessageBox.Show("Laptop này không tồn tại nên không xoá được!");
                     return;
                 }
-
                 DialogResult dialog = MessageBox.Show("Bạn có muốn xoá ?", "YES/NO", MessageBoxButtons.YesNo);
 
                 if (int.Parse(TbQuantity.Text) < find.Quantity) {
@@ -99,12 +98,10 @@ namespace Final {
                         context.SaveChanges();
                         FillDataView(context.Laptop.ToList());
                     }
+                } else {
+                    MessageBox.Show("Số lượng Xoá ngoài phạm vi có thể Xoá !", "LOI", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-                else {
-                    MessageBox.Show("Số lượng Xoá ngoài phạm vi có thể Xoá !");
-                }
-            }
-            catch (Exception ex) {
+            } catch (Exception ex) {
                 MessageBox.Show(ex.Message);
             }
         }
@@ -119,8 +116,7 @@ namespace Final {
                 TbPrice.Text = find.SellPrice.ToString();
                 if (find.Sale != 0) {
                     TbSale.Text = find.Sale.ToString();
-                }
-                else {
+                } else {
                     TbSale.Text = "";
                 }
 
