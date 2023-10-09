@@ -15,6 +15,7 @@ namespace Final {
                 LaptopDBContext context = new LaptopDBContext();
                 FillCategoryData(context.LaptopCategory.ToList());
                 FillDataView(context.Laptop.ToList());
+                CbxLaptopCategory.SelectedItem = null;
             } catch (Exception ex) {
                 MessageBox.Show(ex.Message);
             }
@@ -42,7 +43,7 @@ namespace Final {
                         MessageBox.Show("Giá trị nhập vào không đúng");
                     }
                     if (int.TryParse(TbQuantity.Text, out int quantity)) {
-                        find.Quantity = quantity;
+                        find.Quantity =find.Quantity +  quantity; // update SL len
                     } else {
                         MessageBox.Show("Giá trị nhập vào không đúng");
                     }
@@ -81,7 +82,7 @@ namespace Final {
                     MessageBox.Show("Laptop này không tồn tại nên không xoá được!");
                     return;
                 }
-                DialogResult dialog = MessageBox.Show("Bạn có muốn xoá ?","YES/NO",MessageBoxButtons.YesNo)
+                DialogResult dialog = MessageBox.Show("Bạn có muốn xoá ?", "YES/NO", MessageBoxButtons.YesNo);
 
                 if (int.Parse(TbQuantity.Text) < find.Quantity)
                 {
@@ -94,7 +95,7 @@ namespace Final {
                 }
                 else
                 {
-                    MessageBox.Show("Số lượng Xoá ngoài phạm vi có thể Xoá !");
+                    MessageBox.Show("Số lượng Xoá ngoài phạm vi có thể Xoá !","LOI", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                     
                 
@@ -124,6 +125,64 @@ namespace Final {
 
         private void BtnSearch_Click(object sender, EventArgs e) {
             //Tìm kiếm: thoả mãn 1 trong các ô: mã máy, tên máy, tìm xong gọi hàm FillDataView() để load giá trị 
+            try
+            {
+                LaptopDBContext context = new LaptopDBContext();
+                String laptopID = TblaptopID.Text;
+                string laptopName = TbLaptopName.Text;
+                int categoryID = -1;
+               
+                if (CbxLaptopCategory.SelectedValue != null)
+                {
+                    categoryID = int.Parse(CbxLaptopCategory.SelectedValue.ToString());
+                }
+    
+                var query = context.Laptop.AsQueryable();// luon bat dau voi tat ca may tinh 
+
+                if(!string.IsNullOrWhiteSpace(laptopID))
+                {
+                    query = query.Where(x => x.LaptopID == laptopID);
+                }
+                if (!string.IsNullOrWhiteSpace(laptopName))
+                {
+                    query = query.Where(x => x.LaptopName == laptopName);
+                }
+                if (categoryID != -1)
+                {
+                   string  categoryId = categoryID.ToString();
+                    query = query.Where(x => x.CategoryID == categoryId);
+                }
+                
+
+                // hien thi truy van tao ra ket qua
+
+                var laptops = query.ToList();
+                if(laptops.Count == 0) 
+                {
+                    if (categoryID == 5)
+                    {
+                        FillDataView(context.Laptop.ToList());
+                        CbxLaptopCategory.SelectedItem = null;
+                        TblaptopID.Text = string.Empty;
+                        TbLaptopName.Text = string.Empty;
+                        TbPrice.Text = string.Empty;
+                        TbQuantity.Text = string.Empty;
+                    }
+                     else
+                        MessageBox.Show("Khong Co Laptop Nao Thao Man Dieu Kien","LỖI",MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+                else
+                    FillDataView(laptops);
+                
+
+
+            }
+            catch(Exception ex) 
+            {
+                MessageBox.Show(ex.Message);
+            }
+
         }
 
         private void FillCategoryData(List<LaptopCategory> categories) {
