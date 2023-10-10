@@ -67,6 +67,12 @@
     <Compile Include="BuildPC.Designer.cs">
       <DependentUpon>BuildPC.cs</DependentUpon>
     </Compile>
+    <Compile Include="BuildPcCart.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BuildPcCart.Designer.cs">
+      <DependentUpon>BuildPcCart.cs</DependentUpon>
+    </Compile>
     <Compile Include="BuyLaptop.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -106,6 +112,12 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="AccessoryManagement.resx">
       <DependentUpon>AccessoryManagement.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BuildPC.resx">
+      <DependentUpon>BuildPC.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BuildPcCart.resx">
+      <DependentUpon>BuildPcCart.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="BuyLaptop.resx">
       <DependentUpon>BuyLaptop.cs</DependentUpon>
