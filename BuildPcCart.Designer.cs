@@ -27,6 +27,9 @@
             this.TbTotalPrice = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.BtnMinus = new System.Windows.Forms.Button();
+            this.BtnAdd = new System.Windows.Forms.Button();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.TbBuyPrice = new System.Windows.Forms.TextBox();
             this.TbSellPrice = new System.Windows.Forms.TextBox();
@@ -35,11 +38,10 @@
             this.label2 = new System.Windows.Forms.Label();
             this.TbName = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.TbTotalItems = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.BtnAdd = new System.Windows.Forms.Button();
-            this.BtnMinus = new System.Windows.Forms.Button();
+            this.BtnExport = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
+            this.TbTotalItems = new System.Windows.Forms.TextBox();
+            this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -47,7 +49,6 @@
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.BtnExport = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.DgvCartItems)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -60,6 +61,7 @@
             this.DgvCartItems.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.DgvCartItems.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DgvCartItems.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Column8,
             this.Column1,
             this.Column2,
             this.Column3,
@@ -111,6 +113,32 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Thông tin sản phẩm";
             // 
+            // BtnMinus
+            // 
+            this.BtnMinus.Location = new System.Drawing.Point(197, 238);
+            this.BtnMinus.Name = "BtnMinus";
+            this.BtnMinus.Size = new System.Drawing.Size(67, 37);
+            this.BtnMinus.TabIndex = 9;
+            this.BtnMinus.Text = "-";
+            this.BtnMinus.UseVisualStyleBackColor = true;
+            // 
+            // BtnAdd
+            // 
+            this.BtnAdd.Location = new System.Drawing.Point(357, 240);
+            this.BtnAdd.Name = "BtnAdd";
+            this.BtnAdd.Size = new System.Drawing.Size(61, 37);
+            this.BtnAdd.TabIndex = 8;
+            this.BtnAdd.Text = "+";
+            this.BtnAdd.UseVisualStyleBackColor = true;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(270, 240);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.ReadOnly = true;
+            this.textBox1.Size = new System.Drawing.Size(81, 34);
+            this.textBox1.TabIndex = 7;
+            // 
             // label5
             // 
             this.label5.Location = new System.Drawing.Point(6, 243);
@@ -157,7 +185,7 @@
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(184, 34);
             this.label2.TabIndex = 1;
-            this.label2.Text = "Tên sản phẩm";
+            this.label2.Text = "Tên linh kiện";
             // 
             // TbName
             // 
@@ -181,39 +209,14 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Thông tin giỏ hàng";
             // 
-            // TbTotalItems
+            // BtnExport
             // 
-            this.TbTotalItems.Location = new System.Drawing.Point(237, 66);
-            this.TbTotalItems.Name = "TbTotalItems";
-            this.TbTotalItems.ReadOnly = true;
-            this.TbTotalItems.Size = new System.Drawing.Size(199, 34);
-            this.TbTotalItems.TabIndex = 4;
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(270, 240);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.ReadOnly = true;
-            this.textBox1.Size = new System.Drawing.Size(81, 34);
-            this.textBox1.TabIndex = 7;
-            // 
-            // BtnAdd
-            // 
-            this.BtnAdd.Location = new System.Drawing.Point(357, 240);
-            this.BtnAdd.Name = "BtnAdd";
-            this.BtnAdd.Size = new System.Drawing.Size(61, 37);
-            this.BtnAdd.TabIndex = 8;
-            this.BtnAdd.Text = "+";
-            this.BtnAdd.UseVisualStyleBackColor = true;
-            // 
-            // BtnMinus
-            // 
-            this.BtnMinus.Location = new System.Drawing.Point(197, 238);
-            this.BtnMinus.Name = "BtnMinus";
-            this.BtnMinus.Size = new System.Drawing.Size(67, 37);
-            this.BtnMinus.TabIndex = 9;
-            this.BtnMinus.Text = "-";
-            this.BtnMinus.UseVisualStyleBackColor = true;
+            this.BtnExport.Location = new System.Drawing.Point(294, 223);
+            this.BtnExport.Name = "BtnExport";
+            this.BtnExport.Size = new System.Drawing.Size(142, 34);
+            this.BtnExport.TabIndex = 5;
+            this.BtnExport.Text = "Xuất hoá đơn";
+            this.BtnExport.UseVisualStyleBackColor = true;
             // 
             // label6
             // 
@@ -222,6 +225,21 @@
             this.label6.Size = new System.Drawing.Size(180, 34);
             this.label6.TabIndex = 5;
             this.label6.Text = "Tổng số sản phẩm";
+            // 
+            // TbTotalItems
+            // 
+            this.TbTotalItems.Location = new System.Drawing.Point(237, 66);
+            this.TbTotalItems.Name = "TbTotalItems";
+            this.TbTotalItems.ReadOnly = true;
+            this.TbTotalItems.Size = new System.Drawing.Size(199, 34);
+            this.TbTotalItems.TabIndex = 4;
+            // 
+            // Column8
+            // 
+            this.Column8.HeaderText = "Mã linh kiện";
+            this.Column8.MinimumWidth = 6;
+            this.Column8.Name = "Column8";
+            this.Column8.ReadOnly = true;
             // 
             // Column1
             // 
@@ -272,15 +290,6 @@
             this.Column7.Name = "Column7";
             this.Column7.ReadOnly = true;
             // 
-            // BtnExport
-            // 
-            this.BtnExport.Location = new System.Drawing.Point(294, 223);
-            this.BtnExport.Name = "BtnExport";
-            this.BtnExport.Size = new System.Drawing.Size(142, 34);
-            this.BtnExport.TabIndex = 5;
-            this.BtnExport.Text = "Xuất hoá đơn";
-            this.BtnExport.UseVisualStyleBackColor = true;
-            // 
             // BuildPcCart
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 27F);
@@ -321,6 +330,8 @@
         private System.Windows.Forms.Button BtnAdd;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Button BtnExport;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
@@ -328,6 +339,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
-        private System.Windows.Forms.Button BtnExport;
     }
 }
