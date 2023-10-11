@@ -1,7 +1,4 @@
-using System;
-using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity;
-using System.Linq;
 
 namespace Final.Model.LaptopModel {
     public partial class LaptopDBContext : DbContext {
@@ -9,10 +6,10 @@ namespace Final.Model.LaptopModel {
             : base("name=LaptopDBContext") {
         }
 
-        public virtual DbSet<Laptop> Laptop { get; set; }
-        public virtual DbSet<LaptopCategory> LaptopCategory { get; set; }
-        public virtual DbSet<LaptopInvoice> LaptopInvoice { get; set; }
-        public virtual DbSet<LaptopOrder> LaptopOrder { get; set; }
+        public virtual DbSet<Laptop> Laptops { get; set; }
+        public virtual DbSet<LaptopCategory> LaptopCategories { get; set; }
+        public virtual DbSet<LaptopInvoice> LaptopInvoices { get; set; }
+        public virtual DbSet<LaptopOrder> LaptopOrders { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder) {
             modelBuilder.Entity<Laptop>()
@@ -28,7 +25,7 @@ namespace Final.Model.LaptopModel {
                 .IsUnicode(false);
 
             modelBuilder.Entity<Laptop>()
-                .HasMany(e => e.LaptopOrder)
+                .HasMany(e => e.LaptopOrders)
                 .WithRequired(e => e.Laptop)
                 .WillCascadeOnDelete(false);
 
@@ -37,12 +34,12 @@ namespace Final.Model.LaptopModel {
                 .IsUnicode(false);
 
             modelBuilder.Entity<LaptopCategory>()
-                .HasMany(e => e.Laptop)
+                .HasMany(e => e.Laptops)
                 .WithRequired(e => e.LaptopCategory)
                 .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<LaptopCategory>()
-                .HasMany(e => e.LaptopOrder)
+                .HasMany(e => e.LaptopOrders)
                 .WithRequired(e => e.LaptopCategory)
                 .WillCascadeOnDelete(false);
 
@@ -51,7 +48,7 @@ namespace Final.Model.LaptopModel {
                 .IsUnicode(false);
 
             modelBuilder.Entity<LaptopInvoice>()
-                .HasMany(e => e.LaptopOrder)
+                .HasMany(e => e.LaptopOrders)
                 .WithRequired(e => e.LaptopInvoice)
                 .WillCascadeOnDelete(false);
 
@@ -74,6 +71,10 @@ namespace Final.Model.LaptopModel {
             modelBuilder.Entity<LaptopOrder>()
                 .Property(e => e.CategoryID)
                 .IsUnicode(false);
+
+            modelBuilder.Entity<LaptopOrder>()
+                .Property(e => e.BuyPrice)
+                .HasPrecision(18, 0);
         }
     }
 }

@@ -13,9 +13,9 @@ namespace Final {
         private void AccessoryManagement_Load(object sender, EventArgs e) {
             try {
                 var context = new BuildPcDBContext();
-                FillBrandBox(context.AccessoryBrand.ToList());
-                FillCategoryBox(context.AccessoryCategory.ToList());
-                FillDataView(context.Accessory.ToList());
+                FillBrandBox(context.AccessoryBrands.ToList());
+                FillCategoryBox(context.AccessoryCategories.ToList());
+                FillDataView(context.Accessories.ToList());
             } catch (Exception ex) {
                 MessageBox.Show(ex.Message);
             }
@@ -29,7 +29,7 @@ namespace Final {
         private void BtnEdit_Click(object sender, EventArgs e) {
             try {
                 BuildPcDBContext context = new BuildPcDBContext();
-                var find = context.Accessory.FirstOrDefault(a => a.AccessoryID == TbAccessoryID.Text);
+                var find = context.Accessories.FirstOrDefault(a => a.AccessoryID == TbAccessoryID.Text);
                 if (find != null) {
                     if (TbAccessoryID.Text == "" || TbAccessoryName.Text == "" || TbPrice.Text == "" || TbQuantity.Text == "") {
                         MessageBox.Show("Nhập đầy đủ thông tin");
@@ -80,11 +80,11 @@ namespace Final {
                         accessory.Sale = sale;
                     }
 
-                    context.Accessory.Add(accessory);
+                    context.Accessories.Add(accessory);
                     context.SaveChanges();
                     MessageBox.Show("Thêm mới thành công");
                     context = new BuildPcDBContext();
-                    FillDataView(context.Accessory.ToList());
+                    FillDataView(context.Accessories.ToList());
                 }
 
             } catch (Exception ex) {

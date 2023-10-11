@@ -12,7 +12,7 @@ namespace Final.Model.BuildPCModel
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Accessory()
         {
-            CustomPCOrder = new HashSet<CustomPCOrder>();
+            CustomPCOrders = new HashSet<CustomPCOrder>();
         }
 
         [StringLength(10)]
@@ -41,6 +41,6 @@ namespace Final.Model.BuildPCModel
         public virtual AccessoryCategory AccessoryCategory { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<CustomPCOrder> CustomPCOrder { get; set; }
+        public virtual ICollection<CustomPCOrder> CustomPCOrders { get; set; }
     }
 }

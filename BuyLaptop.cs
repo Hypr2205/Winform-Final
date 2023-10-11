@@ -16,7 +16,7 @@ namespace Final {
             FilterContainer.Visible = false;
             try {
                 LaptopDBContext context = new LaptopDBContext();
-                FillDataView(context.Laptop.ToList());
+                FillDataView(context.Laptops.ToList());
             } catch (Exception ex) {
                 MessageBox.Show(ex.Message);
             }
@@ -76,37 +76,37 @@ namespace Final {
 
             //Lọc theo tên máy hoặc mã máy
             if (TbLaptopNameFilter.Text != "" || TbLaptopIdFilter.Text != "") {
-                FillDataView(context.Laptop.Where(l => l.LaptopName.Contains(TbLaptopNameFilter.Text) || l.LaptopID.Contains(TbLaptopIdFilter.Text)).ToList());
+                FillDataView(context.Laptops.Where(l => l.LaptopName.Contains(TbLaptopNameFilter.Text) || l.LaptopID.Contains(TbLaptopIdFilter.Text)).ToList());
             }
 
             //Lọc nếu chọn ô xem khuyến mãi
             if (CbIsSale.Checked) {
-                FillDataView(context.Laptop.Where(l => l.Sale != 0).ToList());
+                FillDataView(context.Laptops.Where(l => l.Sale != 0).ToList());
             }
 
             //Lọc theo khoảng giá
             var selectedPriceRange = CbxPriceRange.SelectedIndex;
             if (selectedPriceRange == 0) {
-                FillDataView(context.Laptop.Where(l => l.SellPrice < 15_000_000).ToList());
+                FillDataView(context.Laptops.Where(l => l.SellPrice < 15_000_000).ToList());
             } else if (selectedPriceRange == 1) {
-                FillDataView(context.Laptop.Where(l => l.SellPrice >= 15_000_000 && l.SellPrice < 20_000_000).ToList());
+                FillDataView(context.Laptops.Where(l => l.SellPrice >= 15_000_000 && l.SellPrice < 20_000_000).ToList());
             } else if (selectedPriceRange == 2) {
-                FillDataView(context.Laptop.Where(l => l.SellPrice >= 20_000_000 && l.SellPrice < 30_000_000).ToList());
+                FillDataView(context.Laptops.Where(l => l.SellPrice >= 20_000_000 && l.SellPrice < 30_000_000).ToList());
             } else if (selectedPriceRange == 3) {
-                FillDataView(context.Laptop.Where(l => l.SellPrice > 30_000_000).ToList());
+                FillDataView(context.Laptops.Where(l => l.SellPrice > 30_000_000).ToList());
             }
         }
 
         private void BtnAddToCart_Click(object sender, EventArgs e) {
             LaptopDBContext context = new LaptopDBContext();
-            var find = context.Laptop.FirstOrDefault(l => l.LaptopID == TbLaptopID.Text);
+            var find = context.Laptops.FirstOrDefault(l => l.LaptopID == TbLaptopID.Text);
             if (find != null) {
                 if (find.Quantity == 0) {
                     MessageBox.Show("Hết hàng");
                 }
                 find.Quantity -= 1;
             }
-            FillDataView(context.Laptop.ToList());
+            FillDataView(context.Laptops.ToList());
         }
 
         private void FilterContainer_Enter(object sender, EventArgs e) {

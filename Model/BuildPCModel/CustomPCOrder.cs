@@ -27,7 +27,7 @@ namespace Final.Model.BuildPCModel
         [StringLength(100)]
         public string AccessoryName { get; set; }
 
-        public decimal SalePrice { get; set; }
+        public decimal SellPrice { get; set; }
 
         public int Sale { get; set; }
 
@@ -36,16 +36,10 @@ namespace Final.Model.BuildPCModel
         public string BrandID { get; set; }
 
         [Required]
-        [StringLength(100)]
-        public string BrandName { get; set; }
-
-        [Required]
         [StringLength(10)]
         public string CategoryID { get; set; }
 
-        [Required]
-        [StringLength(100)]
-        public string CategoryName { get; set; }
+        public decimal BuyPrice { get; set; }
 
         public virtual Accessory Accessory { get; set; }
 

@@ -13,9 +13,9 @@ namespace Final {
         private void BuildPC_Load(object sender, System.EventArgs e) {
             try {
                 BuildPcDBContext context = new BuildPcDBContext();
-                FillDataView(context.Accessory.ToList());
-                FillCategoryBox(context.AccessoryCategory.ToList());
-                FillBrandBox(context.AccessoryBrand.ToList());
+                FillDataView(context.Accessories.ToList());
+                FillCategoryBox(context.AccessoryCategories.ToList());
+                FillBrandBox(context.AccessoryBrands.ToList());
             } catch (Exception ex) {
                 MessageBox.Show(ex.Message);
             }

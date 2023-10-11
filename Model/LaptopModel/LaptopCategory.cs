@@ -12,8 +12,8 @@ namespace Final.Model.LaptopModel
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public LaptopCategory()
         {
-            Laptop = new HashSet<Laptop>();
-            LaptopOrder = new HashSet<LaptopOrder>();
+            Laptops = new HashSet<Laptop>();
+            LaptopOrders = new HashSet<LaptopOrder>();
         }
 
         [Key]
@@ -25,9 +25,9 @@ namespace Final.Model.LaptopModel
         public string CategoryName { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Laptop> Laptop { get; set; }
+        public virtual ICollection<Laptop> Laptops { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<LaptopOrder> LaptopOrder { get; set; }
+        public virtual ICollection<LaptopOrder> LaptopOrders { get; set; }
     }
 }

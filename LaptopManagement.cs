@@ -13,8 +13,8 @@ namespace Final {
         private void LaptopManagement_Load(object sender, EventArgs e) {
             try {
                 LaptopDBContext context = new LaptopDBContext();
-                FillCategoryData(context.LaptopCategory.ToList());
-                FillDataView(context.Laptop.ToList());
+                FillCategoryData(context.LaptopCategories.ToList());
+                FillDataView(context.Laptops.ToList());
                 CbxLaptopCategory.SelectedItem = null;
             } catch (Exception ex) {
                 MessageBox.Show(ex.Message);
@@ -24,7 +24,7 @@ namespace Final {
         private void BtnAdd_Click(object sender, EventArgs e) {
             try {
                 LaptopDBContext context = new LaptopDBContext();
-                var find = context.Laptop.FirstOrDefault(l => l.LaptopID == TblaptopID.Text);
+                var find = context.Laptops.FirstOrDefault(l => l.LaptopID == TblaptopID.Text);
                 //Nếu đã tồn tại
                 if (find != null) {
                     if (TbLaptopName.Text == "" || TblaptopID.Text == "" || TbPrice.Text == "" ||
@@ -54,7 +54,7 @@ namespace Final {
 
                     //Lưu thay đổi
                     context.SaveChanges();
-                    FillDataView(context.Laptop.ToList());
+                    FillDataView(context.Laptops.ToList());
                 } else {
                     Laptop lap = new Laptop() {
                         LaptopID = TblaptopID.Text,
@@ -64,11 +64,11 @@ namespace Final {
                         Sale = int.Parse(TbSale.Text),
                         Quantity = int.Parse(TbQuantity.Text),
                     };
-                    context.Laptop.Add(lap);
+                    context.Laptops.Add(lap);
                     context.SaveChanges();
                     MessageBox.Show("Thêm thành công");
                     context = new LaptopDBContext();
-                    FillDataView(context.Laptop.ToList());
+                    FillDataView(context.Laptops.ToList());
                 }
             } catch (Exception ex) {
                 MessageBox.Show(ex.Message);
@@ -79,7 +79,7 @@ namespace Final {
             //Làm phần xoá, khi xoá sẽ kiểm tra số lượng trong ô Số lượng xoá chỉ trừ đi số lượng sau đó lưu thay đổi và gọi lại hàm FillDataView()
             try {
                 LaptopDBContext context = new LaptopDBContext();
-                var find = context.Laptop.FirstOrDefault(l => l.LaptopID == TblaptopID.Text);
+                var find = context.Laptops.FirstOrDefault(l => l.LaptopID == TblaptopID.Text);
                 //Nếu không tồn tại
                 if (find == null) {
                     MessageBox.Show("Laptop này không tồn tại!");
@@ -91,7 +91,7 @@ namespace Final {
                     if (dialog == DialogResult.Yes) {
                         find.Quantity -= quantity;
                         context.SaveChanges();
-                        FillDataView(context.Laptop.ToList());
+                        FillDataView(context.Laptops.ToList());
                     }
                 } else {
                     MessageBox.Show("Số lượng xoá ngoài phạm vi có thể xoá !",
@@ -107,7 +107,7 @@ namespace Final {
         private void DgvLaptops_CellContentClick(object sender, DataGridViewCellEventArgs e) {
             var lapId = DgvLaptops.Rows[e.RowIndex].Cells[0].Value.ToString();
             var context = new LaptopDBContext();
-            var find = context.Laptop.FirstOrDefault(l => l.LaptopID == lapId);
+            var find = context.Laptops.FirstOrDefault(l => l.LaptopID == lapId);
             if (find == null) {
                 return;
             }
@@ -123,11 +123,11 @@ namespace Final {
             //Tìm kiếm: thoả mãn 1 trong các ô: mã máy, tên máy, tìm xong gọi hàm FillDataView() để load giá trị 
             try {
                 var context = new LaptopDBContext();
-                var findById = context.Laptop.Where(l => l.LaptopID == TblaptopID.Text);
-                var findByName = context.Laptop.Where(l => l.LaptopName == TbLaptopName.Text);
-                var findByCategory = context.Laptop.Where(l =>
+                var findById = context.Laptops.Where(l => l.LaptopID == TblaptopID.Text);
+                var findByName = context.Laptops.Where(l => l.LaptopName == TbLaptopName.Text);
+                var findByCategory = context.Laptops.Where(l =>
                     l.CategoryID == ((LaptopCategory)CbxLaptopCategory.SelectedItem).CategoryID);
-                var findByPrice = context.Laptop.Where(l => l.SellPrice <= decimal.Parse(TbPrice.Text));
+                var findByPrice = context.Laptops.Where(l => l.SellPrice <= decimal.Parse(TbPrice.Text));
                 FillDataView(findById.Union(findByName).Union(findByCategory).Union(findByPrice).ToList());
             } catch (Exception ex) {
                 MessageBox.Show(ex.Message);

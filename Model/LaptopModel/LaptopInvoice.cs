@@ -12,7 +12,7 @@ namespace Final.Model.LaptopModel
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public LaptopInvoice()
         {
-            LaptopOrder = new HashSet<LaptopOrder>();
+            LaptopOrders = new HashSet<LaptopOrder>();
         }
 
         [Key]
@@ -27,6 +27,6 @@ namespace Final.Model.LaptopModel
         public string Note { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<LaptopOrder> LaptopOrder { get; set; }
+        public virtual ICollection<LaptopOrder> LaptopOrders { get; set; }
     }
 }

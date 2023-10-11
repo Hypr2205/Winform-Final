@@ -35,9 +35,7 @@ namespace Final.Model.LaptopModel
         [StringLength(10)]
         public string CategoryID { get; set; }
 
-        [Required]
-        [StringLength(100)]
-        public string CategoryName { get; set; }
+        public decimal BuyPrice { get; set; }
 
         public virtual Laptop Laptop { get; set; }
 

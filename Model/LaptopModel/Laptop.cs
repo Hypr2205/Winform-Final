@@ -12,7 +12,7 @@ namespace Final.Model.LaptopModel
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Laptop()
         {
-            LaptopOrder = new HashSet<LaptopOrder>();
+            LaptopOrders = new HashSet<LaptopOrder>();
         }
 
         [StringLength(10)]
@@ -33,7 +33,7 @@ namespace Final.Model.LaptopModel
         public int Quantity { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<LaptopOrder> LaptopOrder { get; set; }
+        public virtual ICollection<LaptopOrder> LaptopOrders { get; set; }
 
         public virtual LaptopCategory LaptopCategory { get; set; }
     }
