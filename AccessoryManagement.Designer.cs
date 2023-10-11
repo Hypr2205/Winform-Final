@@ -171,6 +171,12 @@
             // CbxAccessoryBrand
             // 
             this.CbxAccessoryBrand.FormattingEnabled = true;
+            this.CbxAccessoryBrand.Items.AddRange(new object[] {
+            "GIGABYTE",
+            "ASUS",
+            "MSI",
+            "ASRock",
+            "Colorful"});
             this.CbxAccessoryBrand.Location = new System.Drawing.Point(159, 195);
             this.CbxAccessoryBrand.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.CbxAccessoryBrand.Name = "CbxAccessoryBrand";
@@ -198,6 +204,15 @@
             // CbxAccessoryCategory
             // 
             this.CbxAccessoryCategory.FormattingEnabled = true;
+            this.CbxAccessoryCategory.Items.AddRange(new object[] {
+            "RAM - BỘ NHỚ TRONG.",
+            "SSD - Ổ CỨNG THỂ RẮN.",
+            "HDD - Ổ CỨNG.",
+            "PSU - NGUỒN MÁY TÍNH.",
+            "CASE - VỎ MÁY TÍNH.",
+            "MONITOR - MÀN HÌNH MÁY TÍNH.",
+            "MOUSE - CHUỘT.",
+            "KEYBOARD - BÀN PHÍM."});
             this.CbxAccessoryCategory.Location = new System.Drawing.Point(159, 270);
             this.CbxAccessoryCategory.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.CbxAccessoryCategory.Name = "CbxAccessoryCategory";
@@ -322,7 +337,7 @@
             this.Controls.Add(this.DgvAccessories);
             this.Font = new System.Drawing.Font("Segoe UI Variable Display Semib", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Location = new System.Drawing.Point(15, 15);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "AccessoryManagement";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             ((System.ComponentModel.ISupportInitialize)(this.DgvAccessories)).EndInit();
