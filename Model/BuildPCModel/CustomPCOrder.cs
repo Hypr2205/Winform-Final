@@ -16,8 +16,8 @@ namespace Final.Model.BuildPCModel
 
         [Key]
         [Column(Order = 1)]
-        [StringLength(10)]
-        public string OrderID { get; set; }
+        [DatabaseGenerated(DatabaseGeneratedOption.None)]
+        public int OrderID { get; set; }
 
         [Required]
         [StringLength(10)]

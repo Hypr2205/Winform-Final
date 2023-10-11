@@ -79,10 +79,6 @@ namespace Final.Model.BuildPCModel {
                 .IsUnicode(false);
 
             modelBuilder.Entity<CustomPCOrder>()
-                .Property(e => e.OrderID)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<CustomPCOrder>()
                 .Property(e => e.AccessoryID)
                 .IsUnicode(false);
 

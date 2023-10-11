@@ -1,4 +1,7 @@
+using System;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity;
+using System.Linq;
 
 namespace Final.Model.LaptopModel {
     public partial class LaptopDBContext : DbContext {
@@ -54,10 +57,6 @@ namespace Final.Model.LaptopModel {
 
             modelBuilder.Entity<LaptopOrder>()
                 .Property(e => e.InvoiceID)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<LaptopOrder>()
-                .Property(e => e.OrderID)
                 .IsUnicode(false);
 
             modelBuilder.Entity<LaptopOrder>()
