@@ -77,12 +77,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="Temp.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Temp.Designer.cs">
-      <DependentUpon>Temp.cs</DependentUpon>
-    </Compile>
     <Compile Include="BuyAccessory.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -117,9 +111,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="AccessoryManagement.resx">
       <DependentUpon>AccessoryManagement.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Temp.resx">
-      <DependentUpon>Temp.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="BuyAccessory.resx">
       <DependentUpon>BuyAccessory.cs</DependentUpon>

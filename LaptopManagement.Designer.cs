@@ -23,7 +23,7 @@
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.DgvLaptops = new System.Windows.Forms.DataGridView();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -47,8 +47,18 @@
             this.BtnDelete = new System.Windows.Forms.Button();
             this.BtnEdit = new System.Windows.Forms.Button();
             this.BtnSearch = new System.Windows.Forms.Button();
+            this.filterContainer = new System.Windows.Forms.GroupBox();
+            this.CbxCategoryFilter = new System.Windows.Forms.ComboBox();
+            this.TbNameFilter = new System.Windows.Forms.TextBox();
+            this.TbIdFilter = new System.Windows.Forms.TextBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.BtnCancel = new System.Windows.Forms.Button();
+            this.ChkIsSale = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.DgvLaptops)).BeginInit();
             this.LaptopInfoContainer.SuspendLayout();
+            this.filterContainer.SuspendLayout();
             this.SuspendLayout();
             // 
             // DgvLaptops
@@ -69,21 +79,21 @@
             this.Column4,
             this.Column5,
             this.Column6});
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI Variable Display Semib", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.DarkTurquoise;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.DgvLaptops.DefaultCellStyle = dataGridViewCellStyle2;
-            this.DgvLaptops.Location = new System.Drawing.Point(486, 35);
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI Variable Display Semib", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.DarkTurquoise;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.DgvLaptops.DefaultCellStyle = dataGridViewCellStyle1;
+            this.DgvLaptops.Location = new System.Drawing.Point(486, 217);
             this.DgvLaptops.Name = "DgvLaptops";
             this.DgvLaptops.ReadOnly = true;
             this.DgvLaptops.RowHeadersWidth = 51;
             this.DgvLaptops.RowTemplate.Height = 24;
             this.DgvLaptops.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.DgvLaptops.Size = new System.Drawing.Size(792, 457);
+            this.DgvLaptops.Size = new System.Drawing.Size(792, 467);
             this.DgvLaptops.TabIndex = 0;
             this.DgvLaptops.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvLaptops_CellContentClick);
             // 
@@ -132,6 +142,8 @@
             // LaptopInfoContainer
             // 
             this.LaptopInfoContainer.Controls.Add(this.TbQuantity);
+            this.LaptopInfoContainer.Controls.Add(this.BtnDelete);
+            this.LaptopInfoContainer.Controls.Add(this.BtnEdit);
             this.LaptopInfoContainer.Controls.Add(this.TbSale);
             this.LaptopInfoContainer.Controls.Add(this.TbPrice);
             this.LaptopInfoContainer.Controls.Add(this.CbxLaptopCategory);
@@ -143,9 +155,9 @@
             this.LaptopInfoContainer.Controls.Add(this.label3);
             this.LaptopInfoContainer.Controls.Add(this.label2);
             this.LaptopInfoContainer.Controls.Add(this.label1);
-            this.LaptopInfoContainer.Location = new System.Drawing.Point(12, 35);
+            this.LaptopInfoContainer.Location = new System.Drawing.Point(13, 217);
             this.LaptopInfoContainer.Name = "LaptopInfoContainer";
-            this.LaptopInfoContainer.Size = new System.Drawing.Size(467, 401);
+            this.LaptopInfoContainer.Size = new System.Drawing.Size(467, 467);
             this.LaptopInfoContainer.TabIndex = 1;
             this.LaptopInfoContainer.TabStop = false;
             this.LaptopInfoContainer.Text = "Thông tin Laptop";
@@ -251,7 +263,7 @@
             // 
             // BtnDelete
             // 
-            this.BtnDelete.Location = new System.Drawing.Point(354, 442);
+            this.BtnDelete.Location = new System.Drawing.Point(300, 403);
             this.BtnDelete.Name = "BtnDelete";
             this.BtnDelete.Size = new System.Drawing.Size(125, 50);
             this.BtnDelete.TabIndex = 2;
@@ -261,7 +273,7 @@
             // 
             // BtnEdit
             // 
-            this.BtnEdit.Location = new System.Drawing.Point(183, 442);
+            this.BtnEdit.Location = new System.Drawing.Point(147, 403);
             this.BtnEdit.Name = "BtnEdit";
             this.BtnEdit.Size = new System.Drawing.Size(125, 50);
             this.BtnEdit.TabIndex = 4;
@@ -271,23 +283,110 @@
             // 
             // BtnSearch
             // 
-            this.BtnSearch.Location = new System.Drawing.Point(12, 442);
+            this.BtnSearch.Location = new System.Drawing.Point(838, 47);
             this.BtnSearch.Name = "BtnSearch";
-            this.BtnSearch.Size = new System.Drawing.Size(125, 50);
+            this.BtnSearch.Size = new System.Drawing.Size(125, 39);
             this.BtnSearch.TabIndex = 6;
             this.BtnSearch.Text = "Tìm kiếm";
             this.BtnSearch.UseVisualStyleBackColor = true;
             this.BtnSearch.Click += new System.EventHandler(this.BtnSearch_Click);
+            // 
+            // filterContainer
+            // 
+            this.filterContainer.Controls.Add(this.ChkIsSale);
+            this.filterContainer.Controls.Add(this.BtnCancel);
+            this.filterContainer.Controls.Add(this.CbxCategoryFilter);
+            this.filterContainer.Controls.Add(this.BtnSearch);
+            this.filterContainer.Controls.Add(this.TbNameFilter);
+            this.filterContainer.Controls.Add(this.TbIdFilter);
+            this.filterContainer.Controls.Add(this.label10);
+            this.filterContainer.Controls.Add(this.label11);
+            this.filterContainer.Controls.Add(this.label12);
+            this.filterContainer.Location = new System.Drawing.Point(7, 12);
+            this.filterContainer.Name = "filterContainer";
+            this.filterContainer.Size = new System.Drawing.Size(974, 180);
+            this.filterContainer.TabIndex = 12;
+            this.filterContainer.TabStop = false;
+            this.filterContainer.Text = "Thông tin Laptop";
+            // 
+            // CbxCategoryFilter
+            // 
+            this.CbxCategoryFilter.FormattingEnabled = true;
+            this.CbxCategoryFilter.Location = new System.Drawing.Point(555, 50);
+            this.CbxCategoryFilter.Name = "CbxCategoryFilter";
+            this.CbxCategoryFilter.Size = new System.Drawing.Size(235, 30);
+            this.CbxCategoryFilter.TabIndex = 8;
+            // 
+            // TbNameFilter
+            // 
+            this.TbNameFilter.Location = new System.Drawing.Point(120, 109);
+            this.TbNameFilter.Name = "TbNameFilter";
+            this.TbNameFilter.Size = new System.Drawing.Size(235, 30);
+            this.TbNameFilter.TabIndex = 7;
+            this.TbNameFilter.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // TbIdFilter
+            // 
+            this.TbIdFilter.Location = new System.Drawing.Point(120, 50);
+            this.TbIdFilter.Name = "TbIdFilter";
+            this.TbIdFilter.Size = new System.Drawing.Size(235, 30);
+            this.TbIdFilter.TabIndex = 6;
+            this.TbIdFilter.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label10
+            // 
+            this.label10.Location = new System.Drawing.Point(454, 50);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(95, 32);
+            this.label10.TabIndex = 2;
+            this.label10.Text = "Hãng";
+            this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label11
+            // 
+            this.label11.Location = new System.Drawing.Point(19, 109);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(95, 32);
+            this.label11.TabIndex = 1;
+            this.label11.Text = "Tên máy";
+            this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label12
+            // 
+            this.label12.Location = new System.Drawing.Point(19, 45);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(95, 32);
+            this.label12.TabIndex = 0;
+            this.label12.Text = "Mã máy";
+            this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // BtnCancel
+            // 
+            this.BtnCancel.Location = new System.Drawing.Point(838, 109);
+            this.BtnCancel.Name = "BtnCancel";
+            this.BtnCancel.Size = new System.Drawing.Size(125, 39);
+            this.BtnCancel.TabIndex = 9;
+            this.BtnCancel.Text = "Huỷ";
+            this.BtnCancel.UseVisualStyleBackColor = true;
+            this.BtnCancel.Click += new System.EventHandler(this.BtnCancel_Click);
+            // 
+            // ChkIsSale
+            // 
+            this.ChkIsSale.AutoSize = true;
+            this.ChkIsSale.Location = new System.Drawing.Point(479, 118);
+            this.ChkIsSale.Name = "ChkIsSale";
+            this.ChkIsSale.Size = new System.Drawing.Size(107, 26);
+            this.ChkIsSale.TabIndex = 10;
+            this.ChkIsSale.Text = "Đang sale";
+            this.ChkIsSale.UseVisualStyleBackColor = true;
             // 
             // LaptopManagement
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 22F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1290, 504);
-            this.Controls.Add(this.BtnSearch);
-            this.Controls.Add(this.BtnEdit);
-            this.Controls.Add(this.BtnDelete);
+            this.ClientSize = new System.Drawing.Size(1290, 696);
+            this.Controls.Add(this.filterContainer);
             this.Controls.Add(this.LaptopInfoContainer);
             this.Controls.Add(this.DgvLaptops);
             this.Font = new System.Drawing.Font("Segoe UI Variable Display Semib", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -299,6 +398,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.DgvLaptops)).EndInit();
             this.LaptopInfoContainer.ResumeLayout(false);
             this.LaptopInfoContainer.PerformLayout();
+            this.filterContainer.ResumeLayout(false);
+            this.filterContainer.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -328,5 +429,14 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
+        private System.Windows.Forms.GroupBox filterContainer;
+        private System.Windows.Forms.Button BtnCancel;
+        private System.Windows.Forms.ComboBox CbxCategoryFilter;
+        private System.Windows.Forms.TextBox TbNameFilter;
+        private System.Windows.Forms.TextBox TbIdFilter;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.CheckBox ChkIsSale;
     }
 }

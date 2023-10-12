@@ -136,16 +136,30 @@ namespace Final {
         }
 
         private void BtnSearch_Click(object sender, EventArgs e) {
-            try {
-                var context = new LaptopContext();
-                var findById = context.Laptops.Where(l => l.LaptopID == TblaptopID.Text);
-                var findByName = context.Laptops.Where(l => l.LaptopName == TbLaptopName.Text);
-                var findByCategory = context.Laptops.Where(l =>
-                    l.CategoryID == ((LaptopCategory)CbxLaptopCategory.SelectedItem).CategoryID);
-                var findByPrice = context.Laptops.Where(l => l.SellPrice <= decimal.Parse(TbPrice.Text));
-                FillDataView(findById.Union(findByName).Union(findByCategory).Union(findByPrice).ToList());
-            } catch (Exception ex) {
-                MessageBox.Show(ex.Message);
+            var context = new LaptopContext();
+
+            var idFilter = string.IsNullOrEmpty(TbIdFilter.Text) ? null : TbIdFilter.Text;
+            var nameFilter = string.IsNullOrEmpty(TbNameFilter.Text) ? null : TbNameFilter.Text;
+            var selectedCategory = CbxCategoryFilter.SelectedItem as LaptopCategory;
+
+            var findById = idFilter != null ? context.Laptops.Where(l => l.LaptopID.Contains(idFilter)) : null;
+            var findByName = nameFilter != null ? context.Laptops.Where(l => l.LaptopName.Contains(nameFilter)) : null;
+            var findByCategory = CbxCategoryFilter.SelectedIndex != -1 ? context.Laptops.Where(l => l.CategoryID == selectedCategory.CategoryID) : null;
+            var findIfSale = ChkIsSale.Checked ? context.Laptops.Where(l => l.Sale != 0) : null;
+
+            var queryList = new List<IQueryable<Laptop>>();
+            if (findById != null) queryList.Add(findById);
+            if (findByName != null) queryList.Add(findByName);
+            if (findByCategory != null) queryList.Add(findByCategory);
+            if (findIfSale != null) queryList.Add(findIfSale);
+
+            var result = queryList.Any() ? queryList.Aggregate((a, b) => a.Union(b)).ToList() : new List<Laptop>();
+            if (result.Any()) {
+                FillDataView(result);
+                ClearFilter();
+            } else {
+                MessageBox.Show("Không tìm thấy sản phẩm phù hợp");
+                ClearFilter();
             }
         }
 
@@ -183,6 +197,16 @@ namespace Final {
             TbPrice.Text = string.Empty;
             TbSale.Text = string.Empty;
             TbQuantity.Text = string.Empty;
+        }
+
+        private void BtnCancel_Click(object sender, EventArgs e) {
+            ClearFilter();
+        }
+
+        private void ClearFilter() {
+            TbIdFilter.Text = string.Empty;
+            TbNameFilter.Text = string.Empty;
+            CbxCategoryFilter.SelectedIndex = -1;
         }
     }
 }
