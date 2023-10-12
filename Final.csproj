@@ -61,11 +61,33 @@
     <Compile Include="AccessoryManagement.Designer.cs">
       <DependentUpon>AccessoryManagement.cs</DependentUpon>
     </Compile>
-    <Compile Include="BuildPC.cs">
+    <Compile Include="Model\AccessoryModel\Accessory.cs" />
+    <Compile Include="Model\AccessoryModel\AccessoryBrand.cs" />
+    <Compile Include="Model\AccessoryModel\AccessoryCategory.cs" />
+    <Compile Include="Model\AccessoryModel\AccessoryContext.cs" />
+    <Compile Include="Model\AccessoryModel\AccessoryInvoice.cs" />
+    <Compile Include="Model\AccessoryModel\AccessoryOrder.cs" />
+    <Compile Include="Model\LaptopModel\Laptop.cs" />
+    <Compile Include="Model\LaptopModel\LaptopCategory.cs" />
+    <Compile Include="Model\LaptopModel\LaptopContext.cs" />
+    <Compile Include="Model\LaptopModel\LaptopInvoice.cs" />
+    <Compile Include="Model\LaptopModel\LaptopOrder.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Temp.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="BuildPC.Designer.cs">
-      <DependentUpon>BuildPC.cs</DependentUpon>
+    <Compile Include="Temp.Designer.cs">
+      <DependentUpon>Temp.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BuyAccessory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BuyAccessory.Designer.cs">
+      <DependentUpon>BuyAccessory.cs</DependentUpon>
     </Compile>
     <Compile Include="BuyLaptop.cs">
       <SubType>Form</SubType>
@@ -85,17 +107,6 @@
     <Compile Include="Main.Designer.cs">
       <DependentUpon>Main.cs</DependentUpon>
     </Compile>
-    <Compile Include="Model\BuildPCModel\Accessory.cs" />
-    <Compile Include="Model\BuildPCModel\AccessoryBrand.cs" />
-    <Compile Include="Model\BuildPCModel\AccessoryCategory.cs" />
-    <Compile Include="Model\BuildPCModel\BuildPcDBContext.cs" />
-    <Compile Include="Model\BuildPCModel\CustomPCInvoice.cs" />
-    <Compile Include="Model\BuildPCModel\CustomPCOrder.cs" />
-    <Compile Include="Model\LaptopModel\Laptop.cs" />
-    <Compile Include="Model\LaptopModel\LaptopCategory.cs" />
-    <Compile Include="Model\LaptopModel\LaptopDBContext.cs" />
-    <Compile Include="Model\LaptopModel\LaptopInvoice.cs" />
-    <Compile Include="Model\LaptopModel\LaptopOrder.cs" />
     <Compile Include="OrderHistory.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -107,8 +118,11 @@
     <EmbeddedResource Include="AccessoryManagement.resx">
       <DependentUpon>AccessoryManagement.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="BuildPC.resx">
-      <DependentUpon>BuildPC.cs</DependentUpon>
+    <EmbeddedResource Include="Temp.resx">
+      <DependentUpon>Temp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BuyAccessory.resx">
+      <DependentUpon>BuyAccessory.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="BuyLaptop.resx">
       <DependentUpon>BuyLaptop.cs</DependentUpon>
@@ -121,13 +135,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-    </Compile>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -142,8 +152,24 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
-    <Folder Include="Model\OrderDataSet\" />
+    <None Include="Resources\Custom-Icon-Design-Flatastic-11-Download-to-laptop.48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Sonya-Swarm-Laptop.48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Hopstarter-Sleek-Xp-Software-Windows-Close-Program.32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BogdanGC-Layered-System-Games-Console.48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\warehouse.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\trolley.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

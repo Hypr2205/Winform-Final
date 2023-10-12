@@ -1,7 +1,7 @@
 ﻿using Final.Model.LaptopModel;
 using System;
 using System.Collections.Generic;
-using System.Globalization;
+using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
 
@@ -12,23 +12,13 @@ namespace Final {
         }
 
         private void BuyLaptop_Load(object sender, System.EventArgs e) {
-            LoadTime();
-            FilterContainer.Visible = false;
+            TbBuyQuantity_OnLeave(sender, e);
             try {
-                LaptopDBContext context = new LaptopDBContext();
+                LaptopContext context = new LaptopContext();
                 FillDataView(context.Laptops.ToList());
             } catch (Exception ex) {
                 MessageBox.Show(ex.Message);
             }
-        }
-
-        private void LoadTime() {
-            DateTime time = DateTime.Now;
-            CultureInfo culture = new CultureInfo("vi-VN");
-            LbTime.Text = culture.DateTimeFormat.GetDayName(time.DayOfWeek) + ", " +
-                            time.Day + " " +
-                            culture.DateTimeFormat.GetMonthName(time.Month) + " " +
-                            time.Year;
         }
 
         private void FilterAction_Click(object sender, EventArgs e) {
@@ -57,60 +47,29 @@ namespace Final {
         }
 
         private void DgvLaptops_CellContentClick(object sender, DataGridViewCellEventArgs e) {
-            var row = DgvLaptops.Rows[e.RowIndex];
-            TbLaptopID.Text = row.Cells[0].Value.ToString();
-            TbLaptopName.Text = row.Cells[1].Value.ToString();
-            TbLaptopCategory.Text = row.Cells[2].Value.ToString();
-            TbLaptopPrice.Text = row.Cells[3].Value.ToString();
-            if (int.Parse(row.Cells[4].Value.ToString()) != 0) {
-                TbSalePercent.Text = row.Cells[4].Value.ToString() + "%";
-            } else {
-                TbSalePercent.Text = "Không có khuyến mãi";
-            }
+
         }
 
         private void BtnFilter_Click(object sender, EventArgs e) {
-            LaptopDBContext context = new LaptopDBContext();
 
-            //Lọc theo tên hãng 
-
-            //Lọc theo tên máy hoặc mã máy
-            if (TbLaptopNameFilter.Text != "" || TbLaptopIdFilter.Text != "") {
-                FillDataView(context.Laptops.Where(l => l.LaptopName.Contains(TbLaptopNameFilter.Text) || l.LaptopID.Contains(TbLaptopIdFilter.Text)).ToList());
-            }
-
-            //Lọc nếu chọn ô xem khuyến mãi
-            if (CbIsSale.Checked) {
-                FillDataView(context.Laptops.Where(l => l.Sale != 0).ToList());
-            }
-
-            //Lọc theo khoảng giá
-            var selectedPriceRange = CbxPriceRange.SelectedIndex;
-            if (selectedPriceRange == 0) {
-                FillDataView(context.Laptops.Where(l => l.SellPrice < 15_000_000).ToList());
-            } else if (selectedPriceRange == 1) {
-                FillDataView(context.Laptops.Where(l => l.SellPrice >= 15_000_000 && l.SellPrice < 20_000_000).ToList());
-            } else if (selectedPriceRange == 2) {
-                FillDataView(context.Laptops.Where(l => l.SellPrice >= 20_000_000 && l.SellPrice < 30_000_000).ToList());
-            } else if (selectedPriceRange == 3) {
-                FillDataView(context.Laptops.Where(l => l.SellPrice > 30_000_000).ToList());
-            }
         }
 
         private void BtnAddToCart_Click(object sender, EventArgs e) {
-            LaptopDBContext context = new LaptopDBContext();
-            var find = context.Laptops.FirstOrDefault(l => l.LaptopID == TbLaptopID.Text);
-            if (find != null) {
-                if (find.Quantity == 0) {
-                    MessageBox.Show("Hết hàng");
-                }
-                find.Quantity -= 1;
-            }
-            FillDataView(context.Laptops.ToList());
+
         }
 
-        private void FilterContainer_Enter(object sender, EventArgs e) {
+        private void TbBuyQuantity_Enter(object sender, EventArgs e) {
+            if (TbBuyQuantity.Text == "Số lượng mua") {
+                TbBuyQuantity.Text = string.Empty;
+                TbBuyQuantity.ForeColor = Color.Black;
+            }
+        }
 
+        private void TbBuyQuantity_OnLeave(object sender, EventArgs e) {
+            if (TbBuyQuantity.Text == "") {
+                TbBuyQuantity.Text = "Số lượng mua";
+                TbBuyQuantity.ForeColor = Color.Silver;
+            }
         }
     }
 }

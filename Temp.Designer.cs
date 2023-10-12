@@ -1,5 +1,5 @@
 ﻿namespace Final {
-    partial class AccessoryManagement {
+    partial class Temp {
         /// <summary>
         /// Required designer variable.
         /// </summary>
@@ -23,8 +23,14 @@
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.DgvAccessories = new System.Windows.Forms.DataGridView();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.AccessoryInfoContainer = new System.Windows.Forms.GroupBox();
             this.TbQuantity = new System.Windows.Forms.TextBox();
             this.TbSale = new System.Windows.Forms.TextBox();
@@ -40,16 +46,9 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.BtnDelete = new System.Windows.Forms.Button();
             this.BtnSearch = new System.Windows.Forms.Button();
             this.BtnEdit = new System.Windows.Forms.Button();
-            this.BtnDelete = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.DgvAccessories)).BeginInit();
             this.AccessoryInfoContainer.SuspendLayout();
             this.SuspendLayout();
@@ -58,11 +57,7 @@
             // 
             this.DgvAccessories.AllowUserToAddRows = false;
             this.DgvAccessories.AllowUserToDeleteRows = false;
-            this.DgvAccessories.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.DgvAccessories.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.DgvAccessories.BackgroundColor = System.Drawing.Color.White;
             this.DgvAccessories.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DgvAccessories.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1,
@@ -72,23 +67,64 @@
             this.Column6,
             this.Column7,
             this.Column8});
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI Variable Display Semib", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.DarkTurquoise;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.DgvAccessories.DefaultCellStyle = dataGridViewCellStyle1;
-            this.DgvAccessories.Location = new System.Drawing.Point(457, 12);
+            this.DgvAccessories.Location = new System.Drawing.Point(448, 12);
             this.DgvAccessories.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.DgvAccessories.Name = "DgvAccessories";
             this.DgvAccessories.ReadOnly = true;
             this.DgvAccessories.RowHeadersWidth = 51;
             this.DgvAccessories.RowTemplate.Height = 24;
-            this.DgvAccessories.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.DgvAccessories.Size = new System.Drawing.Size(834, 610);
-            this.DgvAccessories.TabIndex = 1;
+            this.DgvAccessories.Size = new System.Drawing.Size(838, 610);
+            this.DgvAccessories.TabIndex = 0;
+            this.DgvAccessories.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvAccessories_CellContentClick);
+            // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "Mã linh kiện";
+            this.Column1.MinimumWidth = 6;
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            // 
+            // Column2
+            // 
+            this.Column2.HeaderText = "Tên linh kiện";
+            this.Column2.MinimumWidth = 6;
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
+            // 
+            // Column3
+            // 
+            this.Column3.HeaderText = "Hãng";
+            this.Column3.MinimumWidth = 6;
+            this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
+            // 
+            // Column5
+            // 
+            this.Column5.HeaderText = "Loại linh kiện";
+            this.Column5.MinimumWidth = 6;
+            this.Column5.Name = "Column5";
+            this.Column5.ReadOnly = true;
+            // 
+            // Column6
+            // 
+            this.Column6.HeaderText = "Giá bán";
+            this.Column6.MinimumWidth = 6;
+            this.Column6.Name = "Column6";
+            this.Column6.ReadOnly = true;
+            // 
+            // Column7
+            // 
+            this.Column7.HeaderText = "Khuyến mãi";
+            this.Column7.MinimumWidth = 6;
+            this.Column7.Name = "Column7";
+            this.Column7.ReadOnly = true;
+            // 
+            // Column8
+            // 
+            this.Column8.HeaderText = "Số lượng";
+            this.Column8.MinimumWidth = 6;
+            this.Column8.Name = "Column8";
+            this.Column8.ReadOnly = true;
             // 
             // AccessoryInfoContainer
             // 
@@ -106,14 +142,14 @@
             this.AccessoryInfoContainer.Controls.Add(this.label3);
             this.AccessoryInfoContainer.Controls.Add(this.label2);
             this.AccessoryInfoContainer.Controls.Add(this.label1);
-            this.AccessoryInfoContainer.Location = new System.Drawing.Point(11, 12);
+            this.AccessoryInfoContainer.Location = new System.Drawing.Point(-2, 12);
             this.AccessoryInfoContainer.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.AccessoryInfoContainer.Name = "AccessoryInfoContainer";
             this.AccessoryInfoContainer.Padding = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.AccessoryInfoContainer.Size = new System.Drawing.Size(442, 550);
-            this.AccessoryInfoContainer.TabIndex = 2;
+            this.AccessoryInfoContainer.TabIndex = 1;
             this.AccessoryInfoContainer.TabStop = false;
-            this.AccessoryInfoContainer.Text = "Thông tin phụ kiện";
+            this.AccessoryInfoContainer.Text = "Thông tin linh kiện";
             // 
             // TbQuantity
             // 
@@ -241,105 +277,55 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Tên linh kiện";
             // 
-            // Column1
+            // BtnDelete
             // 
-            this.Column1.HeaderText = "Mã phụ kiện";
-            this.Column1.MinimumWidth = 6;
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
-            // 
-            // Column2
-            // 
-            this.Column2.HeaderText = "Tên phụ kiện";
-            this.Column2.MinimumWidth = 6;
-            this.Column2.Name = "Column2";
-            this.Column2.ReadOnly = true;
-            // 
-            // Column3
-            // 
-            this.Column3.HeaderText = "Hãng";
-            this.Column3.MinimumWidth = 6;
-            this.Column3.Name = "Column3";
-            this.Column3.ReadOnly = true;
-            // 
-            // Column5
-            // 
-            this.Column5.HeaderText = "Loại phụ kiện";
-            this.Column5.MinimumWidth = 6;
-            this.Column5.Name = "Column5";
-            this.Column5.ReadOnly = true;
-            // 
-            // Column6
-            // 
-            this.Column6.HeaderText = "Giá bán";
-            this.Column6.MinimumWidth = 6;
-            this.Column6.Name = "Column6";
-            this.Column6.ReadOnly = true;
-            // 
-            // Column7
-            // 
-            this.Column7.HeaderText = "Khuyến mãi";
-            this.Column7.MinimumWidth = 6;
-            this.Column7.Name = "Column7";
-            this.Column7.ReadOnly = true;
-            // 
-            // Column8
-            // 
-            this.Column8.HeaderText = "Số lượng";
-            this.Column8.MinimumWidth = 6;
-            this.Column8.Name = "Column8";
-            this.Column8.ReadOnly = true;
+            this.BtnDelete.Location = new System.Drawing.Point(328, 568);
+            this.BtnDelete.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.BtnDelete.Name = "BtnDelete";
+            this.BtnDelete.Size = new System.Drawing.Size(112, 54);
+            this.BtnDelete.TabIndex = 2;
+            this.BtnDelete.Text = "Xoá";
+            this.BtnDelete.UseVisualStyleBackColor = true;
+            this.BtnDelete.Click += new System.EventHandler(this.BtnDelete_Click);
             // 
             // BtnSearch
             // 
-            this.BtnSearch.Location = new System.Drawing.Point(11, 568);
+            this.BtnSearch.Location = new System.Drawing.Point(58, 568);
             this.BtnSearch.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.BtnSearch.Name = "BtnSearch";
             this.BtnSearch.Size = new System.Drawing.Size(112, 54);
-            this.BtnSearch.TabIndex = 4;
+            this.BtnSearch.TabIndex = 3;
             this.BtnSearch.Text = "Tìm kiếm";
             this.BtnSearch.UseVisualStyleBackColor = true;
             this.BtnSearch.Click += new System.EventHandler(this.BtnSearch_Click);
             // 
             // BtnEdit
             // 
-            this.BtnEdit.Location = new System.Drawing.Point(170, 568);
+            this.BtnEdit.Location = new System.Drawing.Point(192, 568);
             this.BtnEdit.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.BtnEdit.Name = "BtnEdit";
             this.BtnEdit.Size = new System.Drawing.Size(112, 54);
-            this.BtnEdit.TabIndex = 5;
+            this.BtnEdit.TabIndex = 4;
             this.BtnEdit.Text = "Cập nhật";
             this.BtnEdit.UseVisualStyleBackColor = true;
             this.BtnEdit.Click += new System.EventHandler(this.BtnEdit_Click);
             // 
-            // BtnDelete
-            // 
-            this.BtnDelete.Location = new System.Drawing.Point(341, 568);
-            this.BtnDelete.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.BtnDelete.Name = "BtnDelete";
-            this.BtnDelete.Size = new System.Drawing.Size(112, 54);
-            this.BtnDelete.TabIndex = 6;
-            this.BtnDelete.Text = "Xoá";
-            this.BtnDelete.UseVisualStyleBackColor = true;
-            this.BtnDelete.Click += new System.EventHandler(this.BtnDelete_Click);
-            // 
-            // AccessoryManagement
+            // Temp
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 22F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1302, 632);
-            this.Controls.Add(this.BtnDelete);
+            this.BackColor = System.Drawing.SystemColors.Control;
+            this.ClientSize = new System.Drawing.Size(1296, 645);
             this.Controls.Add(this.BtnEdit);
             this.Controls.Add(this.BtnSearch);
+            this.Controls.Add(this.BtnDelete);
             this.Controls.Add(this.AccessoryInfoContainer);
             this.Controls.Add(this.DgvAccessories);
             this.Font = new System.Drawing.Font("Segoe UI Variable Display Semib", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.Name = "AccessoryManagement";
+            this.Location = new System.Drawing.Point(15, 15);
+            this.Margin = new System.Windows.Forms.Padding(4);
+            this.Name = "Temp";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "AccessoryManagement";
-            this.Load += new System.EventHandler(this.AccessoryManagement_Load);
             ((System.ComponentModel.ISupportInitialize)(this.DgvAccessories)).EndInit();
             this.AccessoryInfoContainer.ResumeLayout(false);
             this.AccessoryInfoContainer.PerformLayout();
@@ -351,20 +337,23 @@
 
         private System.Windows.Forms.DataGridView DgvAccessories;
         private System.Windows.Forms.GroupBox AccessoryInfoContainer;
-        private System.Windows.Forms.TextBox TbQuantity;
-        private System.Windows.Forms.TextBox TbSale;
-        private System.Windows.Forms.ComboBox CbxAccessoryBrand;
-        private System.Windows.Forms.TextBox TbPrice;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.ComboBox CbxAccessoryCategory;
-        private System.Windows.Forms.TextBox TbAccessoryName;
-        private System.Windows.Forms.TextBox TbAccessoryID;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox TbPrice;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.ComboBox CbxAccessoryCategory;
+        private System.Windows.Forms.TextBox TbAccessoryName;
+        private System.Windows.Forms.TextBox TbAccessoryID;
+        private System.Windows.Forms.ComboBox CbxAccessoryBrand;
+        private System.Windows.Forms.TextBox TbQuantity;
+        private System.Windows.Forms.TextBox TbSale;
+        private System.Windows.Forms.Button BtnDelete;
+        private System.Windows.Forms.Button BtnSearch;
+        private System.Windows.Forms.Button BtnEdit;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
@@ -372,8 +361,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
-        private System.Windows.Forms.Button BtnSearch;
-        private System.Windows.Forms.Button BtnEdit;
-        private System.Windows.Forms.Button BtnDelete;
     }
 }

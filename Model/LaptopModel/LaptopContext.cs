@@ -1,12 +1,9 @@
-using System;
-using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity;
-using System.Linq;
 
 namespace Final.Model.LaptopModel {
-    public partial class LaptopDBContext : DbContext {
-        public LaptopDBContext()
-            : base("name=LaptopDBContext") {
+    public partial class LaptopContext : DbContext {
+        public LaptopContext()
+            : base("name=LaptopContext") {
         }
 
         public virtual DbSet<Laptop> Laptops { get; set; }
@@ -24,17 +21,9 @@ namespace Final.Model.LaptopModel {
                 .HasPrecision(18, 0);
 
             modelBuilder.Entity<Laptop>()
-                .Property(e => e.CategoryID)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<Laptop>()
                 .HasMany(e => e.LaptopOrders)
                 .WithRequired(e => e.Laptop)
                 .WillCascadeOnDelete(false);
-
-            modelBuilder.Entity<LaptopCategory>()
-                .Property(e => e.CategoryID)
-                .IsUnicode(false);
 
             modelBuilder.Entity<LaptopCategory>()
                 .HasMany(e => e.Laptops)
@@ -66,10 +55,6 @@ namespace Final.Model.LaptopModel {
             modelBuilder.Entity<LaptopOrder>()
                 .Property(e => e.SellPrice)
                 .HasPrecision(18, 0);
-
-            modelBuilder.Entity<LaptopOrder>()
-                .Property(e => e.CategoryID)
-                .IsUnicode(false);
 
             modelBuilder.Entity<LaptopOrder>()
                 .Property(e => e.BuyPrice)

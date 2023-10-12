@@ -1,17 +1,12 @@
-namespace Final.Model.BuildPCModel
-{
-    using System;
-    using System.Collections.Generic;
+namespace Final.Model.AccessoryModel {
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
-    using System.Data.Entity.Spatial;
 
-    [Table("CustomPCOrder")]
-    public partial class CustomPCOrder
-    {
+    [Table("AccessoryOrder")]
+    public partial class AccessoryOrder {
         [Key]
         [Column(Order = 0)]
-        [StringLength(10)]
+        [StringLength(6)]
         public string InvoiceID { get; set; }
 
         [Key]
@@ -31,15 +26,13 @@ namespace Final.Model.BuildPCModel
 
         public int Sale { get; set; }
 
-        [Required]
-        [StringLength(10)]
-        public string BrandID { get; set; }
+        public int BrandID { get; set; }
 
-        [Required]
-        [StringLength(10)]
-        public string CategoryID { get; set; }
+        public int CategoryID { get; set; }
 
         public decimal BuyPrice { get; set; }
+
+        public int BuyQuantity { get; set; }
 
         public virtual Accessory Accessory { get; set; }
 
@@ -47,6 +40,6 @@ namespace Final.Model.BuildPCModel
 
         public virtual AccessoryCategory AccessoryCategory { get; set; }
 
-        public virtual CustomPCInvoice CustomPCInvoice { get; set; }
+        public virtual AccessoryInvoice AccessoryInvoice { get; set; }
     }
 }

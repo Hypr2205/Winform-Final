@@ -5,23 +5,23 @@ using System.Linq;
 using System.Windows.Forms;
 
 namespace Final {
-    public partial class AccessoryManagement : Form {
-        public AccessoryManagement() {
+    public partial class Temp : Form {
+        public Temp() {
             InitializeComponent();
         }
 
         private void AccessoryManagement_Load(object sender, EventArgs e) {
             try {
-                AccessoryContext context = new AccessoryContext();
-                FillBrandBox(context.AccessoryBrands.ToList());
-                FillCategoryBox(context.AccessoryCategories.ToList());
+                var context = new AccessoryContext();
                 FillDataView(context.Accessories.ToList());
+
             } catch (Exception ex) {
                 MessageBox.Show(ex.Message);
             }
         }
 
         private void BtnSearch_Click(object sender, EventArgs e) {
+
 
         }
 
@@ -70,7 +70,6 @@ namespace Final {
                     context.SaveChanges();
                     ClearInput();
                     MessageBox.Show("Thêm mới thành công");
-                    context = new AccessoryContext();
                     FillDataView(context.Accessories.ToList());
                 } else {
                     var find = context.Accessories.FirstOrDefault(a => a.AccessoryID == TbAccessoryID.Text);
@@ -119,7 +118,7 @@ namespace Final {
                 } else if (isValidQuantity && quantity < find.Quantity) {
                     MessageBox.Show("Số lượng xoá không hợp lệ!");
                 } else {
-                    var dialogResult = MessageBox.Show("Xoá sản phẩm?", "YES/NO", MessageBoxButtons.YesNo);
+                    var dialogResult = MessageBox.Show("Bạn có muốn xoá ?", "YES/NO", MessageBoxButtons.YesNo);
                     if (dialogResult == DialogResult.Yes) find.Quantity -= quantity;
                 }
 
@@ -171,6 +170,10 @@ namespace Final {
             TbPrice.Text = string.Empty;
             TbQuantity.Text = string.Empty;
             TbSale.Text = string.Empty;
+        }
+
+        private void DgvAccessories_CellContentClick(object sender, DataGridViewCellEventArgs e) {
+
         }
     }
 }

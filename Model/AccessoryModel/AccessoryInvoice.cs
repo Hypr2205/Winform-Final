@@ -1,22 +1,18 @@
-namespace Final.Model.BuildPCModel
-{
+namespace Final.Model.AccessoryModel {
     using System;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
-    using System.Data.Entity.Spatial;
 
-    [Table("CustomPCInvoice")]
-    public partial class CustomPCInvoice
-    {
+    [Table("AccessoryInvoice")]
+    public partial class AccessoryInvoice {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public CustomPCInvoice()
-        {
-            CustomPCOrders = new HashSet<CustomPCOrder>();
+        public AccessoryInvoice() {
+            AccessoryOrders = new HashSet<AccessoryOrder>();
         }
 
         [Key]
-        [StringLength(10)]
+        [StringLength(6)]
         public string InvoiceID { get; set; }
 
         public DateTime OrderDate { get; set; }
@@ -27,6 +23,6 @@ namespace Final.Model.BuildPCModel
         public string Note { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<CustomPCOrder> CustomPCOrders { get; set; }
+        public virtual ICollection<AccessoryOrder> AccessoryOrders { get; set; }
     }
 }

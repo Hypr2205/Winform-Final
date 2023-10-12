@@ -11,63 +11,86 @@ namespace Final {
         }
 
         private void LaptopManagement_Load(object sender, EventArgs e) {
+            CbxLaptopCategory.SelectedItem = null;
             try {
-                LaptopDBContext context = new LaptopDBContext();
+                var context = new LaptopContext();
                 FillCategoryData(context.LaptopCategories.ToList());
                 FillDataView(context.Laptops.ToList());
-                CbxLaptopCategory.SelectedItem = null;
             } catch (Exception ex) {
                 MessageBox.Show(ex.Message);
             }
         }
 
-        private void BtnAdd_Click(object sender, EventArgs e) {
+        private void BtnEdit_Click(object sender, EventArgs e) {
             try {
-                LaptopDBContext context = new LaptopDBContext();
-                var find = context.Laptops.FirstOrDefault(l => l.LaptopID == TblaptopID.Text);
-                //Nếu đã tồn tại
-                if (find != null) {
-                    if (TbLaptopName.Text == "" || TblaptopID.Text == "" || TbPrice.Text == "" ||
-                        TbQuantity.Text == "") {
-                        MessageBox.Show("Vui lòng điền đầy đủ thông tin");
-                    }
-
-                    find.LaptopName = TbLaptopName.Text;
-                    find.CategoryID = ((LaptopCategory)CbxLaptopCategory.SelectedItem).CategoryID;
-                    if (decimal.TryParse(TbPrice.Text, out decimal price)) {
-                        find.SellPrice = price;
+                LaptopContext context = new LaptopContext();
+                var selectedRow = GetRowIndex(TblaptopID.Text);
+                if (selectedRow == -1) { //Nếu không tồn tại
+                    var laptop = new Laptop();
+                    if (TblaptopID.Text != string.Empty) {
+                        laptop.LaptopID = TblaptopID.Text;
                     } else {
-                        MessageBox.Show("Giá trị nhập vào không đúng");
+                        MessageBox.Show("Mã laptop còn thiếu!");
                     }
 
-                    if (TbSale.Text != "" && int.TryParse(TbSale.Text, out int sale)) {
-                        find.Sale = sale;
+                    if (TbLaptopName.Text != string.Empty) {
+                        laptop.LaptopName = TbLaptopName.Text;
                     } else {
-                        MessageBox.Show("Giá trị nhập vào không đúng");
+                        MessageBox.Show("Tên laptop còn thiếu");
                     }
 
-                    if (int.TryParse(TbQuantity.Text, out int quantity)) {
-                        find.Quantity += quantity; // update SL len
+                    if (TbPrice.Text != string.Empty && decimal.TryParse(TbPrice.Text, out var price)) {
+                        laptop.SellPrice = price;
                     } else {
-                        MessageBox.Show("Giá trị nhập vào không đúng");
+                        MessageBox.Show("Giá bán không hợp lệ hoặc còn thiếu");
                     }
 
-                    //Lưu thay đổi
+                    if (int.TryParse(TbSale.Text, out var sale) && sale > 0) {
+                        laptop.Sale = sale;
+                    } else {
+                        laptop.Sale = 0;
+                    }
+
+                    if (TbQuantity.Text != string.Empty && int.TryParse(TbQuantity.Text, out var quantity)) {
+                        laptop.Quantity = quantity;
+                    } else {
+                        MessageBox.Show("Số lượng không hợp lệ hoặc còn thiếu");
+                    }
+
+                    laptop.CategoryID = ((LaptopCategory)CbxLaptopCategory.SelectedItem).CategoryID;
+
+                    context.Laptops.Add(laptop);
                     context.SaveChanges();
+                    ClearInput();
+                    MessageBox.Show("Thêm thành công");
+                    context = new LaptopContext();
                     FillDataView(context.Laptops.ToList());
                 } else {
-                    Laptop lap = new Laptop() {
-                        LaptopID = TblaptopID.Text,
-                        LaptopName = TbLaptopName.Text,
-                        CategoryID = ((LaptopCategory)CbxLaptopCategory.SelectedItem).CategoryID,
-                        SellPrice = decimal.Parse(TbSale.Text),
-                        Sale = int.Parse(TbSale.Text),
-                        Quantity = int.Parse(TbQuantity.Text),
-                    };
-                    context.Laptops.Add(lap);
+                    var find = context.Laptops.FirstOrDefault(l => l.LaptopID == TblaptopID.Text);
+                    if (find == null) return;
+                    find.LaptopID = TblaptopID.Text;
+                    find.LaptopName = TbLaptopName.Text;
+                    find.CategoryID = ((LaptopCategory)CbxLaptopCategory.SelectedItem).CategoryID;
+                    if (decimal.TryParse(TbPrice.Text, out var price) && price > 0) {
+                        find.SellPrice = price;
+                    } else {
+                        MessageBox.Show("Giá nhập vào không hợp lệ");
+                    }
+
+                    if (int.TryParse(TbQuantity.Text, out var quantity) && quantity > 0) {
+                        find.Quantity = quantity;
+                    } else {
+                        MessageBox.Show("Số lượng nhập vào không hợp lệ");
+                    }
+
+                    if (TbSale.Text != string.Empty && int.TryParse(TbSale.Text, out var sale) && sale > 0) {
+                        find.Sale = sale;
+                    } else {
+                        find.Sale = 0;
+                    }
                     context.SaveChanges();
-                    MessageBox.Show("Thêm thành công");
-                    context = new LaptopDBContext();
+                    ClearInput();
+                    MessageBox.Show("Cập nhật dữ liệu thành công");
                     FillDataView(context.Laptops.ToList());
                 }
             } catch (Exception ex) {
@@ -76,29 +99,23 @@ namespace Final {
         }
 
         private void BtnDelete_Click(object sender, EventArgs e) {
-            //Làm phần xoá, khi xoá sẽ kiểm tra số lượng trong ô Số lượng xoá chỉ trừ đi số lượng sau đó lưu thay đổi và gọi lại hàm FillDataView()
             try {
-                LaptopDBContext context = new LaptopDBContext();
-                var find = context.Laptops.FirstOrDefault(l => l.LaptopID == TblaptopID.Text);
-                //Nếu không tồn tại
-                if (find == null) {
-                    MessageBox.Show("Laptop này không tồn tại!");
-                    return;
+                var context = new LaptopContext();
+                var find = context.Laptops.FirstOrDefault(a => a.LaptopID == TblaptopID.Text);
+                var isValidQuantity = int.TryParse(TbQuantity.Text, out var quantity);
+                if (find == null) return;
+                if (find.Quantity == 0) {
+                    MessageBox.Show("Không thể xoá sản phẩm này!");
+                } else if (isValidQuantity && quantity < find.Quantity) {
+                    MessageBox.Show("Số lượng xoá không hợp lệ!");
+                } else {
+                    var dialogResult = MessageBox.Show("Bạn có muốn xoá ?", "YES/NO", MessageBoxButtons.YesNo);
+                    if (dialogResult == DialogResult.Yes) find.Quantity -= quantity;
                 }
 
-                DialogResult dialog = MessageBox.Show("Bạn có muốn xoá ?", "YES/NO", MessageBoxButtons.YesNo);
-                if (int.TryParse(TbQuantity.Text, out int quantity) && quantity > 0 && quantity <= find.Quantity) {
-                    if (dialog == DialogResult.Yes) {
-                        find.Quantity -= quantity;
-                        context.SaveChanges();
-                        FillDataView(context.Laptops.ToList());
-                    }
-                } else {
-                    MessageBox.Show("Số lượng xoá ngoài phạm vi có thể xoá !",
-                        "Lỗi",
-                        MessageBoxButtons.OK,
-                        MessageBoxIcon.Error);
-                }
+                context.SaveChanges();
+                ClearInput();
+                MessageBox.Show("Xoá thành công");
             } catch (Exception ex) {
                 MessageBox.Show(ex.Message);
             }
@@ -106,23 +123,21 @@ namespace Final {
 
         private void DgvLaptops_CellContentClick(object sender, DataGridViewCellEventArgs e) {
             var lapId = DgvLaptops.Rows[e.RowIndex].Cells[0].Value.ToString();
-            var context = new LaptopDBContext();
+            var context = new LaptopContext();
             var find = context.Laptops.FirstOrDefault(l => l.LaptopID == lapId);
-            if (find == null) {
-                return;
-            }
+            if (find == null) return;
 
             TblaptopID.Text = lapId;
             TbLaptopName.Text = find.LaptopName;
             TbPrice.Text = find.SellPrice.ToString();
             TbSale.Text = find.Sale != 0 ? find.Sale.ToString() : "";
+            TbQuantity.Text = find.Quantity.ToString();
             CbxLaptopCategory.SelectedValue = find.CategoryID;
         }
 
         private void BtnSearch_Click(object sender, EventArgs e) {
-            //Tìm kiếm: thoả mãn 1 trong các ô: mã máy, tên máy, tìm xong gọi hàm FillDataView() để load giá trị 
             try {
-                var context = new LaptopDBContext();
+                var context = new LaptopContext();
                 var findById = context.Laptops.Where(l => l.LaptopID == TblaptopID.Text);
                 var findByName = context.Laptops.Where(l => l.LaptopName == TbLaptopName.Text);
                 var findByCategory = context.Laptops.Where(l =>
@@ -134,7 +149,7 @@ namespace Final {
             }
         }
 
-        private void FillCategoryData(IReadOnlyCollection<LaptopCategory> categories) {
+        private void FillCategoryData(List<LaptopCategory> categories) {
             CbxLaptopCategory.DataSource = categories;
             CbxLaptopCategory.DisplayMember = "CategoryName";
             CbxLaptopCategory.ValueMember = "CategoryID";
@@ -152,6 +167,22 @@ namespace Final {
                 DgvLaptops.Rows[index].Cells[4].Value = item.Sale.ToString();
                 DgvLaptops.Rows[index].Cells[5].Value = item.Quantity.ToString();
             }
+        }
+
+        private int GetRowIndex(string id) {
+            for (var i = 0; i < DgvLaptops.Rows.Count; i++)
+                if (DgvLaptops.Rows[i].Cells[0].Value.ToString() == id)
+                    return i;
+            return -1;
+        }
+
+        private void ClearInput() {
+            TblaptopID.Text = string.Empty;
+            TbLaptopName.Text = string.Empty;
+            CbxLaptopCategory.SelectedIndex = -1;
+            TbPrice.Text = string.Empty;
+            TbSale.Text = string.Empty;
+            TbQuantity.Text = string.Empty;
         }
     }
 }

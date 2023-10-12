@@ -1,17 +1,12 @@
-namespace Final.Model.LaptopModel
-{
-    using System;
+namespace Final.Model.LaptopModel {
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
-    using System.Data.Entity.Spatial;
 
     [Table("Laptop")]
-    public partial class Laptop
-    {
+    public partial class Laptop {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Laptop()
-        {
+        public Laptop() {
             LaptopOrders = new HashSet<LaptopOrder>();
         }
 
@@ -26,9 +21,7 @@ namespace Final.Model.LaptopModel
 
         public int Sale { get; set; }
 
-        [Required]
-        [StringLength(10)]
-        public string CategoryID { get; set; }
+        public int CategoryID { get; set; }
 
         public int Quantity { get; set; }
 

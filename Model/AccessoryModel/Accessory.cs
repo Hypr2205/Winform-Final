@@ -1,18 +1,13 @@
-namespace Final.Model.BuildPCModel
-{
-    using System;
+namespace Final.Model.AccessoryModel {
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
-    using System.Data.Entity.Spatial;
 
     [Table("Accessory")]
-    public partial class Accessory
-    {
+    public partial class Accessory {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Accessory()
-        {
-            CustomPCOrders = new HashSet<CustomPCOrder>();
+        public Accessory() {
+            AccessoryOrders = new HashSet<AccessoryOrder>();
         }
 
         [StringLength(10)]
@@ -22,17 +17,13 @@ namespace Final.Model.BuildPCModel
         [StringLength(100)]
         public string AccessoryName { get; set; }
 
-        public decimal SalePrice { get; set; }
+        public decimal SellPrice { get; set; }
 
         public int Sale { get; set; }
 
-        [Required]
-        [StringLength(10)]
-        public string BrandID { get; set; }
+        public int BrandID { get; set; }
 
-        [Required]
-        [StringLength(10)]
-        public string CategoryID { get; set; }
+        public int CategoryID { get; set; }
 
         public int Quantity { get; set; }
 
@@ -41,6 +32,6 @@ namespace Final.Model.BuildPCModel
         public virtual AccessoryCategory AccessoryCategory { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<CustomPCOrder> CustomPCOrders { get; set; }
+        public virtual ICollection<AccessoryOrder> AccessoryOrders { get; set; }
     }
 }
