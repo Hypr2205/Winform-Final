@@ -244,5 +244,31 @@ namespace Final {
             TbSale.Text = row.Cells[5].Value.ToString();
             TbQuantity.Text = row.Cells[6].Value.ToString();
         }
+
+        private void AccessoryBrandManagement_Click(object sender, EventArgs e) {
+            AccessoryBrandManagementForm accessoryBrandManagementForm = new AccessoryBrandManagementForm();
+            accessoryBrandManagementForm.FormClosed += AccessoryBrandManagementForm_FormClosed;
+            accessoryBrandManagementForm.Show();
+            Hide();
+        }
+
+        private void AccessoryBrandManagementForm_FormClosed(object sender, FormClosedEventArgs e) {
+            Show();
+        }
+
+        private void AccessoryCategoryManagement_Click(object sender, EventArgs e) {
+            AccessoryCategoryManagementForm accessoryCategoryManagementForm = new AccessoryCategoryManagementForm();
+            accessoryCategoryManagementForm.FormClosed += AccessoryCategoryManagementForm_FormClosed;
+            Hide();
+            accessoryCategoryManagementForm.Show();
+        }
+
+        private void AccessoryCategoryManagementForm_FormClosed(object sender, FormClosedEventArgs e) {
+            Show();
+        }
+
+        private void button1_Click(object sender, EventArgs e) {
+            AccessoryManagement_Load(sender, e);
+        }
     }
 }

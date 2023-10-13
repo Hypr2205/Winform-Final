@@ -33,6 +33,7 @@
             this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.AccessoryInfoContainer = new System.Windows.Forms.GroupBox();
+            this.button1 = new System.Windows.Forms.Button();
             this.BtnDelete = new System.Windows.Forms.Button();
             this.TbQuantity = new System.Windows.Forms.TextBox();
             this.BtnEdit = new System.Windows.Forms.Button();
@@ -62,9 +63,14 @@
             this.label11 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.chứcNăngToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.AccessoryBrandManagement = new System.Windows.Forms.ToolStripMenuItem();
+            this.AccessoryCategoryManagement = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.DgvAccessories)).BeginInit();
             this.AccessoryInfoContainer.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // DgvAccessories
@@ -155,6 +161,7 @@
             // 
             // AccessoryInfoContainer
             // 
+            this.AccessoryInfoContainer.Controls.Add(this.button1);
             this.AccessoryInfoContainer.Controls.Add(this.BtnDelete);
             this.AccessoryInfoContainer.Controls.Add(this.TbQuantity);
             this.AccessoryInfoContainer.Controls.Add(this.BtnEdit);
@@ -180,14 +187,27 @@
             this.AccessoryInfoContainer.TabStop = false;
             this.AccessoryInfoContainer.Text = "Thông tin phụ kiện";
             // 
+            // button1
+            // 
+            this.button1.Image = global::Final.Properties.Resources.icons8_refresh_32;
+            this.button1.Location = new System.Drawing.Point(18, 464);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(41, 42);
+            this.button1.TabIndex = 14;
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // BtnDelete
             // 
-            this.BtnDelete.Location = new System.Drawing.Point(311, 461);
+            this.BtnDelete.Image = global::Final.Properties.Resources.icons8_delete_32;
+            this.BtnDelete.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnDelete.Location = new System.Drawing.Point(340, 464);
             this.BtnDelete.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.BtnDelete.Name = "BtnDelete";
-            this.BtnDelete.Size = new System.Drawing.Size(112, 54);
+            this.BtnDelete.Size = new System.Drawing.Size(83, 42);
             this.BtnDelete.TabIndex = 6;
             this.BtnDelete.Text = "Xoá";
+            this.BtnDelete.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.BtnDelete.UseVisualStyleBackColor = true;
             this.BtnDelete.Click += new System.EventHandler(this.BtnDelete_Click);
             // 
@@ -202,12 +222,15 @@
             // 
             // BtnEdit
             // 
-            this.BtnEdit.Location = new System.Drawing.Point(159, 461);
+            this.BtnEdit.Image = global::Final.Properties.Resources.icons8_update_32;
+            this.BtnEdit.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnEdit.Location = new System.Drawing.Point(159, 464);
             this.BtnEdit.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.BtnEdit.Name = "BtnEdit";
-            this.BtnEdit.Size = new System.Drawing.Size(112, 54);
+            this.BtnEdit.Size = new System.Drawing.Size(119, 42);
             this.BtnEdit.TabIndex = 5;
             this.BtnEdit.Text = "Cập nhật";
+            this.BtnEdit.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.BtnEdit.UseVisualStyleBackColor = true;
             this.BtnEdit.Click += new System.EventHandler(this.BtnEdit_Click);
             // 
@@ -353,7 +376,7 @@
             this.groupBox1.Controls.Add(this.label11);
             this.groupBox1.Controls.Add(this.label12);
             this.groupBox1.Controls.Add(this.label14);
-            this.groupBox1.Location = new System.Drawing.Point(11, 34);
+            this.groupBox1.Location = new System.Drawing.Point(11, 48);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(2, 3, 2, 3);
@@ -465,6 +488,41 @@
             this.label14.TabIndex = 0;
             this.label14.Text = "Tên phụ kiện";
             // 
+            // menuStrip1
+            // 
+            this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.chứcNăngToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(1302, 30);
+            this.menuStrip1.TabIndex = 15;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // chứcNăngToolStripMenuItem
+            // 
+            this.chứcNăngToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.AccessoryBrandManagement,
+            this.AccessoryCategoryManagement});
+            this.chứcNăngToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI Variable Display Semib", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chứcNăngToolStripMenuItem.Name = "chứcNăngToolStripMenuItem";
+            this.chứcNăngToolStripMenuItem.Size = new System.Drawing.Size(108, 26);
+            this.chứcNăngToolStripMenuItem.Text = "Chức năng";
+            // 
+            // AccessoryBrandManagement
+            // 
+            this.AccessoryBrandManagement.Name = "AccessoryBrandManagement";
+            this.AccessoryBrandManagement.Size = new System.Drawing.Size(254, 26);
+            this.AccessoryBrandManagement.Text = "Quản lý hãng";
+            this.AccessoryBrandManagement.Click += new System.EventHandler(this.AccessoryBrandManagement_Click);
+            // 
+            // AccessoryCategoryManagement
+            // 
+            this.AccessoryCategoryManagement.Name = "AccessoryCategoryManagement";
+            this.AccessoryCategoryManagement.Size = new System.Drawing.Size(254, 26);
+            this.AccessoryCategoryManagement.Text = "Quản lý loại phụ kiện";
+            this.AccessoryCategoryManagement.Click += new System.EventHandler(this.AccessoryCategoryManagement_Click);
+            // 
             // AccessoryManagement
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 22F);
@@ -474,7 +532,9 @@
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.AccessoryInfoContainer);
             this.Controls.Add(this.DgvAccessories);
+            this.Controls.Add(this.menuStrip1);
             this.Font = new System.Drawing.Font("Segoe UI Variable Display Semib", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MainMenuStrip = this.menuStrip1;
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "AccessoryManagement";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -485,7 +545,10 @@
             this.AccessoryInfoContainer.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -529,5 +592,10 @@
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.CheckBox ChkIsSale;
         private System.Windows.Forms.CheckBox ChkIsInStock;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem chứcNăngToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem AccessoryBrandManagement;
+        private System.Windows.Forms.ToolStripMenuItem AccessoryCategoryManagement;
+        private System.Windows.Forms.Button button1;
     }
 }

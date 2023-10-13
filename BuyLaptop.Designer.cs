@@ -33,6 +33,8 @@
             this.SaleCell = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.QuantityCell = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.LaptopInfoContainer = new System.Windows.Forms.GroupBox();
+            this.BtnRefresh = new System.Windows.Forms.Button();
+            this.TbSale = new System.Windows.Forms.TextBox();
             this.TbBuyQuantity = new System.Windows.Forms.TextBox();
             this.BtnAddToCart = new System.Windows.Forms.Button();
             this.TbLaptopPrice = new System.Windows.Forms.TextBox();
@@ -55,10 +57,12 @@
             this.BtnFilter = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.TbNameFilter = new System.Windows.Forms.TextBox();
-            this.TbSale = new System.Windows.Forms.TextBox();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.Cart = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.DgvLaptops)).BeginInit();
             this.LaptopInfoContainer.SuspendLayout();
             this.FilterContainer.SuspendLayout();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // LbTitle
@@ -151,6 +155,7 @@
             // 
             // LaptopInfoContainer
             // 
+            this.LaptopInfoContainer.Controls.Add(this.BtnRefresh);
             this.LaptopInfoContainer.Controls.Add(this.TbSale);
             this.LaptopInfoContainer.Controls.Add(this.TbBuyQuantity);
             this.LaptopInfoContainer.Controls.Add(this.BtnAddToCart);
@@ -170,9 +175,27 @@
             this.LaptopInfoContainer.TabStop = false;
             this.LaptopInfoContainer.Text = "Thông tin Laptop";
             // 
+            // BtnRefresh
+            // 
+            this.BtnRefresh.Image = global::Final.Properties.Resources.icons8_refresh_32;
+            this.BtnRefresh.Location = new System.Drawing.Point(379, 409);
+            this.BtnRefresh.Name = "BtnRefresh";
+            this.BtnRefresh.Size = new System.Drawing.Size(56, 43);
+            this.BtnRefresh.TabIndex = 12;
+            this.BtnRefresh.UseVisualStyleBackColor = true;
+            this.BtnRefresh.Click += new System.EventHandler(this.BtnRefresh_Click);
+            // 
+            // TbSale
+            // 
+            this.TbSale.Location = new System.Drawing.Point(143, 350);
+            this.TbSale.Name = "TbSale";
+            this.TbSale.ReadOnly = true;
+            this.TbSale.Size = new System.Drawing.Size(280, 30);
+            this.TbSale.TabIndex = 10;
+            // 
             // TbBuyQuantity
             // 
-            this.TbBuyQuantity.Location = new System.Drawing.Point(219, 416);
+            this.TbBuyQuantity.Location = new System.Drawing.Point(203, 416);
             this.TbBuyQuantity.Name = "TbBuyQuantity";
             this.TbBuyQuantity.Size = new System.Drawing.Size(161, 30);
             this.TbBuyQuantity.TabIndex = 9;
@@ -386,13 +409,23 @@
             this.TbNameFilter.Size = new System.Drawing.Size(298, 30);
             this.TbNameFilter.TabIndex = 2;
             // 
-            // TbSale
+            // menuStrip1
             // 
-            this.TbSale.Location = new System.Drawing.Point(143, 350);
-            this.TbSale.Name = "TbSale";
-            this.TbSale.ReadOnly = true;
-            this.TbSale.Size = new System.Drawing.Size(280, 30);
-            this.TbSale.TabIndex = 10;
+            this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.Cart});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(1391, 28);
+            this.menuStrip1.TabIndex = 5;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // Cart
+            // 
+            this.Cart.Name = "Cart";
+            this.Cart.Size = new System.Drawing.Size(116, 24);
+            this.Cart.Text = "Xem giỏ hàng";
+            this.Cart.Click += new System.EventHandler(this.Cart_Click);
             // 
             // BuyLaptop
             // 
@@ -404,7 +437,9 @@
             this.Controls.Add(this.LaptopInfoContainer);
             this.Controls.Add(this.DgvLaptops);
             this.Controls.Add(this.LbTitle);
+            this.Controls.Add(this.menuStrip1);
             this.Font = new System.Drawing.Font("Segoe UI Variable Display Semib", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MainMenuStrip = this.menuStrip1;
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "BuyLaptop";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -415,7 +450,10 @@
             this.LaptopInfoContainer.PerformLayout();
             this.FilterContainer.ResumeLayout(false);
             this.FilterContainer.PerformLayout();
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -452,5 +490,8 @@
         private System.Windows.Forms.CheckBox ChkIsInStock;
         private System.Windows.Forms.TextBox TbBuyQuantity;
         private System.Windows.Forms.TextBox TbSale;
+        private System.Windows.Forms.Button BtnRefresh;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem Cart;
     }
 }

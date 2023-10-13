@@ -55,11 +55,35 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AccessoryBrandManagementForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AccessoryBrandManagementForm.Designer.cs">
+      <DependentUpon>AccessoryBrandManagementForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AccessoryCart.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AccessoryCart.Designer.cs">
+      <DependentUpon>AccessoryCart.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AccessoryCategoryManagementForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AccessoryCategoryManagementForm.Designer.cs">
+      <DependentUpon>AccessoryCategoryManagementForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="AccessoryManagement.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="AccessoryManagement.Designer.cs">
       <DependentUpon>AccessoryManagement.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LaptopCart.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LaptopCart.Designer.cs">
+      <DependentUpon>LaptopCart.cs</DependentUpon>
     </Compile>
     <Compile Include="Model\AccessoryModel\Accessory.cs" />
     <Compile Include="Model\AccessoryModel\AccessoryBrand.cs" />
@@ -67,6 +91,9 @@
     <Compile Include="Model\AccessoryModel\AccessoryContext.cs" />
     <Compile Include="Model\AccessoryModel\AccessoryInvoice.cs" />
     <Compile Include="Model\AccessoryModel\AccessoryOrder.cs" />
+    <Compile Include="Model\DTO\AccessoryCartDto.cs" />
+    <Compile Include="Model\DTO\CartList.cs" />
+    <Compile Include="Model\DTO\LaptopCartDto.cs" />
     <Compile Include="Model\LaptopModel\Laptop.cs" />
     <Compile Include="Model\LaptopModel\LaptopCategory.cs" />
     <Compile Include="Model\LaptopModel\LaptopContext.cs" />
@@ -109,6 +136,15 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="AccessoryBrandManagementForm.resx">
+      <DependentUpon>AccessoryBrandManagementForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AccessoryCart.resx">
+      <DependentUpon>AccessoryCart.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AccessoryCategoryManagementForm.resx">
+      <DependentUpon>AccessoryCategoryManagementForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AccessoryManagement.resx">
       <DependentUpon>AccessoryManagement.cs</DependentUpon>
     </EmbeddedResource>
@@ -117,6 +153,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="BuyLaptop.resx">
       <DependentUpon>BuyLaptop.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LaptopCart.resx">
+      <DependentUpon>LaptopCart.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LaptopManagement.resx">
       <DependentUpon>LaptopManagement.cs</DependentUpon>
@@ -143,7 +182,9 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\icons8-refresh-32.png" />
+  </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Custom-Icon-Design-Flatastic-11-Download-to-laptop.48.png" />
   </ItemGroup>
@@ -161,6 +202,15 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\trolley.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-search-32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-update-32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-delete-32.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

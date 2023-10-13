@@ -101,5 +101,19 @@ namespace Final {
             CbxCategoryFilter.SelectedIndex = -1;
         }
 
+        private void BtnRefresh_Click(object sender, EventArgs e) {
+            BuyLaptop_Load(sender, e);
+        }
+
+        private void Cart_Click(object sender, EventArgs e) {
+            LaptopCart cart = new LaptopCart();
+            cart.Show();
+            cart.FormClosed += Cart_FormClosed;
+            Hide();
+        }
+
+        private void Cart_FormClosed(object sender, FormClosedEventArgs e) {
+            Show();
+        }
     }
 }

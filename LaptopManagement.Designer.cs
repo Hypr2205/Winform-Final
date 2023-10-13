@@ -32,7 +32,10 @@
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.LaptopInfoContainer = new System.Windows.Forms.GroupBox();
+            this.BtnRefresh = new System.Windows.Forms.Button();
             this.TbQuantity = new System.Windows.Forms.TextBox();
+            this.BtnDelete = new System.Windows.Forms.Button();
+            this.BtnEdit = new System.Windows.Forms.Button();
             this.TbSale = new System.Windows.Forms.TextBox();
             this.TbPrice = new System.Windows.Forms.TextBox();
             this.CbxLaptopCategory = new System.Windows.Forms.ComboBox();
@@ -44,18 +47,16 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.BtnDelete = new System.Windows.Forms.Button();
-            this.BtnEdit = new System.Windows.Forms.Button();
             this.BtnSearch = new System.Windows.Forms.Button();
             this.filterContainer = new System.Windows.Forms.GroupBox();
+            this.ChkIsSale = new System.Windows.Forms.CheckBox();
+            this.BtnCancel = new System.Windows.Forms.Button();
             this.CbxCategoryFilter = new System.Windows.Forms.ComboBox();
             this.TbNameFilter = new System.Windows.Forms.TextBox();
             this.TbIdFilter = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
-            this.BtnCancel = new System.Windows.Forms.Button();
-            this.ChkIsSale = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.DgvLaptops)).BeginInit();
             this.LaptopInfoContainer.SuspendLayout();
             this.filterContainer.SuspendLayout();
@@ -141,6 +142,7 @@
             // 
             // LaptopInfoContainer
             // 
+            this.LaptopInfoContainer.Controls.Add(this.BtnRefresh);
             this.LaptopInfoContainer.Controls.Add(this.TbQuantity);
             this.LaptopInfoContainer.Controls.Add(this.BtnDelete);
             this.LaptopInfoContainer.Controls.Add(this.BtnEdit);
@@ -162,12 +164,48 @@
             this.LaptopInfoContainer.TabStop = false;
             this.LaptopInfoContainer.Text = "Thông tin Laptop";
             // 
+            // BtnRefresh
+            // 
+            this.BtnRefresh.Image = global::Final.Properties.Resources.icons8_refresh_32;
+            this.BtnRefresh.Location = new System.Drawing.Point(17, 403);
+            this.BtnRefresh.Name = "BtnRefresh";
+            this.BtnRefresh.Size = new System.Drawing.Size(60, 50);
+            this.BtnRefresh.TabIndex = 12;
+            this.BtnRefresh.UseVisualStyleBackColor = true;
+            this.BtnRefresh.Click += new System.EventHandler(this.BtnRefresh_Click);
+            // 
             // TbQuantity
             // 
             this.TbQuantity.Location = new System.Drawing.Point(190, 355);
             this.TbQuantity.Name = "TbQuantity";
             this.TbQuantity.Size = new System.Drawing.Size(235, 30);
             this.TbQuantity.TabIndex = 11;
+            // 
+            // BtnDelete
+            // 
+            this.BtnDelete.Image = global::Final.Properties.Resources.icons8_delete_32;
+            this.BtnDelete.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnDelete.Location = new System.Drawing.Point(340, 403);
+            this.BtnDelete.Name = "BtnDelete";
+            this.BtnDelete.Size = new System.Drawing.Size(85, 50);
+            this.BtnDelete.TabIndex = 2;
+            this.BtnDelete.Text = "Xoá";
+            this.BtnDelete.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.BtnDelete.UseVisualStyleBackColor = true;
+            this.BtnDelete.Click += new System.EventHandler(this.BtnDelete_Click);
+            // 
+            // BtnEdit
+            // 
+            this.BtnEdit.Image = global::Final.Properties.Resources.icons8_update_32;
+            this.BtnEdit.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnEdit.Location = new System.Drawing.Point(190, 403);
+            this.BtnEdit.Name = "BtnEdit";
+            this.BtnEdit.Size = new System.Drawing.Size(121, 50);
+            this.BtnEdit.TabIndex = 4;
+            this.BtnEdit.Text = "Cập nhật";
+            this.BtnEdit.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.BtnEdit.UseVisualStyleBackColor = true;
+            this.BtnEdit.Click += new System.EventHandler(this.BtnEdit_Click);
             // 
             // TbSale
             // 
@@ -261,26 +299,6 @@
             this.label1.Text = "Mã máy";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // BtnDelete
-            // 
-            this.BtnDelete.Location = new System.Drawing.Point(300, 403);
-            this.BtnDelete.Name = "BtnDelete";
-            this.BtnDelete.Size = new System.Drawing.Size(125, 50);
-            this.BtnDelete.TabIndex = 2;
-            this.BtnDelete.Text = "Xoá";
-            this.BtnDelete.UseVisualStyleBackColor = true;
-            this.BtnDelete.Click += new System.EventHandler(this.BtnDelete_Click);
-            // 
-            // BtnEdit
-            // 
-            this.BtnEdit.Location = new System.Drawing.Point(147, 403);
-            this.BtnEdit.Name = "BtnEdit";
-            this.BtnEdit.Size = new System.Drawing.Size(125, 50);
-            this.BtnEdit.TabIndex = 4;
-            this.BtnEdit.Text = "Cập nhật";
-            this.BtnEdit.UseVisualStyleBackColor = true;
-            this.BtnEdit.Click += new System.EventHandler(this.BtnEdit_Click);
-            // 
             // BtnSearch
             // 
             this.BtnSearch.Location = new System.Drawing.Point(838, 47);
@@ -308,6 +326,26 @@
             this.filterContainer.TabIndex = 12;
             this.filterContainer.TabStop = false;
             this.filterContainer.Text = "Thông tin Laptop";
+            // 
+            // ChkIsSale
+            // 
+            this.ChkIsSale.AutoSize = true;
+            this.ChkIsSale.Location = new System.Drawing.Point(479, 118);
+            this.ChkIsSale.Name = "ChkIsSale";
+            this.ChkIsSale.Size = new System.Drawing.Size(107, 26);
+            this.ChkIsSale.TabIndex = 10;
+            this.ChkIsSale.Text = "Đang sale";
+            this.ChkIsSale.UseVisualStyleBackColor = true;
+            // 
+            // BtnCancel
+            // 
+            this.BtnCancel.Location = new System.Drawing.Point(838, 109);
+            this.BtnCancel.Name = "BtnCancel";
+            this.BtnCancel.Size = new System.Drawing.Size(125, 39);
+            this.BtnCancel.TabIndex = 9;
+            this.BtnCancel.Text = "Huỷ";
+            this.BtnCancel.UseVisualStyleBackColor = true;
+            this.BtnCancel.Click += new System.EventHandler(this.BtnCancel_Click);
             // 
             // CbxCategoryFilter
             // 
@@ -359,26 +397,6 @@
             this.label12.TabIndex = 0;
             this.label12.Text = "Mã máy";
             this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // BtnCancel
-            // 
-            this.BtnCancel.Location = new System.Drawing.Point(838, 109);
-            this.BtnCancel.Name = "BtnCancel";
-            this.BtnCancel.Size = new System.Drawing.Size(125, 39);
-            this.BtnCancel.TabIndex = 9;
-            this.BtnCancel.Text = "Huỷ";
-            this.BtnCancel.UseVisualStyleBackColor = true;
-            this.BtnCancel.Click += new System.EventHandler(this.BtnCancel_Click);
-            // 
-            // ChkIsSale
-            // 
-            this.ChkIsSale.AutoSize = true;
-            this.ChkIsSale.Location = new System.Drawing.Point(479, 118);
-            this.ChkIsSale.Name = "ChkIsSale";
-            this.ChkIsSale.Size = new System.Drawing.Size(107, 26);
-            this.ChkIsSale.TabIndex = 10;
-            this.ChkIsSale.Text = "Đang sale";
-            this.ChkIsSale.UseVisualStyleBackColor = true;
             // 
             // LaptopManagement
             // 
@@ -438,5 +456,6 @@
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.CheckBox ChkIsSale;
+        private System.Windows.Forms.Button BtnRefresh;
     }
 }

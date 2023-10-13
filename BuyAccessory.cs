@@ -1,4 +1,5 @@
 ﻿using Final.Model.AccessoryModel;
+using Final.Model.DTO;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -23,7 +24,49 @@ namespace Final {
             }
         }
 
-        private void BtnAddToCart_Click(object sender, EventArgs e) { }
+        private void BtnAddToCart_Click(object sender, EventArgs e) {
+            var context = new AccessoryContext();
+            var find = context.Accessories.FirstOrDefault(a => a.AccessoryID == TbAccessoryID.Text);
+            var cartList = CartList.accessoryCart;
+
+            AccessoryCartDto cartDto = new AccessoryCartDto() {
+                AccessoryID = find.AccessoryID,
+                AccessoryName = find.AccessoryName,
+                BrandID = find.BrandID,
+                CategoryID = find.CategoryID,
+                SellPrice = find.SellPrice,
+                Sale = find.Sale,
+            };
+
+            if (int.Parse(TbBuyQuantity.Text) > find.Quantity) {
+                MessageBox.Show("Giá trị không hợp lệ");
+            } else if (find.Quantity == 0) {
+                MessageBox.Show("Hết hàng");
+                find.Quantity = 0;
+            } else {
+                cartDto.BuyQuantity = int.Parse(TbBuyQuantity.Text);
+            }
+
+            if (find.Sale != 0) {
+                cartDto.Sale = find.Sale;
+            }
+
+            cartDto.SellPrice = find.SellPrice;
+            cartDto.BuyPrice = (cartDto.SellPrice - cartDto.SellPrice * cartDto.Sale) * cartDto.BuyQuantity;
+
+            var exists = cartList.FirstOrDefault(i => i.AccessoryID.Equals(find.AccessoryID));
+            if (cartList.Contains(exists)) {
+                exists.BuyQuantity += int.Parse(TbBuyQuantity.Text);
+                find.Quantity -= int.Parse(TbBuyQuantity.Text);
+                context.SaveChanges();
+                FillDataView(context.Accessories.ToList());
+            } else {
+                cartList.Add(cartDto);
+                find.Quantity -= cartDto.BuyQuantity;
+                context.SaveChanges();
+                FillDataView(context.Accessories.ToList());
+            }
+        }
 
         private void DgvAccessories_CellContentClick(object sender, DataGridViewCellEventArgs e) {
             var row = DgvAccessories.Rows[e.RowIndex];
@@ -125,6 +168,21 @@ namespace Final {
             CbxCategoryFilter.SelectedIndex = -1;
             ChkInStock.Checked = false;
             ChkIsSale.Checked = false;
+        }
+
+        private void BtnRefresh_Click(object sender, EventArgs e) {
+            BuyAccessory_Load(sender, e);
+        }
+
+        private void Cart_Click(object sender, EventArgs e) {
+            AccessoryCart cart = new AccessoryCart();
+            cart.Show();
+            cart.FormClosed += Cart_FormClosed;
+            Hide();
+        }
+
+        private void Cart_FormClosed(object sender, FormClosedEventArgs e) {
+            Show();
         }
     }
 }

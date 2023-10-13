@@ -208,5 +208,9 @@ namespace Final {
             TbNameFilter.Text = string.Empty;
             CbxCategoryFilter.SelectedIndex = -1;
         }
+
+        private void BtnRefresh_Click(object sender, EventArgs e) {
+            LaptopManagement_Load(sender, e);
+        }
     }
 }

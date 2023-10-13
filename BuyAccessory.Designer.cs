@@ -26,7 +26,7 @@ namespace Final {
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.DgvAccessories = new System.Windows.Forms.DataGridView();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -37,6 +37,7 @@ namespace Final {
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.LbTitle = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.BtnRefresh = new System.Windows.Forms.Button();
             this.TbBuyQuantity = new System.Windows.Forms.TextBox();
             this.BtnAddToCart = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
@@ -62,9 +63,12 @@ namespace Final {
             this.TbIdFilter = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.Cart = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.DgvAccessories)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // DgvAccessories
@@ -86,14 +90,14 @@ namespace Final {
             this.Column5,
             this.Column7,
             this.Column6});
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI Variable Display Semib", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.DarkTurquoise;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.DgvAccessories.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI Variable Display Semib", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.DarkTurquoise;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.DgvAccessories.DefaultCellStyle = dataGridViewCellStyle2;
             this.DgvAccessories.Location = new System.Drawing.Point(438, 274);
             this.DgvAccessories.Name = "DgvAccessories";
             this.DgvAccessories.ReadOnly = true;
@@ -166,6 +170,7 @@ namespace Final {
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.BtnRefresh);
             this.groupBox1.Controls.Add(this.TbBuyQuantity);
             this.groupBox1.Controls.Add(this.BtnAddToCart);
             this.groupBox1.Controls.Add(this.label5);
@@ -185,9 +190,19 @@ namespace Final {
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Thông tin sản phẩm";
             // 
+            // BtnRefresh
+            // 
+            this.BtnRefresh.Image = global::Final.Properties.Resources.icons8_refresh_32;
+            this.BtnRefresh.Location = new System.Drawing.Point(358, 384);
+            this.BtnRefresh.Name = "BtnRefresh";
+            this.BtnRefresh.Size = new System.Drawing.Size(56, 35);
+            this.BtnRefresh.TabIndex = 11;
+            this.BtnRefresh.UseVisualStyleBackColor = true;
+            this.BtnRefresh.Click += new System.EventHandler(this.BtnRefresh_Click);
+            // 
             // TbBuyQuantity
             // 
-            this.TbBuyQuantity.Location = new System.Drawing.Point(223, 389);
+            this.TbBuyQuantity.Location = new System.Drawing.Point(195, 389);
             this.TbBuyQuantity.Name = "TbBuyQuantity";
             this.TbBuyQuantity.Size = new System.Drawing.Size(147, 30);
             this.TbBuyQuantity.TabIndex = 10;
@@ -418,6 +433,24 @@ namespace Final {
             this.label7.TabIndex = 10;
             this.label7.Text = "Mã sản phẩm";
             // 
+            // menuStrip1
+            // 
+            this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.Cart});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(1350, 28);
+            this.menuStrip1.TabIndex = 5;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // Cart
+            // 
+            this.Cart.Name = "Cart";
+            this.Cart.Size = new System.Drawing.Size(116, 24);
+            this.Cart.Text = "Xem giỏ hàng";
+            this.Cart.Click += new System.EventHandler(this.Cart_Click);
+            // 
             // BuyAccessory
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 22F);
@@ -428,7 +461,9 @@ namespace Final {
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.LbTitle);
             this.Controls.Add(this.DgvAccessories);
+            this.Controls.Add(this.menuStrip1);
             this.Font = new System.Drawing.Font("Segoe UI Variable Display Semib", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MainMenuStrip = this.menuStrip1;
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "BuyAccessory";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -439,7 +474,10 @@ namespace Final {
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -480,5 +518,8 @@ namespace Final {
         private System.Windows.Forms.Button BtnFilter;
         private System.Windows.Forms.TextBox TbBuyQuantity;
         private System.Windows.Forms.Button BtnCancel;
+        private System.Windows.Forms.Button BtnRefresh;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem Cart;
     }
 }
