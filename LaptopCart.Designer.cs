@@ -180,7 +180,7 @@
                   this.Margin = new System.Windows.Forms.Padding(4);
                   this.Name = "LaptopCart";
                   this.Text = "Giỏ hàng";
-                  this.Load += new System.EventHandler(this.LaptopCart_Load);
+
                   ((System.ComponentModel.ISupportInitialize)(this.DgvLaptopCart)).EndInit();
                   this.ResumeLayout(false);
                   this.PerformLayout();
