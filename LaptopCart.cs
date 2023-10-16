@@ -14,7 +14,11 @@ namespace Final {
         }
 
         private void LaptopCart_Load(object sender, EventArgs e) {
-            throw new NotImplementedException();
+            try {
+                FillDataView(CartList.laptopCart);
+            } catch (Exception ex) {
+                MessageBox.Show(ex.Message);
+            }
         }
         
         private void FillDataView(List<LaptopCartDto> laptops) {
