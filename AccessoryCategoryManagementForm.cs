@@ -30,18 +30,24 @@ namespace Final {
             var idFilter = string.IsNullOrEmpty(TbId.Text) ? null : TbId.Text;
             var nameFilter = string.IsNullOrEmpty(TbName.Text) ? null : TbName.Text;
 
-            var findById = idFilter != null ? context.AccessoryCategories.Where(b => b.CategoryID.ToString().Contains(TbId.Text)) : null;
-            var findByname = nameFilter != null ? context.AccessoryCategories.Where(b => b.CategoryName.Contains(nameFilter)) : null;
+            var findById = idFilter != null
+                ? context.AccessoryCategories.Where(b => b.CategoryID.ToString().Contains(TbId.Text))
+                : null;
+            var findByname = nameFilter != null
+                ? context.AccessoryCategories.Where(b => b.CategoryName.Contains(nameFilter))
+                : null;
 
             var queryList = new List<IQueryable<AccessoryCategory>>();
             if (findById != null) queryList.Add(findById);
             if (findByname != null) queryList.Add(findByname);
-            var result = queryList.Any() ? queryList.Aggregate((a, b) => a.Union(b)).ToList() : new List<AccessoryCategory>();
+            var result = queryList.Any()
+                ? queryList.Aggregate((a, b) => a.Union(b)).ToList()
+                : new List<AccessoryCategory>();
             if (result.Any()) {
                 FillDataView(result);
                 ClearInput();
             } else {
-                MessageBox.Show("Không tìm thấy sản phẩm phù hợp");
+                MessageBox.Show(@"Không tìm thấy sản phẩm phù hợp");
                 ClearInput();
             }
         }
@@ -50,8 +56,9 @@ namespace Final {
             try {
                 var context = new AccessoryContext();
                 if (TbId.Text == string.Empty || TbName.Text == string.Empty) {
-                    MessageBox.Show("Nhập đầy đủ thông tin");
+                    MessageBox.Show(@"Nhập đầy đủ thông tin");
                 }
+
                 var selectedRow = GetRowIndex(TbId.Text);
                 if (selectedRow == -1) {
                     AccessoryCategory category = new AccessoryCategory();
@@ -59,7 +66,7 @@ namespace Final {
                     category.CategoryName = TbName.Text;
                     context.AccessoryCategories.Add(category);
                     context.SaveChanges();
-                    MessageBox.Show("Thêm thành công");
+                    MessageBox.Show(@"Thêm thành công");
                     ClearInput();
 
                     context = new AccessoryContext();
@@ -70,7 +77,7 @@ namespace Final {
                         find.CategoryID = int.Parse(TbId.Text);
                         find.CategoryName = TbName.Text;
                         context.SaveChanges();
-                        MessageBox.Show("Cập nhật thành công");
+                        MessageBox.Show(@"Cập nhật thành công");
                         ClearInput();
                         FillDataView(context.AccessoryCategories.ToList());
                     }
@@ -86,11 +93,11 @@ namespace Final {
             if (find != null) {
                 context.AccessoryCategories.Remove(find);
                 context.SaveChanges();
-                MessageBox.Show("Xoá thành công");
+                MessageBox.Show(@"Xoá thành công");
                 FillDataView(context.AccessoryCategories.ToList());
                 ClearInput();
             } else {
-                MessageBox.Show("Không có hãng tồn tại");
+                MessageBox.Show(@"Không có hãng tồn tại");
             }
         }
 

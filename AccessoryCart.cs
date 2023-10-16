@@ -23,7 +23,7 @@ namespace Final {
         private void FillDataView(List<AccessoryCartDto> accessories) {
             DgvAccessoryCart.Rows.Clear();
             foreach (var accessory in accessories) {
-                var index = DgvAccessoryCart.Rows.Add(accessory);
+                var index = DgvAccessoryCart.Rows.Add();
                 DgvAccessoryCart.Rows[index].Cells[0].Value = accessory.AccessoryID;
                 DgvAccessoryCart.Rows[index].Cells[1].Value = accessory.AccessoryName;
                 DgvAccessoryCart.Rows[index].Cells[2].Value = accessory.SellPrice;
@@ -49,34 +49,38 @@ namespace Final {
             invoice.OrderDate = DateTime.Now;
             var selectedDate = DtpDeliveryDate.Value;
             if (selectedDate < invoice.OrderDate) {
-                MessageBox.Show("Thời gian được chọn nhỏ hơn ngày hiện tại");
+                MessageBox.Show(@"Thời gian được chọn nhỏ hơn ngày hiện tại");
             } else {
                 invoice.DeliveryDate = selectedDate;
             }
             var context = new AccessoryContext();
 
-            for (int i = 0; i < DgvAccessoryCart.Rows.Count; i++) {
+            for (var i = 0; i < DgvAccessoryCart.Rows.Count; i++) {
                 bool isChecked = (bool)DgvAccessoryCart.Rows[i].Cells[6].Value;
                 if (isChecked) {
                     var item = CartList.accessoryCart.FirstOrDefault(a => a.AccessoryID == DgvAccessoryCart.Rows[i].Cells[0].Value.ToString());
-                    AccessoryOrder order = new AccessoryOrder();
-                    order.InvoiceID = invoice.InvoiceID;
-                    order.OrderID = item.OrderID;
-                    order.AccessoryID = item.AccessoryID;
-                    order.AccessoryName = item.AccessoryName;
-                    order.BrandID = item.BrandID;
-                    order.CategoryID = item.CategoryID;
-                    order.SellPrice = item.SellPrice;
-                    order.BuyPrice = item.BuyPrice;
-                    order.Sale = order.Sale;
+                    if (item == null) continue;
+                    var order = new AccessoryOrder {
+                        InvoiceID = invoice.InvoiceID,
+                        OrderID = item.OrderID,
+                        AccessoryID = item.AccessoryID,
+                        AccessoryName = item.AccessoryName,
+                        BrandID = item.BrandID,
+                        CategoryID = item.CategoryID,
+                        SellPrice = item.SellPrice,
+                        BuyPrice = item.BuyPrice,
+                        BuyQuantity = item.BuyQuantity,
+                        Sale = item.Sale
+                    };
                     context.AccessoryOrders.Add(order);
+                    CartList.accessoryCart.Remove(item);
                 }
             }
             context.AccessoryInvoices.Add(invoice);
         }
 
         private static string GenerateRandomString(int length) {
-            string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+            const string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
             StringBuilder sb = new StringBuilder();
             Random random = new Random();
 
@@ -84,7 +88,6 @@ namespace Final {
                 int index = random.Next(chars.Length);
                 sb.Append(chars[index]);
             }
-
             return sb.ToString();
         }
     }

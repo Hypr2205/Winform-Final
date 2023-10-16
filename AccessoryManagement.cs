@@ -30,9 +30,15 @@ namespace Final {
             var selectedBrand = CbxBrandFilter.SelectedItem as AccessoryBrand;
 
             var findById = idFilter != null ? context.Accessories.Where(a => a.AccessoryID.Contains(idFilter)) : null;
-            var findByName = nameFilter != null ? context.Accessories.Where(a => a.AccessoryName.Contains(nameFilter)) : null;
-            var findByCategory = CbxCategoryFilter.SelectedIndex != -1 ? context.Accessories.Where(a => a.CategoryID == selectedCategory.CategoryID) : null;
-            var findByBrand = CbxBrandFilter.SelectedIndex != -1 ? context.Accessories.Where(a => a.BrandID == selectedBrand.BrandID) : null;
+            var findByName = nameFilter != null
+                ? context.Accessories.Where(a => a.AccessoryName.Contains(nameFilter))
+                : null;
+            var findByCategory = CbxCategoryFilter.SelectedIndex != -1
+                ? context.Accessories.Where(a => a.CategoryID == selectedCategory.CategoryID)
+                : null;
+            var findByBrand = CbxBrandFilter.SelectedIndex != -1
+                ? context.Accessories.Where(a => a.BrandID == selectedBrand.BrandID)
+                : null;
             var findInStock = ChkIsInStock.Checked ? context.Accessories.Where(a => a.Quantity > 0) : null;
             var findIfSale = ChkIsSale.Checked ? context.Accessories.Where(a => a.Sale > 0) : null;
 
@@ -69,13 +75,13 @@ namespace Final {
                     if (TbAccessoryID.Text != string.Empty) {
                         accessory.AccessoryID = TbAccessoryID.Text;
                     } else {
-                        MessageBox.Show("Mã sản phẩm còn thiếu!");
+                        MessageBox.Show(@"Mã sản phẩm còn thiếu!");
                     }
 
                     if (TbAccessoryName.Text != string.Empty) {
                         accessory.AccessoryName = TbAccessoryName.Text;
                     } else {
-                        MessageBox.Show("Tên sản phẩm còn thiếu");
+                        MessageBox.Show(@"Tên sản phẩm còn thiếu");
                     }
 
                     accessory.CategoryID = ((AccessoryCategory)CbxAccessoryCategory.SelectedItem).CategoryID;
@@ -84,14 +90,14 @@ namespace Final {
                     if (TbPrice.Text != string.Empty && decimal.TryParse(TbPrice.Text, out var price)) {
                         accessory.SellPrice = price;
                     } else {
-                        MessageBox.Show("Giá bán không hợp lệ hoặc còn thiếu");
+                        MessageBox.Show(@"Giá bán không hợp lệ hoặc còn thiếu");
                     }
 
                     if (TbQuantity.Text != string.Empty && int.TryParse(TbQuantity.Text, out var quantity) &&
                         quantity > 0) {
                         accessory.Quantity = quantity;
                     } else {
-                        MessageBox.Show("Số lượng không hợp lệ hoặc còn thiếu");
+                        MessageBox.Show(@"Số lượng không hợp lệ hoặc còn thiếu");
                     }
 
                     if (TbSale.Text != string.Empty && int.TryParse(TbSale.Text, out var sale) && sale > 0) {
@@ -103,7 +109,7 @@ namespace Final {
                     context.Accessories.Add(accessory);
                     context.SaveChanges();
                     ClearInput();
-                    MessageBox.Show("Thêm mới thành công");
+                    MessageBox.Show(@"Thêm mới thành công");
                     context = new AccessoryContext();
                     FillDataView(context.Accessories.ToList());
                 } else {
@@ -117,13 +123,13 @@ namespace Final {
                     if (decimal.TryParse(TbPrice.Text, out var price) && price > 0) {
                         find.SellPrice = price;
                     } else {
-                        MessageBox.Show("Giá nhập vào không hợp lệ");
+                        MessageBox.Show(@"Giá nhập vào không hợp lệ");
                     }
 
                     if (int.TryParse(TbQuantity.Text, out var quantity) && quantity > 0) {
                         find.Quantity = quantity;
                     } else {
-                        MessageBox.Show("Số lượng nhập vào không hợp lệ");
+                        MessageBox.Show(@"Số lượng nhập vào không hợp lệ");
                     }
 
                     if (TbSale.Text != string.Empty && int.TryParse(TbSale.Text, out var sale) && sale > 0) {
@@ -134,7 +140,7 @@ namespace Final {
 
                     context.SaveChanges();
                     ClearInput();
-                    MessageBox.Show("Cập nhật dữ liệu thành công");
+                    MessageBox.Show(@"Cập nhật dữ liệu thành công");
                     FillDataView(context.Accessories.ToList());
                 }
             } catch (Exception ex) {
@@ -149,17 +155,17 @@ namespace Final {
                 var isValidQuantity = int.TryParse(TbQuantity.Text, out var quantity);
                 if (find == null) return;
                 if (find.Quantity == 0) {
-                    MessageBox.Show("Không thể xoá sản phẩm này!");
+                    MessageBox.Show(@"Không thể xoá sản phẩm này!");
                 } else if (isValidQuantity && quantity < find.Quantity) {
-                    MessageBox.Show("Số lượng xoá không hợp lệ!");
+                    MessageBox.Show(@"Số lượng xoá không hợp lệ!");
                 } else {
-                    var dialogResult = MessageBox.Show("Xoá sản phẩm?", "YES/NO", MessageBoxButtons.YesNo);
+                    var dialogResult = MessageBox.Show(@"Xoá sản phẩm?", @"YES/NO", MessageBoxButtons.YesNo);
                     if (dialogResult == DialogResult.Yes) find.Quantity -= quantity;
                 }
 
                 context.SaveChanges();
                 ClearInput();
-                MessageBox.Show("Xoá thành công");
+                MessageBox.Show(@"Xoá thành công");
             } catch (Exception ex) {
                 MessageBox.Show(ex.Message);
             }
@@ -208,6 +214,7 @@ namespace Final {
                 if (DgvAccessories.Rows[i].Cells[0].Value.ToString() == id) {
                     return i;
                 }
+
             return -1;
         }
 
