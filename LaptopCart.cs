@@ -1,11 +1,10 @@
-﻿using System;
+﻿using Final.Model.DTO;
+using Final.Model.LaptopModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
-using Final.Model.AccessoryModel;
-using Final.Model.DTO;
-using Final.Model.LaptopModel;
 
 namespace Final {
     public partial class LaptopCart : Form {
@@ -14,13 +13,15 @@ namespace Final {
         }
 
         private void LaptopCart_Load(object sender, EventArgs e) {
+            reportViewer1.Visible = false;
             try {
                 FillDataView(CartList.laptopCart);
             } catch (Exception ex) {
                 MessageBox.Show(ex.Message);
             }
+            this.reportViewer1.RefreshReport();
         }
-        
+
         private void FillDataView(List<LaptopCartDto> laptops) {
             DgvLaptopCart.Rows.Clear();
             foreach (var item in laptops) {
@@ -55,7 +56,7 @@ namespace Final {
                 invoice.DeliveryDate = selectedDate;
             }
             var context = new LaptopContext();
-            
+
             for (var i = 0; i < DgvLaptopCart.Rows.Count; i++) {
                 bool isChecked = (bool)DgvLaptopCart.Rows[i].Cells[6].Value;
                 if (isChecked) {
@@ -77,8 +78,9 @@ namespace Final {
                 }
             }
             context.LaptopInvoices.Add(invoice);
+            context.SaveChanges();
         }
-        
+
         private static string GenerateRandomString(int length) {
             const string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
             StringBuilder sb = new StringBuilder();

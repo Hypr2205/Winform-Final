@@ -1,10 +1,10 @@
-﻿using System;
+﻿using Final.Model.AccessoryModel;
+using Final.Model.DTO;
+using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
-using Final.Model.AccessoryModel;
-using Final.Model.DTO;
 
 namespace Final {
     public partial class BuyAccessory : Form {
@@ -51,7 +51,7 @@ namespace Final {
             if (find.Sale != 0) cartDto.Sale = find.Sale;
 
             cartDto.SellPrice = find.SellPrice;
-            cartDto.BuyPrice = (cartDto.SellPrice - cartDto.SellPrice * cartDto.Sale) * cartDto.BuyQuantity;
+            cartDto.BuyPrice = (cartDto.SellPrice - cartDto.SellPrice * (cartDto.Sale / 100)) * cartDto.BuyQuantity;
 
             var exists = cartList.FirstOrDefault(i => i.AccessoryID.Equals(find.AccessoryID));
             if (cartList.Contains(exists)) {

@@ -23,7 +23,7 @@
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.DgvLaptopCart = new System.Windows.Forms.DataGridView();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -37,6 +37,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.BtnBuy = new System.Windows.Forms.Button();
             this.DtpDeliveryDate = new System.Windows.Forms.DateTimePicker();
+            this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
             ((System.ComponentModel.ISupportInitialize)(this.DgvLaptopCart)).BeginInit();
             this.SuspendLayout();
             // 
@@ -47,15 +48,22 @@
             this.DgvLaptopCart.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.DgvLaptopCart.BackgroundColor = System.Drawing.Color.White;
             this.DgvLaptopCart.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DgvLaptopCart.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] { this.Column1, this.Column2, this.Column3, this.Column4, this.Column5, this.Column6, this.IsSelected });
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI Variable Display Semib", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.DarkTurquoise;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.DgvLaptopCart.DefaultCellStyle = dataGridViewCellStyle1;
+            this.DgvLaptopCart.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Column1,
+            this.Column2,
+            this.Column3,
+            this.Column4,
+            this.Column5,
+            this.Column6,
+            this.IsSelected});
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI Variable Display Semib", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.DarkTurquoise;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.DgvLaptopCart.DefaultCellStyle = dataGridViewCellStyle2;
             this.DgvLaptopCart.Location = new System.Drawing.Point(13, 231);
             this.DgvLaptopCart.Name = "DgvLaptopCart";
             this.DgvLaptopCart.ReadOnly = true;
@@ -160,11 +168,21 @@
             this.DtpDeliveryDate.Size = new System.Drawing.Size(310, 30);
             this.DtpDeliveryDate.TabIndex = 7;
             // 
+            // reportViewer1
+            // 
+            this.reportViewer1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.reportViewer1.Location = new System.Drawing.Point(0, 0);
+            this.reportViewer1.Name = "reportViewer1";
+            this.reportViewer1.ServerReport.BearerToken = null;
+            this.reportViewer1.Size = new System.Drawing.Size(1000, 619);
+            this.reportViewer1.TabIndex = 8;
+            // 
             // LaptopCart
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 22F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1000, 619);
+            this.Controls.Add(this.reportViewer1);
             this.Controls.Add(this.DtpDeliveryDate);
             this.Controls.Add(this.BtnBuy);
             this.Controls.Add(this.label2);
@@ -179,6 +197,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.DgvLaptopCart)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
+
         }
 
         #endregion
@@ -196,5 +215,6 @@
             private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
             private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
             private System.Windows.Forms.DataGridViewCheckBoxColumn IsSelected;
-      }
+        private Microsoft.Reporting.WinForms.ReportViewer reportViewer1;
+    }
 }
