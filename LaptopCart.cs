@@ -1,5 +1,6 @@
 ﻿using Final.Model.DTO;
 using Final.Model.LaptopModel;
+using Microsoft.Reporting.WinForms;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -28,10 +29,11 @@ namespace Final {
                 var index = DgvLaptopCart.Rows.Add();
                 DgvLaptopCart.Rows[index].Cells[0].Value = item.LaptopId;
                 DgvLaptopCart.Rows[index].Cells[1].Value = item.LaptopName;
-                DgvLaptopCart.Rows[index].Cells[2].Value = item.SellPrice;
-                DgvLaptopCart.Rows[index].Cells[3].Value = item.Sale;
-                DgvLaptopCart.Rows[index].Cells[4].Value = item.BuyQuantity;
-                DgvLaptopCart.Rows[index].Cells[5].Value = item.BuyPrice;
+                DgvLaptopCart.Rows[index].Cells[2].Value = item.BrandName;
+                DgvLaptopCart.Rows[index].Cells[3].Value = item.SellPrice;
+                DgvLaptopCart.Rows[index].Cells[4].Value = item.Sale;
+                DgvLaptopCart.Rows[index].Cells[5].Value = item.BuyQuantity;
+                DgvLaptopCart.Rows[index].Cells[6].Value = item.BuyPrice;
             }
         }
 
@@ -67,7 +69,7 @@ namespace Final {
                         OrderID = item.OrderId,
                         LaptopID = item.LaptopId,
                         LaptopName = item.LaptopName,
-                        CategoryID = item.CategoryId,
+                        BrandName = item.BrandName,
                         SellPrice = item.SellPrice,
                         BuyPrice = item.BuyPrice,
                         BuyQuantity = item.BuyQuantity,
@@ -79,6 +81,7 @@ namespace Final {
             }
             context.LaptopInvoices.Add(invoice);
             context.SaveChanges();
+            ShowReport(context, invoice.InvoiceID);
         }
 
         private static string GenerateRandomString(int length) {
@@ -91,6 +94,22 @@ namespace Final {
                 sb.Append(chars[index]);
             }
             return sb.ToString();
+        }
+
+        private void ShowReport(LaptopContext context, string id) {
+            reportViewer1.Visible = true;
+            var invoice = context.LaptopInvoices.FirstOrDefault(i => i.InvoiceID == id);
+            var orders = context.LaptopOrders.Where(o => o.InvoiceID == id).ToList();
+            ReportParameter[] param = new ReportParameter[2];
+            param[0] = new ReportParameter("InvoiceID", invoice.InvoiceID);
+            param[1] = new ReportParameter("OrderDate", string.Format("Ngày mua: " + invoice.OrderDate.ToString("dd/MM/yyyy")));
+
+            reportViewer1.LocalReport.ReportPath = "./Model/ReportModel/LaptopReport.rdlc";
+            reportViewer1.LocalReport.SetParameters(param);
+            var dataSource = new ReportDataSource("LaptopDataSet", orders);
+            reportViewer1.LocalReport.DataSources.Clear();
+            reportViewer1.LocalReport.DataSources.Add(dataSource);
+            reportViewer1.RefreshReport();
         }
     }
 }

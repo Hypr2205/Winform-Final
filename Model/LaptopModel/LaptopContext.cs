@@ -7,7 +7,7 @@ namespace Final.Model.LaptopModel {
         }
 
         public virtual DbSet<Laptop> Laptops { get; set; }
-        public virtual DbSet<LaptopCategory> LaptopCategories { get; set; }
+        public virtual DbSet<LaptopBrand> LaptopBrands { get; set; }
         public virtual DbSet<LaptopInvoice> LaptopInvoices { get; set; }
         public virtual DbSet<LaptopOrder> LaptopOrders { get; set; }
 
@@ -25,14 +25,9 @@ namespace Final.Model.LaptopModel {
                 .WithRequired(e => e.Laptop)
                 .WillCascadeOnDelete(false);
 
-            modelBuilder.Entity<LaptopCategory>()
+            modelBuilder.Entity<LaptopBrand>()
                 .HasMany(e => e.Laptops)
-                .WithRequired(e => e.LaptopCategory)
-                .WillCascadeOnDelete(false);
-
-            modelBuilder.Entity<LaptopCategory>()
-                .HasMany(e => e.LaptopOrders)
-                .WithRequired(e => e.LaptopCategory)
+                .WithRequired(e => e.LaptopBrand)
                 .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<LaptopInvoice>()

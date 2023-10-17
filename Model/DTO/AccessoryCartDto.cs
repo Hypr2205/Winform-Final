@@ -12,9 +12,9 @@
 
         public int Sale { get; set; }
 
-        public int BrandID { get; set; }
+        public string BrandName { get; set; }
 
-        public int CategoryID { get; set; }
+        public string CategoryName { get; set; }
 
         public decimal BuyPrice { get; set; }
 

@@ -1,12 +1,17 @@
-namespace Final.Model.LaptopModel {
+namespace Final.Model.LaptopModel
+{
+    using System;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
+    using System.Data.Entity.Spatial;
 
     [Table("Laptop")]
-    public partial class Laptop {
+    public partial class Laptop
+    {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Laptop() {
+        public Laptop()
+        {
             LaptopOrders = new HashSet<LaptopOrder>();
         }
 
@@ -21,13 +26,13 @@ namespace Final.Model.LaptopModel {
 
         public int Sale { get; set; }
 
-        public int CategoryID { get; set; }
+        public int BrandID { get; set; }
 
         public int Quantity { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<LaptopOrder> LaptopOrders { get; set; }
 
-        public virtual LaptopCategory LaptopCategory { get; set; }
+        public virtual LaptopBrand LaptopBrand { get; set; }
     }
 }

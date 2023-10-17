@@ -25,19 +25,20 @@
         private void InitializeComponent() {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.DgvLaptopCart = new System.Windows.Forms.DataGridView();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.IsSelected = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.TbNote = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.BtnBuy = new System.Windows.Forms.Button();
             this.DtpDeliveryDate = new System.Windows.Forms.DateTimePicker();
             this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.IsSelected = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.DgvLaptopCart)).BeginInit();
             this.SuspendLayout();
             // 
@@ -51,6 +52,7 @@
             this.DgvLaptopCart.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1,
             this.Column2,
+            this.Column7,
             this.Column3,
             this.Column4,
             this.Column5,
@@ -73,57 +75,6 @@
             this.DgvLaptopCart.Size = new System.Drawing.Size(975, 376);
             this.DgvLaptopCart.TabIndex = 1;
             this.DgvLaptopCart.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvLaptopCart_CellContentClick);
-            // 
-            // Column1
-            // 
-            this.Column1.HeaderText = "Mã máy";
-            this.Column1.MinimumWidth = 6;
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
-            // 
-            // Column2
-            // 
-            this.Column2.HeaderText = "Tên máy";
-            this.Column2.MinimumWidth = 6;
-            this.Column2.Name = "Column2";
-            this.Column2.ReadOnly = true;
-            // 
-            // Column3
-            // 
-            this.Column3.HeaderText = "Giá bán";
-            this.Column3.MinimumWidth = 6;
-            this.Column3.Name = "Column3";
-            this.Column3.ReadOnly = true;
-            // 
-            // Column4
-            // 
-            this.Column4.HeaderText = "Khuyến mãi";
-            this.Column4.MinimumWidth = 6;
-            this.Column4.Name = "Column4";
-            this.Column4.ReadOnly = true;
-            // 
-            // Column5
-            // 
-            this.Column5.HeaderText = "Số lượng mua";
-            this.Column5.MinimumWidth = 6;
-            this.Column5.Name = "Column5";
-            this.Column5.ReadOnly = true;
-            // 
-            // Column6
-            // 
-            this.Column6.HeaderText = "Thành tiền";
-            this.Column6.MinimumWidth = 6;
-            this.Column6.Name = "Column6";
-            this.Column6.ReadOnly = true;
-            // 
-            // IsSelected
-            // 
-            this.IsSelected.HeaderText = "Xác nhận mua";
-            this.IsSelected.MinimumWidth = 6;
-            this.IsSelected.Name = "IsSelected";
-            this.IsSelected.ReadOnly = true;
-            this.IsSelected.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.IsSelected.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             // 
             // TbNote
             // 
@@ -177,6 +128,64 @@
             this.reportViewer1.Size = new System.Drawing.Size(1000, 619);
             this.reportViewer1.TabIndex = 8;
             // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "Mã máy";
+            this.Column1.MinimumWidth = 6;
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            // 
+            // Column2
+            // 
+            this.Column2.HeaderText = "Tên máy";
+            this.Column2.MinimumWidth = 6;
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
+            // 
+            // Column7
+            // 
+            this.Column7.HeaderText = "Hãng";
+            this.Column7.MinimumWidth = 6;
+            this.Column7.Name = "Column7";
+            this.Column7.ReadOnly = true;
+            // 
+            // Column3
+            // 
+            this.Column3.HeaderText = "Giá bán";
+            this.Column3.MinimumWidth = 6;
+            this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
+            // 
+            // Column4
+            // 
+            this.Column4.HeaderText = "Khuyến mãi";
+            this.Column4.MinimumWidth = 6;
+            this.Column4.Name = "Column4";
+            this.Column4.ReadOnly = true;
+            // 
+            // Column5
+            // 
+            this.Column5.HeaderText = "Số lượng mua";
+            this.Column5.MinimumWidth = 6;
+            this.Column5.Name = "Column5";
+            this.Column5.ReadOnly = true;
+            // 
+            // Column6
+            // 
+            this.Column6.HeaderText = "Thành tiền";
+            this.Column6.MinimumWidth = 6;
+            this.Column6.Name = "Column6";
+            this.Column6.ReadOnly = true;
+            // 
+            // IsSelected
+            // 
+            this.IsSelected.HeaderText = "Xác nhận mua";
+            this.IsSelected.MinimumWidth = 6;
+            this.IsSelected.Name = "IsSelected";
+            this.IsSelected.ReadOnly = true;
+            this.IsSelected.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.IsSelected.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            // 
             // LaptopCart
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 22F);
@@ -208,13 +217,14 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button BtnBuy;
         private System.Windows.Forms.DateTimePicker DtpDeliveryDate;
-            private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
-            private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
-            private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
-            private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
-            private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
-            private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
-            private System.Windows.Forms.DataGridViewCheckBoxColumn IsSelected;
         private Microsoft.Reporting.WinForms.ReportViewer reportViewer1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn IsSelected;
     }
 }

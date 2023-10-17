@@ -33,8 +33,8 @@ namespace Final {
             var cartDto = new AccessoryCartDto {
                 AccessoryID = find.AccessoryID,
                 AccessoryName = find.AccessoryName,
-                BrandID = find.BrandID,
-                CategoryID = find.CategoryID,
+                BrandName = find.AccessoryBrand.BrandName,
+                CategoryName = find.AccessoryCategory.CategoryName,
                 SellPrice = find.SellPrice,
                 Sale = find.Sale
             };
@@ -58,11 +58,13 @@ namespace Final {
                 if (exists != null) exists.BuyQuantity += int.Parse(TbBuyQuantity.Text);
                 find.Quantity -= int.Parse(TbBuyQuantity.Text);
                 context.SaveChanges();
+                MessageBox.Show(@"Giỏ hàng được cập nhật");
                 FillDataView(context.Accessories.ToList());
             } else {
                 cartList.Add(cartDto);
                 find.Quantity -= cartDto.BuyQuantity;
                 context.SaveChanges();
+                MessageBox.Show(@"Đã thêm vào giỏ hàng");
                 FillDataView(context.Accessories.ToList());
             }
         }

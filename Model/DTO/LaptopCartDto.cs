@@ -6,7 +6,7 @@
         public string LaptopName { get; set; }
         public decimal SellPrice { get; set; }
         public int Sale { get; set; }
-        public int CategoryId { get; set; }
+        public string BrandName { get; set; }
         public decimal BuyPrice { get; set; }
         public int BuyQuantity { get; set; }
     }

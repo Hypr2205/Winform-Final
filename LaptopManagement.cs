@@ -14,7 +14,7 @@ namespace Final {
             CbxLaptopCategory.SelectedItem = null;
             try {
                 var context = new LaptopContext();
-                FillCategoryData(context.LaptopCategories.ToList());
+                FillCategoryData(context.LaptopBrands.ToList());
                 FillDataView(context.Laptops.ToList());
             } catch (Exception ex) {
                 MessageBox.Show(ex.Message);
@@ -57,7 +57,7 @@ namespace Final {
                         MessageBox.Show("Số lượng không hợp lệ hoặc còn thiếu");
                     }
 
-                    laptop.CategoryID = ((LaptopCategory)CbxLaptopCategory.SelectedItem).CategoryID;
+                    laptop.BrandID = ((LaptopBrand)CbxLaptopCategory.SelectedItem).BrandID;
 
                     context.Laptops.Add(laptop);
                     context.SaveChanges();
@@ -70,7 +70,7 @@ namespace Final {
                     if (find == null) return;
                     find.LaptopID = TblaptopID.Text;
                     find.LaptopName = TbLaptopName.Text;
-                    find.CategoryID = ((LaptopCategory)CbxLaptopCategory.SelectedItem).CategoryID;
+                    find.BrandID = ((LaptopBrand)CbxLaptopCategory.SelectedItem).BrandID;
                     if (decimal.TryParse(TbPrice.Text, out var price) && price > 0) {
                         find.SellPrice = price;
                     } else {
@@ -132,7 +132,7 @@ namespace Final {
             TbPrice.Text = find.SellPrice.ToString();
             TbSale.Text = find.Sale != 0 ? find.Sale.ToString() : "";
             TbQuantity.Text = find.Quantity.ToString();
-            CbxLaptopCategory.SelectedValue = find.CategoryID;
+            CbxLaptopCategory.SelectedValue = find.BrandID;
         }
 
         private void BtnSearch_Click(object sender, EventArgs e) {
@@ -140,11 +140,11 @@ namespace Final {
 
             var idFilter = string.IsNullOrEmpty(TbIdFilter.Text) ? null : TbIdFilter.Text;
             var nameFilter = string.IsNullOrEmpty(TbNameFilter.Text) ? null : TbNameFilter.Text;
-            var selectedCategory = CbxCategoryFilter.SelectedItem as LaptopCategory;
+            var selectedCategory = CbxCategoryFilter.SelectedItem as LaptopBrand;
 
             var findById = idFilter != null ? context.Laptops.Where(l => l.LaptopID.Contains(idFilter)) : null;
             var findByName = nameFilter != null ? context.Laptops.Where(l => l.LaptopName.Contains(nameFilter)) : null;
-            var findByCategory = CbxCategoryFilter.SelectedIndex != -1 ? context.Laptops.Where(l => l.CategoryID == selectedCategory.CategoryID) : null;
+            var findByCategory = CbxCategoryFilter.SelectedIndex != -1 ? context.Laptops.Where(l => l.BrandID == selectedCategory.BrandID) : null;
             var findIfSale = ChkIsSale.Checked ? context.Laptops.Where(l => l.Sale != 0) : null;
 
             var queryList = new List<IQueryable<Laptop>>();
@@ -163,7 +163,7 @@ namespace Final {
             }
         }
 
-        private void FillCategoryData(List<LaptopCategory> categories) {
+        private void FillCategoryData(List<LaptopBrand> categories) {
             CbxLaptopCategory.DataSource = categories;
             CbxLaptopCategory.DisplayMember = "CategoryName";
             CbxLaptopCategory.ValueMember = "CategoryID";
@@ -176,7 +176,7 @@ namespace Final {
                 var index = DgvLaptops.Rows.Add();
                 DgvLaptops.Rows[index].Cells[0].Value = item.LaptopID;
                 DgvLaptops.Rows[index].Cells[1].Value = item.LaptopName;
-                DgvLaptops.Rows[index].Cells[2].Value = item.LaptopCategory.CategoryName;
+                DgvLaptops.Rows[index].Cells[2].Value = item.LaptopBrand.BrandName;
                 DgvLaptops.Rows[index].Cells[3].Value = item.SellPrice;
                 DgvLaptops.Rows[index].Cells[4].Value = item.Sale.ToString();
                 DgvLaptops.Rows[index].Cells[5].Value = item.Quantity.ToString();

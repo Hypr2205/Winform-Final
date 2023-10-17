@@ -1,9 +1,14 @@
-namespace Final.Model.LaptopModel {
+namespace Final.Model.LaptopModel
+{
+    using System;
+    using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
+    using System.Data.Entity.Spatial;
 
     [Table("LaptopOrder")]
-    public partial class LaptopOrder {
+    public partial class LaptopOrder
+    {
         [Key]
         [Column(Order = 0)]
         [StringLength(10)]
@@ -26,15 +31,15 @@ namespace Final.Model.LaptopModel {
 
         public int Sale { get; set; }
 
-        public int CategoryID { get; set; }
+        [Required]
+        [StringLength(255)]
+        public string BrandName { get; set; }
 
         public decimal BuyPrice { get; set; }
 
         public int BuyQuantity { get; set; }
 
         public virtual Laptop Laptop { get; set; }
-
-        public virtual LaptopCategory LaptopCategory { get; set; }
 
         public virtual LaptopInvoice LaptopInvoice { get; set; }
     }

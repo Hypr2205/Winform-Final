@@ -32,7 +32,7 @@ namespace Final {
                 var index = DgvLaptops.Rows.Add();
                 DgvLaptops.Rows[index].Cells[0].Value = lap.LaptopID;
                 DgvLaptops.Rows[index].Cells[1].Value = lap.LaptopName;
-                DgvLaptops.Rows[index].Cells[2].Value = lap.LaptopCategory.CategoryName;
+                DgvLaptops.Rows[index].Cells[2].Value = lap.LaptopBrand.BrandName;
                 DgvLaptops.Rows[index].Cells[3].Value = lap.SellPrice.ToString();
                 if (lap.Sale != 0) {
                     DgvLaptops.Rows[index].Cells[4].Value = lap.Sale;
@@ -58,12 +58,12 @@ namespace Final {
 
             var idFilter = string.IsNullOrEmpty(TbIdFilter.Text) ? null : TbIdFilter.Text;
             var nameFilter = string.IsNullOrEmpty(TbNameFilter.Text) ? null : TbNameFilter.Text;
-            var selectedCategory = CbxCategoryFilter.SelectedItem as LaptopCategory;
+            var selectedCategory = CbxCategoryFilter.SelectedItem as LaptopBrand;
 
             var findById = idFilter != null ? context.Laptops.Where(l => l.LaptopID.Contains(idFilter)) : null;
             var findByName = nameFilter != null ? context.Laptops.Where(l => l.LaptopName.Contains(nameFilter)) : null;
             var findByCategory = CbxCategoryFilter.SelectedIndex != -1
-                ? context.Laptops.Where(l => l.CategoryID == selectedCategory.CategoryID)
+                ? context.Laptops.Where(l => l.BrandID == selectedCategory.BrandID)
                 : null;
             var findIfSale = ChkIsSale.Checked ? context.Laptops.Where(l => l.Sale != 0) : null;
 
@@ -87,16 +87,16 @@ namespace Final {
             var context = new LaptopContext();
             var find = context.Laptops.FirstOrDefault(l => l.LaptopID == TbLaptopID.Text);
             var cartList = CartList.laptopCart;
-            
+
             if (find == null) return;
             var laptopCartDto = new LaptopCartDto {
                 LaptopId = find.LaptopID,
                 LaptopName = find.LaptopName,
-                CategoryId = find.CategoryID,
+                BrandName = find.LaptopBrand.BrandName,
                 SellPrice = find.SellPrice,
                 Sale = find.Sale
             };
-            
+
             if (int.Parse(TbBuyQuantity.Text) > find.Quantity) {
                 MessageBox.Show(@"Giá trị không hợp lệ");
             } else if (find.Quantity == 0) {
@@ -109,18 +109,20 @@ namespace Final {
             if (find.Sale != 0) laptopCartDto.Sale = find.Sale;
 
             laptopCartDto.SellPrice = find.SellPrice;
-            laptopCartDto.BuyPrice = (laptopCartDto.SellPrice - laptopCartDto.SellPrice * laptopCartDto.Sale) * laptopCartDto.BuyQuantity;
+            laptopCartDto.BuyPrice = (laptopCartDto.SellPrice - laptopCartDto.SellPrice * (laptopCartDto.Sale / 100)) * laptopCartDto.BuyQuantity;
 
             var exists = cartList.FirstOrDefault(i => i.LaptopId.Equals(find.LaptopID));
             if (cartList.Contains(exists)) {
                 if (exists != null) exists.BuyQuantity += int.Parse(TbBuyQuantity.Text);
                 find.Quantity -= int.Parse(TbBuyQuantity.Text);
                 context.SaveChanges();
+                MessageBox.Show(@"Gỏ hàng được cập nhật");
                 FillDataView(context.Laptops.ToList());
             } else {
                 cartList.Add(laptopCartDto);
                 find.Quantity -= laptopCartDto.BuyQuantity;
                 context.SaveChanges();
+                MessageBox.Show(@"Đã thêm vào giỏ hàng");
                 FillDataView(context.Laptops.ToList());
             }
         }

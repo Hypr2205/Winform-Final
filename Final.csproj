@@ -113,11 +113,12 @@
     <Compile Include="Model\DTO\CartList.cs" />
     <Compile Include="Model\DTO\LaptopCartDto.cs" />
     <Compile Include="Model\LaptopModel\Laptop.cs" />
-    <Compile Include="Model\LaptopModel\LaptopCategory.cs" />
+    <Compile Include="Model\LaptopModel\LaptopBrand.cs" />
     <Compile Include="Model\LaptopModel\LaptopContext.cs" />
     <Compile Include="Model\LaptopModel\LaptopInvoice.cs" />
     <Compile Include="Model\LaptopModel\LaptopOrder.cs" />
     <Compile Include="Model\ReportModel\AccessoryReport.cs" />
+    <Compile Include="Model\ReportModel\LaptopReport.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -188,6 +189,10 @@
     <EmbeddedResource Include="Model\ReportModel\AccessoryReport.rdlc">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
+    <EmbeddedResource Include="Model\ReportModel\LaptopReport.rdlc" />
+    <EmbeddedResource Include="OrderHistory.resx">
+      <DependentUpon>OrderHistory.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
@@ -196,6 +201,7 @@
     <None Include="packages.config" />
     <None Include="Properties\DataSources\Final.Model.ReportModel.AccessoryReport.datasource" />
     <None Include="Properties\DataSources\Final.Model.ReportModel.AccessoryReportModel.datasource" />
+    <None Include="Properties\DataSources\Final.Model.ReportModel.LaptopReport.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
