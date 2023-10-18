@@ -189,7 +189,9 @@
     <EmbeddedResource Include="Model\ReportModel\AccessoryReport.rdlc">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
-    <EmbeddedResource Include="Model\ReportModel\LaptopReport.rdlc" />
+    <EmbeddedResource Include="Model\ReportModel\LaptopReport.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
     <EmbeddedResource Include="OrderHistory.resx">
       <DependentUpon>OrderHistory.cs</DependentUpon>
     </EmbeddedResource>

@@ -57,33 +57,40 @@ namespace Final {
 
             var context = new AccessoryContext();
 
-            for (var i = 0; i < DgvAccessoryCart.Rows.Count; i++) {
-                var isChecked = (bool)DgvAccessoryCart.Rows[i].Cells[6].Value;
-                if (isChecked) {
-                    var item = CartList.accessoryCart.FirstOrDefault(a =>
-                        a.AccessoryID == DgvAccessoryCart.Rows[i].Cells[0].Value.ToString());
-                    if (item == null) continue;
-                    var order = new AccessoryOrder {
-                        InvoiceID = invoice.InvoiceID,
-                        OrderID = item.OrderID,
-                        AccessoryID = item.AccessoryID,
-                        AccessoryName = item.AccessoryName,
-                        BrandName = item.BrandName,
-                        CategoryName = item.CategoryName,
-                        SellPrice = item.SellPrice,
-                        BuyPrice = item.BuyPrice,
-                        BuyQuantity = item.BuyQuantity,
-                        Sale = item.Sale
-                    };
+            using (var trans = context.Database.BeginTransaction()) {
+                try {
+                    for (var i = 0; i < DgvAccessoryCart.Rows.Count; i++) {
+                        var isChecked = (bool)DgvAccessoryCart.Rows[i].Cells[6].Value;
+                        if (isChecked) {
+                            var item = CartList.accessoryCart.FirstOrDefault(a =>
+                                a.AccessoryID == DgvAccessoryCart.Rows[i].Cells[0].Value.ToString());
+                            if (item == null) continue;
+                            var order = new AccessoryOrder {
+                                InvoiceID = invoice.InvoiceID,
+                                OrderID = item.OrderID,
+                                AccessoryID = item.AccessoryID,
+                                AccessoryName = item.AccessoryName,
+                                BrandName = item.BrandName,
+                                CategoryName = item.CategoryName,
+                                SellPrice = item.SellPrice,
+                                BuyPrice = item.BuyPrice,
+                                BuyQuantity = item.BuyQuantity,
+                                Sale = item.Sale
+                            };
 
-                    context.AccessoryOrders.Add(order);
-                    CartList.accessoryCart.Remove(item);
+                            context.AccessoryOrders.Add(order);
+                            CartList.accessoryCart.Remove(item);
+                        }
+                    }
+
+                    context.AccessoryInvoices.Add(invoice);
+                    context.SaveChanges();
+                    ShowReport(context, invoice.InvoiceID);
+                    trans.Commit();
+                } catch {
+                    trans.Rollback();
                 }
             }
-
-            context.AccessoryInvoices.Add(invoice);
-            context.SaveChanges();
-            ShowReport(context, invoice.InvoiceID);
         }
 
         private void Report_FormClosed(object sender, FormClosedEventArgs e) {

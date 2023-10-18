@@ -38,9 +38,9 @@ namespace Final {
         }
 
         private void DgvLaptopCart_CellContentClick(object sender, DataGridViewCellEventArgs e) {
-            if (e.RowIndex >= 0 && e.ColumnIndex == 6) {
+            if (e.RowIndex >= 0 && e.ColumnIndex == 7) {
                 // Chuyển đổi trạng thái của ô checkbox
-                if (DgvLaptopCart.Rows[e.RowIndex].Cells[6] is DataGridViewCheckBoxCell cell) {
+                if (DgvLaptopCart.Rows[e.RowIndex].Cells[7] is DataGridViewCheckBoxCell cell) {
                     cell.Value = cell.Value == null || (bool)cell.Value == false;
                 }
             }
@@ -59,28 +59,35 @@ namespace Final {
             }
             var context = new LaptopContext();
 
-            for (var i = 0; i < DgvLaptopCart.Rows.Count; i++) {
-                bool isChecked = (bool)DgvLaptopCart.Rows[i].Cells[6].Value;
-                if (isChecked) {
-                    var item = CartList.laptopCart.FirstOrDefault(a => a.LaptopId == DgvLaptopCart.Rows[i].Cells[0].Value.ToString());
-                    if (item == null) continue;
-                    var order = new LaptopOrder {
-                        InvoiceID = invoice.InvoiceID,
-                        OrderID = item.OrderId,
-                        LaptopID = item.LaptopId,
-                        LaptopName = item.LaptopName,
-                        BrandName = item.BrandName,
-                        SellPrice = item.SellPrice,
-                        BuyPrice = item.BuyPrice,
-                        BuyQuantity = item.BuyQuantity,
-                        Sale = item.Sale
-                    };
-                    context.LaptopOrders.Add(order);
-                    CartList.laptopCart.Remove(item);
+            using (var trans = context.Database.BeginTransaction()) {
+                try {
+                    for (var i = 0; i < DgvLaptopCart.Rows.Count; i++) {
+                        bool isChecked = (bool)DgvLaptopCart.Rows[i].Cells[7].Value;
+                        if (isChecked) {
+                            var item = CartList.laptopCart.FirstOrDefault(a => a.LaptopId == DgvLaptopCart.Rows[i].Cells[0].Value.ToString());
+                            if (item == null) continue;
+                            var order = new LaptopOrder {
+                                InvoiceID = invoice.InvoiceID,
+                                OrderID = item.OrderId,
+                                LaptopID = item.LaptopId,
+                                LaptopName = item.LaptopName,
+                                BrandName = item.BrandName,
+                                SellPrice = item.SellPrice,
+                                BuyPrice = item.BuyPrice,
+                                BuyQuantity = item.BuyQuantity,
+                                Sale = item.Sale
+                            };
+                            context.LaptopOrders.Add(order);
+                            CartList.laptopCart.Remove(item);
+                        }
+                    }
+                    context.LaptopInvoices.Add(invoice);
+                    context.SaveChanges();
+                    trans.Commit();
+                } catch {
+                    trans.Rollback();
                 }
             }
-            context.LaptopInvoices.Add(invoice);
-            context.SaveChanges();
             ShowReport(context, invoice.InvoiceID);
         }
 

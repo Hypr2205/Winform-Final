@@ -78,7 +78,7 @@ namespace Final {
 
             reportViewer1.LocalReport.ReportPath = "./Model/ReportModel/AccessoryReport.rdlc";
             reportViewer1.LocalReport.SetParameters(param);
-            var dataSource = new ReportDataSource("AccessotyDataSet", orders);
+            var dataSource = new ReportDataSource("AccessoryDataSet", orders);
             reportViewer1.LocalReport.DataSources.Clear();
             reportViewer1.LocalReport.DataSources.Add(dataSource);
             reportViewer1.RefreshReport();
