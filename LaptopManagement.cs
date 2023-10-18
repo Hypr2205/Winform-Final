@@ -171,8 +171,8 @@ namespace Final {
 
         private void FillCategoryData(List<LaptopBrand> categories) {
             CbxLaptopCategory.DataSource = categories;
-            CbxLaptopCategory.DisplayMember = "CategoryName";
-            CbxLaptopCategory.ValueMember = "CategoryID";
+            CbxLaptopCategory.DisplayMember = "BrandName";
+            CbxLaptopCategory.ValueMember = "BrandID";
             CbxLaptopCategory.SelectedIndex = -1;
         }
 
