@@ -41,9 +41,11 @@ namespace Final {
 
             if (int.Parse(TbBuyQuantity.Text) > find.Quantity) {
                 MessageBox.Show(@"Giá trị không hợp lệ");
+                return;
             } else if (find.Quantity == 0) {
                 MessageBox.Show(@"Hết hàng");
                 find.Quantity = 0;
+                return;
             } else {
                 cartDto.BuyQuantity = int.Parse(TbBuyQuantity.Text);
             }

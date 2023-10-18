@@ -156,11 +156,17 @@ namespace Final {
                 if (find == null) return;
                 if (find.Quantity == 0) {
                     MessageBox.Show(@"Không thể xoá sản phẩm này!");
+                    return;
                 } else if (isValidQuantity && quantity < find.Quantity) {
                     MessageBox.Show(@"Số lượng xoá không hợp lệ!");
+                    return;
                 } else {
                     var dialogResult = MessageBox.Show(@"Xoá sản phẩm?", @"YES/NO", MessageBoxButtons.YesNo);
-                    if (dialogResult == DialogResult.Yes) find.Quantity -= quantity;
+                    if (dialogResult == DialogResult.Yes) {
+                        find.Quantity -= quantity;
+                    } else {
+                        return;
+                    }
                 }
 
                 context.SaveChanges();

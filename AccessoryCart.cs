@@ -51,6 +51,7 @@ namespace Final {
             var selectedDate = DtpDeliveryDate.Value;
             if (selectedDate < invoice.OrderDate) {
                 MessageBox.Show(@"Thời gian được chọn nhỏ hơn ngày hiện tại");
+                return;
             } else if (selectedDate >= invoice.OrderDate) {
                 invoice.DeliveryDate = selectedDate;
             }
