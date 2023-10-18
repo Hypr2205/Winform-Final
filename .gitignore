@@ -477,3 +477,11 @@ $RECYCLE.BIN/
 
 # Windows shortcuts
 *.lnk
+/SqlServerTypes/x64/msvcr120.dll
+/SqlServerTypes/x64/SqlServerSpatial140.dll
+/SqlServerTypes/x86/msvcr120.dll
+/SqlServerTypes/x86/SqlServerSpatial140.dll
+/SqlServerTypes/x64/msvcr120.dll
+/SqlServerTypes/x64/SqlServerSpatial140.dll
+/SqlServerTypes/x86/msvcr120.dll
+/SqlServerTypes/x86/SqlServerSpatial140.dll
