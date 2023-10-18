@@ -7,7 +7,7 @@
         <DataProvider>System.Data.DataSet</DataProvider>
         <ConnectString>/* Local Connection */</ConnectString>
       </ConnectionProperties>
-      <rd:DataSourceID>0d0e566e-df32-4d71-8b8c-531c3232b5b1</rd:DataSourceID>
+      <rd:DataSourceID>2c854a97-2d6e-4af2-bdc4-a1cf48cfb423</rd:DataSourceID>
     </DataSource>
   </DataSources>
   <DataSets>
@@ -17,6 +17,10 @@
         <CommandText>/* Local Query */</CommandText>
       </Query>
       <Fields>
+        <Field Name="BrandName">
+          <DataField>BrandName</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
         <Field Name="BuyPrice">
           <DataField>BuyPrice</DataField>
           <rd:TypeName>System.Decimal</rd:TypeName>
@@ -24,10 +28,6 @@
         <Field Name="BuyQuantity">
           <DataField>BuyQuantity</DataField>
           <rd:TypeName>System.Int32</rd:TypeName>
-        </Field>
-        <Field Name="CategoryName">
-          <DataField>CategoryName</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
         </Field>
         <Field Name="LaptopID">
           <DataField>LaptopID</DataField>
@@ -671,14 +671,14 @@
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="CategoryName">
+                        <Textbox Name="BrandName">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Fields!CategoryName.Value</Value>
+                                  <Value>=Fields!BrandName.Value</Value>
                                   <Style>
                                     <FontFamily>Segoe UI Variable Display Semib</FontFamily>
                                   </Style>
@@ -689,7 +689,7 @@
                               </Style>
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>CategoryName</rd:DefaultName>
+                          <rd:DefaultName>BrandName</rd:DefaultName>
                           <Style>
                             <Border>
                               <Color>LightGrey</Color>
@@ -701,6 +701,7 @@
                             <PaddingBottom>2pt</PaddingBottom>
                           </Style>
                         </Textbox>
+                        <rd:Selected>true</rd:Selected>
                       </CellContents>
                     </TablixCell>
                     <TablixCell>
