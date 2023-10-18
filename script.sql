@@ -223,3 +223,20 @@ REFERENCES [dbo].[LaptopInvoice] ([InvoiceID])
 GO
 ALTER TABLE [dbo].[LaptopOrder] CHECK CONSTRAINT [FK_Laptop_Invoice]
 GO
+insert into AccessoryBrand values 
+(4, N'MSI'),
+(5, N'CORSAIR'),
+(6, N'RAZER'),
+(7, N'LOGITECH'),
+(8, N'HP'),
+(9, N'DARE-U'),
+(10, N'RAPOO'),
+(11, N'AKKO')
+INSERT INTO AccessoryCategory values 
+(2, N'Chuột'),
+(3, N'Bàn Phím'),
+(4, N'Tai Nghe'),
+(5, N'Bàn'),
+(6, N'Loa'),
+(7, N'Lót Chuột'),
+(8, N'Tản Nhiệt')
