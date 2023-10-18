@@ -1,8 +1,6 @@
-﻿namespace Final.Model.DTO {
-    public class AccessoryCartDto {
-        private static int counter = 0;
-
-        public int OrderID { get; private set; }
+﻿namespace Final.Model.ReportModel {
+    public class AccessoryReport {
+        public int OrderID { get; set; }
 
         public string AccessoryID { get; set; }
 
@@ -19,9 +17,5 @@
         public decimal BuyPrice { get; set; }
 
         public int BuyQuantity { get; set; }
-
-        public AccessoryCartDto() {
-            OrderID = counter + 1;
-        }
     }
 }

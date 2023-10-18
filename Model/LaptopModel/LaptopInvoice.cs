@@ -1,13 +1,17 @@
-namespace Final.Model.LaptopModel {
+namespace Final.Model.LaptopModel
+{
     using System;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
+    using System.Data.Entity.Spatial;
 
     [Table("LaptopInvoice")]
-    public partial class LaptopInvoice {
+    public partial class LaptopInvoice
+    {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public LaptopInvoice() {
+        public LaptopInvoice()
+        {
             LaptopOrders = new HashSet<LaptopOrder>();
         }
 

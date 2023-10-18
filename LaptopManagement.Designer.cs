@@ -180,6 +180,7 @@
             this.TbQuantity.Name = "TbQuantity";
             this.TbQuantity.Size = new System.Drawing.Size(235, 30);
             this.TbQuantity.TabIndex = 11;
+            this.TbQuantity.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // BtnDelete
             // 
@@ -213,6 +214,7 @@
             this.TbSale.Name = "TbSale";
             this.TbSale.Size = new System.Drawing.Size(235, 30);
             this.TbSale.TabIndex = 10;
+            this.TbSale.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // TbPrice
             // 
@@ -220,6 +222,7 @@
             this.TbPrice.Name = "TbPrice";
             this.TbPrice.Size = new System.Drawing.Size(235, 30);
             this.TbPrice.TabIndex = 9;
+            this.TbPrice.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // CbxLaptopCategory
             // 

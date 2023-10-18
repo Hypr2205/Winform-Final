@@ -1,12 +1,17 @@
-namespace Final.Model.AccessoryModel {
+namespace Final.Model.AccessoryModel
+{
+    using System;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
+    using System.Data.Entity.Spatial;
 
     [Table("Accessory")]
-    public partial class Accessory {
+    public partial class Accessory
+    {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Accessory() {
+        public Accessory()
+        {
             AccessoryOrders = new HashSet<AccessoryOrder>();
         }
 

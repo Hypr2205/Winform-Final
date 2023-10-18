@@ -28,14 +28,14 @@
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.TbID = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.TbName = new System.Windows.Forms.TextBox();
             this.BtnReload = new System.Windows.Forms.Button();
+            this.TbID = new System.Windows.Forms.TextBox();
             this.BtnDelete = new System.Windows.Forms.Button();
             this.BtnSearch = new System.Windows.Forms.Button();
             this.BtnEdit = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.TbName = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.DgvAccessoryBrands)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -102,40 +102,6 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Thông tin hãng";
             // 
-            // TbID
-            // 
-            this.TbID.Location = new System.Drawing.Point(118, 59);
-            this.TbID.Name = "TbID";
-            this.TbID.Size = new System.Drawing.Size(176, 30);
-            this.TbID.TabIndex = 8;
-            this.TbID.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // label2
-            // 
-            this.label2.Location = new System.Drawing.Point(6, 133);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(105, 30);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "Tên hãng";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label1
-            // 
-            this.label1.Location = new System.Drawing.Point(6, 59);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(105, 30);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "Mã";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // TbName
-            // 
-            this.TbName.Location = new System.Drawing.Point(118, 133);
-            this.TbName.Name = "TbName";
-            this.TbName.Size = new System.Drawing.Size(176, 30);
-            this.TbName.TabIndex = 1;
-            this.TbName.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
             // BtnReload
             // 
             this.BtnReload.Image = global::Final.Properties.Resources.icons8_refresh_32;
@@ -145,6 +111,14 @@
             this.BtnReload.TabIndex = 2;
             this.BtnReload.UseVisualStyleBackColor = true;
             this.BtnReload.Click += new System.EventHandler(this.BtnReload_Click);
+            // 
+            // TbID
+            // 
+            this.TbID.Location = new System.Drawing.Point(118, 59);
+            this.TbID.Name = "TbID";
+            this.TbID.Size = new System.Drawing.Size(176, 30);
+            this.TbID.TabIndex = 8;
+            this.TbID.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // BtnDelete
             // 
@@ -178,6 +152,32 @@
             this.BtnEdit.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.BtnEdit.UseVisualStyleBackColor = true;
             this.BtnEdit.Click += new System.EventHandler(this.BtnEdit_Click);
+            // 
+            // label2
+            // 
+            this.label2.Location = new System.Drawing.Point(6, 133);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(105, 30);
+            this.label2.TabIndex = 3;
+            this.label2.Text = "Tên hãng";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label1
+            // 
+            this.label1.Location = new System.Drawing.Point(6, 59);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(105, 30);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "Mã";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // TbName
+            // 
+            this.TbName.Location = new System.Drawing.Point(118, 133);
+            this.TbName.Name = "TbName";
+            this.TbName.Size = new System.Drawing.Size(176, 30);
+            this.TbName.TabIndex = 1;
+            this.TbName.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // AccessoryBrandManagementForm
             // 

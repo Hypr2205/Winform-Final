@@ -31,18 +31,8 @@ namespace Final.Model.AccessoryModel {
                 .WithRequired(e => e.AccessoryBrand)
                 .WillCascadeOnDelete(false);
 
-            modelBuilder.Entity<AccessoryBrand>()
-                .HasMany(e => e.AccessoryOrders)
-                .WithRequired(e => e.AccessoryBrand)
-                .WillCascadeOnDelete(false);
-
             modelBuilder.Entity<AccessoryCategory>()
                 .HasMany(e => e.Accessories)
-                .WithRequired(e => e.AccessoryCategory)
-                .WillCascadeOnDelete(false);
-
-            modelBuilder.Entity<AccessoryCategory>()
-                .HasMany(e => e.AccessoryOrders)
                 .WithRequired(e => e.AccessoryCategory)
                 .WillCascadeOnDelete(false);
 

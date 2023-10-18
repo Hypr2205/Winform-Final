@@ -23,10 +23,9 @@ namespace Final {
             var id = DgvAccessoryBrands.Rows[e.RowIndex].Cells[0].Value.ToString();
             AccessoryContext context = new AccessoryContext();
             var find = context.AccessoryBrands.FirstOrDefault(b => b.BrandID.ToString() == id);
-            if (find != null) {
-                TbID.Text = find.BrandID.ToString();
-                TbName.Text = find.BrandName.ToString();
-            }
+            if (find == null) return;
+            TbID.Text = find.BrandID.ToString();
+            TbName.Text = find.BrandName;
         }
 
         private void BtnSearch_Click(object sender, EventArgs e) {
@@ -35,18 +34,24 @@ namespace Final {
             var idFilter = string.IsNullOrEmpty(TbID.Text) ? null : TbID.Text;
             var nameFilter = string.IsNullOrEmpty(TbName.Text) ? null : TbName.Text;
 
-            var findById = idFilter != null ? context.AccessoryBrands.Where(b => b.BrandID.ToString().Contains(TbID.Text)) : null;
-            var findByname = nameFilter != null ? context.AccessoryBrands.Where(b => b.BrandName.Contains(nameFilter)) : null;
+            var findById = idFilter != null
+                ? context.AccessoryBrands.Where(b => b.BrandID.ToString().Contains(TbID.Text))
+                : null;
+            var findByName = nameFilter != null
+                ? context.AccessoryBrands.Where(b => b.BrandName.Contains(nameFilter))
+                : null;
 
             var queryList = new List<IQueryable<AccessoryBrand>>();
             if (findById != null) queryList.Add(findById);
-            if (findByname != null) queryList.Add(findByname);
-            var result = queryList.Any() ? queryList.Aggregate((a, b) => a.Union(b)).ToList() : new List<AccessoryBrand>();
+            if (findByName != null) queryList.Add(findByName);
+            var result = queryList.Any()
+                ? queryList.Aggregate((a, b) => a.Union(b)).ToList()
+                : new List<AccessoryBrand>();
             if (result.Any()) {
                 FillDataView(result);
                 ClearInput();
             } else {
-                MessageBox.Show("Không tìm thấy sản phẩm phù hợp");
+                MessageBox.Show(@"Không tìm thấy sản phẩm phù hợp");
                 ClearInput();
             }
         }
@@ -55,8 +60,9 @@ namespace Final {
             try {
                 var context = new AccessoryContext();
                 if (TbID.Text == string.Empty || TbName.Text == string.Empty) {
-                    MessageBox.Show("Nhập đầy đủ thông tin");
+                    MessageBox.Show(@"Nhập đầy đủ thông tin");
                 }
+
                 var selectedRow = GetRowIndex(TbID.Text);
                 if (selectedRow == -1) {
                     AccessoryBrand brand = new AccessoryBrand();
@@ -64,7 +70,7 @@ namespace Final {
                     brand.BrandName = TbName.Text;
                     context.AccessoryBrands.Add(brand);
                     context.SaveChanges();
-                    MessageBox.Show("Thêm thành công");
+                    MessageBox.Show(@"Thêm thành công");
                     ClearInput();
 
                     context = new AccessoryContext();
@@ -75,7 +81,7 @@ namespace Final {
                         find.BrandID = int.Parse(TbID.Text);
                         find.BrandName = TbName.Text;
                         context.SaveChanges();
-                        MessageBox.Show("Cập nhật thành công");
+                        MessageBox.Show(@"Cập nhật thành công");
                         ClearInput();
                         FillDataView(context.AccessoryBrands.ToList());
                     }
@@ -83,7 +89,6 @@ namespace Final {
             } catch (Exception ex) {
                 MessageBox.Show(ex.Message);
             }
-
         }
 
         private void BtnDelete_Click(object sender, EventArgs e) {
@@ -92,11 +97,11 @@ namespace Final {
             if (find != null) {
                 context.AccessoryBrands.Remove(find);
                 context.SaveChanges();
-                MessageBox.Show("Xoá thành công");
+                MessageBox.Show(@"Xoá thành công");
                 FillDataView(context.AccessoryBrands.ToList());
                 ClearInput();
             } else {
-                MessageBox.Show("Không có hãng tồn tại");
+                MessageBox.Show(@"Không có hãng tồn tại");
             }
         }
 

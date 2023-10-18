@@ -23,13 +23,8 @@
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.DgvAccessoryCart = new System.Windows.Forms.DataGridView();
-            this.TbNote = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.DtpDeliveryDate = new System.Windows.Forms.DateTimePicker();
-            this.label2 = new System.Windows.Forms.Label();
-            this.BtnBuy = new System.Windows.Forms.Button();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -37,6 +32,12 @@
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column7 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.TbNote = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.DtpDeliveryDate = new System.Windows.Forms.DateTimePicker();
+            this.label2 = new System.Windows.Forms.Label();
+            this.BtnBuy = new System.Windows.Forms.Button();
+            this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
             ((System.ComponentModel.ISupportInitialize)(this.DgvAccessoryCart)).BeginInit();
             this.SuspendLayout();
             // 
@@ -55,14 +56,14 @@
             this.Column5,
             this.Column6,
             this.Column7});
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI Variable Display Semib", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.DarkTurquoise;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.DgvAccessoryCart.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI Variable Display Semib", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.DarkTurquoise;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.DgvAccessoryCart.DefaultCellStyle = dataGridViewCellStyle2;
             this.DgvAccessoryCart.Location = new System.Drawing.Point(12, 221);
             this.DgvAccessoryCart.Name = "DgvAccessoryCart";
             this.DgvAccessoryCart.ReadOnly = true;
@@ -72,49 +73,6 @@
             this.DgvAccessoryCart.Size = new System.Drawing.Size(975, 376);
             this.DgvAccessoryCart.TabIndex = 0;
             this.DgvAccessoryCart.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvAccessoryCart_CellContentClick);
-            // 
-            // TbNote
-            // 
-            this.TbNote.Location = new System.Drawing.Point(12, 40);
-            this.TbNote.Multiline = true;
-            this.TbNote.Name = "TbNote";
-            this.TbNote.Size = new System.Drawing.Size(384, 159);
-            this.TbNote.TabIndex = 1;
-            // 
-            // label1
-            // 
-            this.label1.Location = new System.Drawing.Point(12, 9);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(127, 34);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "Ghi chú";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // DtpDeliveryDate
-            // 
-            this.DtpDeliveryDate.Location = new System.Drawing.Point(478, 40);
-            this.DtpDeliveryDate.Name = "DtpDeliveryDate";
-            this.DtpDeliveryDate.Size = new System.Drawing.Size(310, 30);
-            this.DtpDeliveryDate.TabIndex = 3;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(474, 15);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(191, 22);
-            this.label2.TabIndex = 4;
-            this.label2.Text = "Ngày giao hàng dự kiến";
-            // 
-            // BtnBuy
-            // 
-            this.BtnBuy.Location = new System.Drawing.Point(866, 175);
-            this.BtnBuy.Name = "BtnBuy";
-            this.BtnBuy.Size = new System.Drawing.Size(121, 40);
-            this.BtnBuy.TabIndex = 5;
-            this.BtnBuy.Text = "Mua";
-            this.BtnBuy.UseVisualStyleBackColor = true;
-            this.BtnBuy.Click += new System.EventHandler(this.BtnBuy_Click);
             // 
             // Column1
             // 
@@ -167,11 +125,64 @@
             this.Column7.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.Column7.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             // 
+            // TbNote
+            // 
+            this.TbNote.Location = new System.Drawing.Point(12, 40);
+            this.TbNote.Multiline = true;
+            this.TbNote.Name = "TbNote";
+            this.TbNote.Size = new System.Drawing.Size(384, 159);
+            this.TbNote.TabIndex = 1;
+            // 
+            // label1
+            // 
+            this.label1.Location = new System.Drawing.Point(12, 9);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(127, 34);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "Ghi chú";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // DtpDeliveryDate
+            // 
+            this.DtpDeliveryDate.Location = new System.Drawing.Point(478, 40);
+            this.DtpDeliveryDate.Name = "DtpDeliveryDate";
+            this.DtpDeliveryDate.Size = new System.Drawing.Size(310, 30);
+            this.DtpDeliveryDate.TabIndex = 3;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(474, 15);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(191, 22);
+            this.label2.TabIndex = 4;
+            this.label2.Text = "Ngày giao hàng dự kiến";
+            // 
+            // BtnBuy
+            // 
+            this.BtnBuy.Location = new System.Drawing.Point(866, 175);
+            this.BtnBuy.Name = "BtnBuy";
+            this.BtnBuy.Size = new System.Drawing.Size(121, 40);
+            this.BtnBuy.TabIndex = 5;
+            this.BtnBuy.Text = "Mua";
+            this.BtnBuy.UseVisualStyleBackColor = true;
+            this.BtnBuy.Click += new System.EventHandler(this.BtnBuy_Click);
+            // 
+            // reportViewer1
+            // 
+            this.reportViewer1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.reportViewer1.Location = new System.Drawing.Point(0, 0);
+            this.reportViewer1.Name = "reportViewer1";
+            this.reportViewer1.ServerReport.BearerToken = null;
+            this.reportViewer1.Size = new System.Drawing.Size(1000, 604);
+            this.reportViewer1.TabIndex = 6;
+            // 
             // AccessoryCart
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 22F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1000, 604);
+            this.Controls.Add(this.reportViewer1);
             this.Controls.Add(this.BtnBuy);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.DtpDeliveryDate);
@@ -204,5 +215,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
         private System.Windows.Forms.DataGridViewCheckBoxColumn Column7;
+        private Microsoft.Reporting.WinForms.ReportViewer reportViewer1;
     }
 }

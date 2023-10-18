@@ -1,9 +1,14 @@
-namespace Final.Model.AccessoryModel {
+namespace Final.Model.AccessoryModel
+{
+    using System;
+    using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
+    using System.Data.Entity.Spatial;
 
     [Table("AccessoryOrder")]
-    public partial class AccessoryOrder {
+    public partial class AccessoryOrder
+    {
         [Key]
         [Column(Order = 0)]
         [StringLength(6)]
@@ -26,19 +31,19 @@ namespace Final.Model.AccessoryModel {
 
         public int Sale { get; set; }
 
-        public int BrandID { get; set; }
+        [Required]
+        [StringLength(255)]
+        public string BrandName { get; set; }
 
-        public int CategoryID { get; set; }
+        [Required]
+        [StringLength(255)]
+        public string CategoryName { get; set; }
 
         public decimal BuyPrice { get; set; }
 
         public int BuyQuantity { get; set; }
 
         public virtual Accessory Accessory { get; set; }
-
-        public virtual AccessoryBrand AccessoryBrand { get; set; }
-
-        public virtual AccessoryCategory AccessoryCategory { get; set; }
 
         public virtual AccessoryInvoice AccessoryInvoice { get; set; }
     }

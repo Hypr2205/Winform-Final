@@ -29,41 +29,42 @@ namespace Final {
             var find = context.Accessories.FirstOrDefault(a => a.AccessoryID == TbAccessoryID.Text);
             var cartList = CartList.accessoryCart;
 
-            AccessoryCartDto cartDto = new AccessoryCartDto() {
+            if (find == null) return;
+            var cartDto = new AccessoryCartDto {
                 AccessoryID = find.AccessoryID,
                 AccessoryName = find.AccessoryName,
-                BrandID = find.BrandID,
-                CategoryID = find.CategoryID,
+                BrandName = find.AccessoryBrand.BrandName,
+                CategoryName = find.AccessoryCategory.CategoryName,
                 SellPrice = find.SellPrice,
-                Sale = find.Sale,
+                Sale = find.Sale
             };
 
             if (int.Parse(TbBuyQuantity.Text) > find.Quantity) {
-                MessageBox.Show("Giá trị không hợp lệ");
+                MessageBox.Show(@"Giá trị không hợp lệ");
             } else if (find.Quantity == 0) {
-                MessageBox.Show("Hết hàng");
+                MessageBox.Show(@"Hết hàng");
                 find.Quantity = 0;
             } else {
                 cartDto.BuyQuantity = int.Parse(TbBuyQuantity.Text);
             }
 
-            if (find.Sale != 0) {
-                cartDto.Sale = find.Sale;
-            }
+            if (find.Sale != 0) cartDto.Sale = find.Sale;
 
             cartDto.SellPrice = find.SellPrice;
-            cartDto.BuyPrice = (cartDto.SellPrice - cartDto.SellPrice * cartDto.Sale) * cartDto.BuyQuantity;
+            cartDto.BuyPrice = (cartDto.SellPrice - cartDto.SellPrice * (cartDto.Sale / 100)) * cartDto.BuyQuantity;
 
             var exists = cartList.FirstOrDefault(i => i.AccessoryID.Equals(find.AccessoryID));
             if (cartList.Contains(exists)) {
-                exists.BuyQuantity += int.Parse(TbBuyQuantity.Text);
+                if (exists != null) exists.BuyQuantity += int.Parse(TbBuyQuantity.Text);
                 find.Quantity -= int.Parse(TbBuyQuantity.Text);
                 context.SaveChanges();
+                MessageBox.Show(@"Giỏ hàng được cập nhật");
                 FillDataView(context.Accessories.ToList());
             } else {
                 cartList.Add(cartDto);
                 find.Quantity -= cartDto.BuyQuantity;
                 context.SaveChanges();
+                MessageBox.Show(@"Đã thêm vào giỏ hàng");
                 FillDataView(context.Accessories.ToList());
             }
         }
@@ -78,7 +79,7 @@ namespace Final {
         }
 
         private void TbBuyQuantity_Enter(object sender, EventArgs e) {
-            if (TbBuyQuantity.Text == "Số lượng mua") {
+            if (TbBuyQuantity.Text == @"Số lượng mua") {
                 TbBuyQuantity.Text = string.Empty;
                 TbBuyQuantity.ForeColor = Color.Black;
             }
@@ -86,7 +87,7 @@ namespace Final {
 
         private void TbBuyQuantity_OnLeave(object sender, EventArgs e) {
             if (TbBuyQuantity.Text == "") {
-                TbBuyQuantity.Text = "Số lượng mua";
+                TbBuyQuantity.Text = @"Số lượng mua";
                 TbBuyQuantity.ForeColor = Color.Silver;
             }
         }
@@ -100,9 +101,15 @@ namespace Final {
             var selectedBrand = CbxBrandFilter.SelectedItem as AccessoryBrand;
 
             var findById = idFilter != null ? context.Accessories.Where(a => a.AccessoryID.Contains(idFilter)) : null;
-            var findByName = nameFilter != null ? context.Accessories.Where(a => a.AccessoryName.Contains(nameFilter)) : null;
-            var findByCategory = CbxCategoryFilter.SelectedIndex != -1 ? context.Accessories.Where(a => a.CategoryID == selectedCategory.CategoryID) : null;
-            var findByBrand = CbxBrandFilter.SelectedIndex != -1 ? context.Accessories.Where(a => a.BrandID == selectedBrand.BrandID) : null;
+            var findByName = nameFilter != null
+                ? context.Accessories.Where(a => a.AccessoryName.Contains(nameFilter))
+                : null;
+            var findByCategory = CbxCategoryFilter.SelectedIndex != -1
+                ? context.Accessories.Where(a => a.CategoryID == selectedCategory.CategoryID)
+                : null;
+            var findByBrand = CbxBrandFilter.SelectedIndex != -1
+                ? context.Accessories.Where(a => a.BrandID == selectedBrand.BrandID)
+                : null;
             var findInStock = ChkInStock.Checked ? context.Accessories.Where(a => a.Quantity > 0) : null;
             var findIfSale = ChkIsSale.Checked ? context.Accessories.Where(a => a.Sale > 0) : null;
 
@@ -122,10 +129,10 @@ namespace Final {
             var result = queryList.Any() ? queryList.Aggregate((a, b) => a.Union(b)).ToList() : new List<Accessory>();
             if (result.Any()) {
                 FillDataView(result);
-                ClearTextbox();
+                ClearTextBox();
             } else {
                 MessageBox.Show(@"Không tìm thấy sản phẩm phù hợp");
-                ClearTextbox();
+                ClearTextBox();
             }
         }
 
@@ -157,13 +164,13 @@ namespace Final {
             CbxBrandFilter.SelectedIndex = -1;
         }
 
-        private void ClearTextbox() {
+        private void ClearTextBox() {
             TbIdFilter.Text = string.Empty;
             TbNameFillter.Text = string.Empty;
         }
 
         private void BtnCancel_Click(object sender, EventArgs e) {
-            ClearTextbox();
+            ClearTextBox();
             CbxBrandFilter.SelectedIndex = -1;
             CbxCategoryFilter.SelectedIndex = -1;
             ChkInStock.Checked = false;
@@ -175,7 +182,7 @@ namespace Final {
         }
 
         private void Cart_Click(object sender, EventArgs e) {
-            AccessoryCart cart = new AccessoryCart();
+            var cart = new AccessoryCart();
             cart.Show();
             cart.FormClosed += Cart_FormClosed;
             Hide();
