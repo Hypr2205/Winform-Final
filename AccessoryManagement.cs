@@ -210,7 +210,7 @@ namespace Final {
                 DgvAccessories.Rows[index].Cells[2].Value = accessory.AccessoryBrand.BrandName;
                 DgvAccessories.Rows[index].Cells[3].Value = accessory.AccessoryCategory.CategoryName;
                 DgvAccessories.Rows[index].Cells[4].Value = accessory.SellPrice;
-                DgvAccessories.Rows[index].Cells[5].Value = accessory.Sale;
+                DgvAccessories.Rows[index].Cells[5].Value = accessory.Sale + "%";
                 DgvAccessories.Rows[index].Cells[6].Value = accessory.Quantity;
             }
         }

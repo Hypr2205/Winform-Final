@@ -35,7 +35,7 @@ namespace Final {
                 DgvLaptops.Rows[index].Cells[2].Value = lap.LaptopBrand.BrandName;
                 DgvLaptops.Rows[index].Cells[3].Value = lap.SellPrice.ToString();
                 if (lap.Sale != 0) {
-                    DgvLaptops.Rows[index].Cells[4].Value = lap.Sale;
+                    DgvLaptops.Rows[index].Cells[4].Value = lap.Sale + "%";
                 } else {
                     DgvLaptops.Rows[index].Cells[4].Value = "";
                 }
