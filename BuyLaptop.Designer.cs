@@ -23,7 +23,7 @@
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
-                  System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+                  System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
                   this.LbTitle = new System.Windows.Forms.Label();
                   this.DgvLaptops = new System.Windows.Forms.DataGridView();
                   this.LaptopIDCell = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -69,11 +69,11 @@
                   // 
                   this.LbTitle.Font = new System.Drawing.Font("Segoe UI Variable Display Semib", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
                   this.LbTitle.ForeColor = System.Drawing.Color.Crimson;
-                  this.LbTitle.Location = new System.Drawing.Point(532, 29);
+                  this.LbTitle.Location = new System.Drawing.Point(533, 24);
                   this.LbTitle.Name = "LbTitle";
                   this.LbTitle.Size = new System.Drawing.Size(347, 53);
                   this.LbTitle.TabIndex = 1;
-                  this.LbTitle.Text = "Shop Máy Tính PC88";
+                  this.LbTitle.Text = "MUA LAPTOP";
                   this.LbTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
                   // 
                   // DgvLaptops
@@ -93,14 +93,14 @@
             this.SellPriceCell,
             this.SaleCell,
             this.QuantityCell});
-                  dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-                  dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
-                  dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI Variable Display Semib", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-                  dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
-                  dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.DarkTurquoise;
-                  dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-                  dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-                  this.DgvLaptops.DefaultCellStyle = dataGridViewCellStyle1;
+                  dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+                  dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+                  dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI Variable Display Semib", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+                  dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+                  dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.DarkTurquoise;
+                  dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+                  dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+                  this.DgvLaptops.DefaultCellStyle = dataGridViewCellStyle2;
                   this.DgvLaptops.Location = new System.Drawing.Point(458, 243);
                   this.DgvLaptops.Name = "DgvLaptops";
                   this.DgvLaptops.ReadOnly = true;
@@ -187,7 +187,7 @@
                   // 
                   // TbSale
                   // 
-                  this.TbSale.Location = new System.Drawing.Point(143, 350);
+                  this.TbSale.Location = new System.Drawing.Point(143, 318);
                   this.TbSale.Name = "TbSale";
                   this.TbSale.ReadOnly = true;
                   this.TbSale.Size = new System.Drawing.Size(280, 30);
@@ -216,7 +216,7 @@
                   // 
                   // TbLaptopPrice
                   // 
-                  this.TbLaptopPrice.Location = new System.Drawing.Point(143, 271);
+                  this.TbLaptopPrice.Location = new System.Drawing.Point(143, 251);
                   this.TbLaptopPrice.Name = "TbLaptopPrice";
                   this.TbLaptopPrice.ReadOnly = true;
                   this.TbLaptopPrice.Size = new System.Drawing.Size(280, 30);
@@ -252,47 +252,52 @@
                   // 
                   // label8
                   // 
-                  this.label8.Location = new System.Drawing.Point(10, 271);
+                  this.label8.Font = new System.Drawing.Font("Segoe UI Variable Display Semib", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+                  this.label8.Location = new System.Drawing.Point(10, 247);
                   this.label8.Name = "label8";
-                  this.label8.Size = new System.Drawing.Size(128, 37);
+                  this.label8.Size = new System.Drawing.Size(77, 37);
                   this.label8.TabIndex = 3;
-                  this.label8.Text = "Giá bán";
+                  this.label8.Text = "GIÁ BÁN";
                   this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
                   // 
                   // label7
                   // 
-                  this.label7.Location = new System.Drawing.Point(6, 187);
+                  this.label7.Font = new System.Drawing.Font("Segoe UI Variable Display Semib", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+                  this.label7.Location = new System.Drawing.Point(10, 183);
                   this.label7.Name = "label7";
-                  this.label7.Size = new System.Drawing.Size(132, 37);
+                  this.label7.Size = new System.Drawing.Size(60, 37);
                   this.label7.TabIndex = 2;
-                  this.label7.Text = "Hãng";
+                  this.label7.Text = "HÃNG";
                   this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
                   // 
                   // label6
                   // 
-                  this.label6.Location = new System.Drawing.Point(10, 350);
+                  this.label6.Font = new System.Drawing.Font("Segoe UI Variable Display Semib", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+                  this.label6.Location = new System.Drawing.Point(1, 318);
                   this.label6.Name = "label6";
-                  this.label6.Size = new System.Drawing.Size(128, 37);
+                  this.label6.Size = new System.Drawing.Size(118, 37);
                   this.label6.TabIndex = 2;
-                  this.label6.Text = "Khuyến mãi";
+                  this.label6.Text = "KHUYẾN MÃI";
                   this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
                   // 
                   // label5
                   // 
-                  this.label5.Location = new System.Drawing.Point(10, 113);
+                  this.label5.Font = new System.Drawing.Font("Segoe UI Variable Display Semib", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+                  this.label5.Location = new System.Drawing.Point(10, 120);
                   this.label5.Name = "label5";
-                  this.label5.Size = new System.Drawing.Size(128, 37);
+                  this.label5.Size = new System.Drawing.Size(84, 37);
                   this.label5.TabIndex = 1;
-                  this.label5.Text = "Tên máy";
+                  this.label5.Text = "TÊN MÁY";
                   this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
                   // 
                   // label4
                   // 
-                  this.label4.Location = new System.Drawing.Point(6, 46);
+                  this.label4.Font = new System.Drawing.Font("Segoe UI Variable Display Semib", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+                  this.label4.Location = new System.Drawing.Point(10, 53);
                   this.label4.Name = "label4";
-                  this.label4.Size = new System.Drawing.Size(132, 37);
+                  this.label4.Size = new System.Drawing.Size(82, 37);
                   this.label4.TabIndex = 0;
-                  this.label4.Text = "Mã máy";
+                  this.label4.Text = "MÃ MÁY";
                   this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
                   // 
                   // FilterContainer
@@ -318,6 +323,7 @@
                   // 
                   // ChkIsInStock
                   // 
+                  this.ChkIsInStock.Font = new System.Drawing.Font("Segoe UI Variable Display Semib", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
                   this.ChkIsInStock.Location = new System.Drawing.Point(967, 96);
                   this.ChkIsInStock.Name = "ChkIsInStock";
                   this.ChkIsInStock.Size = new System.Drawing.Size(186, 35);
@@ -334,7 +340,8 @@
                   // 
                   // label9
                   // 
-                  this.label9.Location = new System.Drawing.Point(36, 29);
+                  this.label9.Font = new System.Drawing.Font("Segoe UI Variable Display Semib", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+                  this.label9.Location = new System.Drawing.Point(24, 31);
                   this.label9.Name = "label9";
                   this.label9.Size = new System.Drawing.Size(101, 30);
                   this.label9.TabIndex = 9;
@@ -354,6 +361,7 @@
                   // 
                   // label3
                   // 
+                  this.label3.Font = new System.Drawing.Font("Segoe UI Variable Display Semib", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
                   this.label3.Location = new System.Drawing.Point(524, 26);
                   this.label3.Name = "label3";
                   this.label3.Size = new System.Drawing.Size(101, 30);
@@ -370,6 +378,7 @@
                   // 
                   // ChkIsSale
                   // 
+                  this.ChkIsSale.Font = new System.Drawing.Font("Segoe UI Variable Display Semib", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
                   this.ChkIsSale.Location = new System.Drawing.Point(967, 32);
                   this.ChkIsSale.Name = "ChkIsSale";
                   this.ChkIsSale.Size = new System.Drawing.Size(186, 35);
@@ -391,6 +400,7 @@
                   // 
                   // label2
                   // 
+                  this.label2.Font = new System.Drawing.Font("Segoe UI Variable Display Semib", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
                   this.label2.Location = new System.Drawing.Point(24, 85);
                   this.label2.Name = "label2";
                   this.label2.Size = new System.Drawing.Size(100, 30);
@@ -413,15 +423,16 @@
             this.Cart});
                   this.menuStrip1.Location = new System.Drawing.Point(0, 0);
                   this.menuStrip1.Name = "menuStrip1";
-                  this.menuStrip1.Size = new System.Drawing.Size(1391, 29);
+                  this.menuStrip1.Size = new System.Drawing.Size(1391, 36);
                   this.menuStrip1.TabIndex = 5;
                   this.menuStrip1.Text = "menuStrip1";
                   // 
                   // Cart
                   // 
                   this.Cart.BackColor = System.Drawing.Color.LightSkyBlue;
+                  this.Cart.Font = new System.Drawing.Font("Segoe UI", 12F);
                   this.Cart.Name = "Cart";
-                  this.Cart.Size = new System.Drawing.Size(120, 25);
+                  this.Cart.Size = new System.Drawing.Size(148, 32);
                   this.Cart.Text = "Xem giỏ hàng";
                   this.Cart.Click += new System.EventHandler(this.Cart_Click);
                   // 

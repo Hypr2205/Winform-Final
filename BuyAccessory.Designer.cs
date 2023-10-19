@@ -98,13 +98,13 @@ namespace Final {
                   dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
                   dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
                   this.DgvAccessories.DefaultCellStyle = dataGridViewCellStyle1;
-                  this.DgvAccessories.Location = new System.Drawing.Point(438, 274);
+                  this.DgvAccessories.Location = new System.Drawing.Point(438, 293);
                   this.DgvAccessories.Name = "DgvAccessories";
                   this.DgvAccessories.ReadOnly = true;
                   this.DgvAccessories.RowHeadersWidth = 51;
                   this.DgvAccessories.RowTemplate.Height = 24;
                   this.DgvAccessories.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-                  this.DgvAccessories.Size = new System.Drawing.Size(900, 438);
+                  this.DgvAccessories.Size = new System.Drawing.Size(1193, 500);
                   this.DgvAccessories.TabIndex = 0;
                   this.DgvAccessories.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvAccessories_CellContentClick);
                   // 
@@ -161,11 +161,11 @@ namespace Final {
                   // 
                   this.LbTitle.Font = new System.Drawing.Font("Segoe UI Variable Display Semib", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
                   this.LbTitle.ForeColor = System.Drawing.Color.Crimson;
-                  this.LbTitle.Location = new System.Drawing.Point(494, 29);
+                  this.LbTitle.Location = new System.Drawing.Point(518, 12);
                   this.LbTitle.Name = "LbTitle";
-                  this.LbTitle.Size = new System.Drawing.Size(347, 53);
+                  this.LbTitle.Size = new System.Drawing.Size(627, 53);
                   this.LbTitle.TabIndex = 2;
-                  this.LbTitle.Text = "Shop Máy Tính PC88";
+                  this.LbTitle.Text = "MUA PHỤ KIỆN";
                   this.LbTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
                   // 
                   // groupBox1
@@ -185,7 +185,7 @@ namespace Final {
                   this.groupBox1.Controls.Add(this.TbAccessoryID);
                   this.groupBox1.Location = new System.Drawing.Point(12, 274);
                   this.groupBox1.Name = "groupBox1";
-                  this.groupBox1.Size = new System.Drawing.Size(420, 438);
+                  this.groupBox1.Size = new System.Drawing.Size(420, 582);
                   this.groupBox1.TabIndex = 3;
                   this.groupBox1.TabStop = false;
                   this.groupBox1.Text = "Thông tin sản phẩm";
@@ -193,7 +193,7 @@ namespace Final {
                   // BtnRefresh
                   // 
                   this.BtnRefresh.Image = global::Final.Properties.Resources.icons8_refresh_32;
-                  this.BtnRefresh.Location = new System.Drawing.Point(358, 384);
+                  this.BtnRefresh.Location = new System.Drawing.Point(358, 518);
                   this.BtnRefresh.Name = "BtnRefresh";
                   this.BtnRefresh.Size = new System.Drawing.Size(56, 35);
                   this.BtnRefresh.TabIndex = 11;
@@ -202,7 +202,7 @@ namespace Final {
                   // 
                   // TbBuyQuantity
                   // 
-                  this.TbBuyQuantity.Location = new System.Drawing.Point(195, 389);
+                  this.TbBuyQuantity.Location = new System.Drawing.Point(193, 521);
                   this.TbBuyQuantity.Name = "TbBuyQuantity";
                   this.TbBuyQuantity.Size = new System.Drawing.Size(147, 30);
                   this.TbBuyQuantity.TabIndex = 10;
@@ -212,7 +212,7 @@ namespace Final {
                   // 
                   // BtnAddToCart
                   // 
-                  this.BtnAddToCart.Location = new System.Drawing.Point(10, 384);
+                  this.BtnAddToCart.Location = new System.Drawing.Point(10, 521);
                   this.BtnAddToCart.Name = "BtnAddToCart";
                   this.BtnAddToCart.Size = new System.Drawing.Size(166, 39);
                   this.BtnAddToCart.TabIndex = 9;
@@ -222,47 +222,48 @@ namespace Final {
                   // 
                   // label5
                   // 
-                  this.label5.Location = new System.Drawing.Point(6, 328);
+                  this.label5.Location = new System.Drawing.Point(6, 423);
                   this.label5.Name = "label5";
-                  this.label5.Size = new System.Drawing.Size(149, 30);
+                  this.label5.Size = new System.Drawing.Size(118, 30);
                   this.label5.TabIndex = 7;
-                  this.label5.Text = "Giá bán";
+                  this.label5.Text = "GIÁ BÁN";
                   // 
                   // label4
                   // 
-                  this.label4.Location = new System.Drawing.Point(6, 191);
+                  this.label4.Location = new System.Drawing.Point(6, 237);
                   this.label4.Name = "label4";
                   this.label4.Size = new System.Drawing.Size(149, 30);
                   this.label4.TabIndex = 6;
-                  this.label4.Text = "Loại sản phẩm";
+                  this.label4.Text = "LOẠI SẢN PHẨM";
                   // 
                   // label3
                   // 
-                  this.label3.Location = new System.Drawing.Point(6, 119);
+                  this.label3.Location = new System.Drawing.Point(6, 153);
                   this.label3.Name = "label3";
                   this.label3.Size = new System.Drawing.Size(149, 30);
                   this.label3.TabIndex = 5;
-                  this.label3.Text = "Tên sản phẩm";
+                  this.label3.Text = "TÊN SẢN PHẨM";
+                  this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
                   // 
                   // label2
                   // 
-                  this.label2.Location = new System.Drawing.Point(6, 259);
+                  this.label2.Location = new System.Drawing.Point(6, 325);
                   this.label2.Name = "label2";
                   this.label2.Size = new System.Drawing.Size(149, 30);
                   this.label2.TabIndex = 5;
-                  this.label2.Text = "Hãng";
+                  this.label2.Text = "HÃNG";
                   // 
                   // label1
                   // 
-                  this.label1.Location = new System.Drawing.Point(6, 48);
+                  this.label1.Location = new System.Drawing.Point(6, 81);
                   this.label1.Name = "label1";
                   this.label1.Size = new System.Drawing.Size(149, 30);
                   this.label1.TabIndex = 4;
-                  this.label1.Text = "Mã sản phẩm";
+                  this.label1.Text = "MÃ SẢN PHẨM";
                   // 
                   // TbPrice
                   // 
-                  this.TbPrice.Location = new System.Drawing.Point(161, 325);
+                  this.TbPrice.Location = new System.Drawing.Point(152, 423);
                   this.TbPrice.Name = "TbPrice";
                   this.TbPrice.ReadOnly = true;
                   this.TbPrice.Size = new System.Drawing.Size(253, 30);
@@ -271,7 +272,7 @@ namespace Final {
                   // 
                   // TbCategoryName
                   // 
-                  this.TbCategoryName.Location = new System.Drawing.Point(161, 191);
+                  this.TbCategoryName.Location = new System.Drawing.Point(152, 237);
                   this.TbCategoryName.Name = "TbCategoryName";
                   this.TbCategoryName.ReadOnly = true;
                   this.TbCategoryName.Size = new System.Drawing.Size(253, 30);
@@ -280,7 +281,7 @@ namespace Final {
                   // 
                   // TbAccessoryName
                   // 
-                  this.TbAccessoryName.Location = new System.Drawing.Point(161, 119);
+                  this.TbAccessoryName.Location = new System.Drawing.Point(152, 154);
                   this.TbAccessoryName.Name = "TbAccessoryName";
                   this.TbAccessoryName.ReadOnly = true;
                   this.TbAccessoryName.Size = new System.Drawing.Size(253, 30);
@@ -289,7 +290,7 @@ namespace Final {
                   // 
                   // TbBrandName
                   // 
-                  this.TbBrandName.Location = new System.Drawing.Point(161, 256);
+                  this.TbBrandName.Location = new System.Drawing.Point(152, 325);
                   this.TbBrandName.Name = "TbBrandName";
                   this.TbBrandName.ReadOnly = true;
                   this.TbBrandName.Size = new System.Drawing.Size(253, 30);
@@ -298,7 +299,7 @@ namespace Final {
                   // 
                   // TbAccessoryID
                   // 
-                  this.TbAccessoryID.Location = new System.Drawing.Point(161, 48);
+                  this.TbAccessoryID.Location = new System.Drawing.Point(152, 78);
                   this.TbAccessoryID.Name = "TbAccessoryID";
                   this.TbAccessoryID.ReadOnly = true;
                   this.TbAccessoryID.Size = new System.Drawing.Size(253, 30);
@@ -322,9 +323,9 @@ namespace Final {
                   this.groupBox2.Controls.Add(this.TbIdFilter);
                   this.groupBox2.Controls.Add(this.label8);
                   this.groupBox2.Controls.Add(this.label7);
-                  this.groupBox2.Location = new System.Drawing.Point(12, 82);
+                  this.groupBox2.Location = new System.Drawing.Point(12, 68);
                   this.groupBox2.Name = "groupBox2";
-                  this.groupBox2.Size = new System.Drawing.Size(1326, 167);
+                  this.groupBox2.Size = new System.Drawing.Size(1619, 186);
                   this.groupBox2.TabIndex = 4;
                   this.groupBox2.TabStop = false;
                   this.groupBox2.Text = "Lọc sản phẩm";
@@ -441,7 +442,7 @@ namespace Final {
             this.Cart});
                   this.menuStrip1.Location = new System.Drawing.Point(0, 0);
                   this.menuStrip1.Name = "menuStrip1";
-                  this.menuStrip1.Size = new System.Drawing.Size(1350, 29);
+                  this.menuStrip1.Size = new System.Drawing.Size(1643, 29);
                   this.menuStrip1.TabIndex = 5;
                   this.menuStrip1.Text = "menuStrip1";
                   // 
@@ -457,7 +458,7 @@ namespace Final {
                   this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 22F);
                   this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
                   this.BackColor = System.Drawing.Color.SkyBlue;
-                  this.ClientSize = new System.Drawing.Size(1350, 717);
+                  this.ClientSize = new System.Drawing.Size(1643, 868);
                   this.Controls.Add(this.groupBox2);
                   this.Controls.Add(this.groupBox1);
                   this.Controls.Add(this.LbTitle);

@@ -67,6 +67,7 @@
                   this.chứcNăngToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
                   this.AccessoryBrandManagement = new System.Windows.Forms.ToolStripMenuItem();
                   this.AccessoryCategoryManagement = new System.Windows.Forms.ToolStripMenuItem();
+                  this.label9 = new System.Windows.Forms.Label();
                   ((System.ComponentModel.ISupportInitialize)(this.DgvAccessories)).BeginInit();
                   this.AccessoryInfoContainer.SuspendLayout();
                   this.groupBox1.SuspendLayout();
@@ -206,7 +207,7 @@
                   this.BtnDelete.Name = "BtnDelete";
                   this.BtnDelete.Size = new System.Drawing.Size(83, 42);
                   this.BtnDelete.TabIndex = 6;
-                  this.BtnDelete.Text = "Xoá";
+                  this.BtnDelete.Text = "XÓA";
                   this.BtnDelete.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
                   this.BtnDelete.UseVisualStyleBackColor = true;
                   this.BtnDelete.Click += new System.EventHandler(this.BtnDelete_Click);
@@ -227,9 +228,9 @@
                   this.BtnEdit.Location = new System.Drawing.Point(159, 464);
                   this.BtnEdit.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
                   this.BtnEdit.Name = "BtnEdit";
-                  this.BtnEdit.Size = new System.Drawing.Size(119, 42);
+                  this.BtnEdit.Size = new System.Drawing.Size(151, 42);
                   this.BtnEdit.TabIndex = 5;
-                  this.BtnEdit.Text = "Cập nhật";
+                  this.BtnEdit.Text = "CẬP NHẬT";
                   this.BtnEdit.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
                   this.BtnEdit.UseVisualStyleBackColor = true;
                   this.BtnEdit.Click += new System.EventHandler(this.BtnEdit_Click);
@@ -266,9 +267,9 @@
                   this.label7.Location = new System.Drawing.Point(14, 50);
                   this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
                   this.label7.Name = "label7";
-                  this.label7.Size = new System.Drawing.Size(109, 28);
+                  this.label7.Size = new System.Drawing.Size(141, 28);
                   this.label7.TabIndex = 9;
-                  this.label7.Text = "Mã linh kiện";
+                  this.label7.Text = "MÃ PHỤ KIỆN";
                   // 
                   // CbxAccessoryCategory
                   // 
@@ -304,16 +305,16 @@
                   this.label6.Name = "label6";
                   this.label6.Size = new System.Drawing.Size(109, 28);
                   this.label6.TabIndex = 5;
-                  this.label6.Text = "Số lượng";
+                  this.label6.Text = "SỐ LƯỢNG";
                   // 
                   // label5
                   // 
                   this.label5.Location = new System.Drawing.Point(14, 357);
                   this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
                   this.label5.Name = "label5";
-                  this.label5.Size = new System.Drawing.Size(109, 28);
+                  this.label5.Size = new System.Drawing.Size(141, 28);
                   this.label5.TabIndex = 4;
-                  this.label5.Text = "Khuyến mãi";
+                  this.label5.Text = "KHUYỄN MÃI";
                   // 
                   // label4
                   // 
@@ -322,7 +323,7 @@
                   this.label4.Name = "label4";
                   this.label4.Size = new System.Drawing.Size(109, 28);
                   this.label4.TabIndex = 3;
-                  this.label4.Text = "Loại linh kiện";
+                  this.label4.Text = "LOẠI PHỤ KIỆN";
                   // 
                   // label3
                   // 
@@ -331,7 +332,7 @@
                   this.label3.Name = "label3";
                   this.label3.Size = new System.Drawing.Size(109, 28);
                   this.label3.TabIndex = 2;
-                  this.label3.Text = "Hãng";
+                  this.label3.Text = "HÃNG";
                   // 
                   // label2
                   // 
@@ -340,16 +341,16 @@
                   this.label2.Name = "label2";
                   this.label2.Size = new System.Drawing.Size(109, 28);
                   this.label2.TabIndex = 1;
-                  this.label2.Text = "Giá bán";
+                  this.label2.Text = "GIÁ BÁN";
                   // 
                   // label1
                   // 
                   this.label1.Location = new System.Drawing.Point(13, 107);
                   this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
                   this.label1.Name = "label1";
-                  this.label1.Size = new System.Drawing.Size(109, 28);
+                  this.label1.Size = new System.Drawing.Size(127, 28);
                   this.label1.TabIndex = 0;
-                  this.label1.Text = "Tên linh kiện";
+                  this.label1.Text = "TÊN PHỤ KIỆN";
                   // 
                   // BtnSearch
                   // 
@@ -358,7 +359,7 @@
                   this.BtnSearch.Name = "BtnSearch";
                   this.BtnSearch.Size = new System.Drawing.Size(120, 35);
                   this.BtnSearch.TabIndex = 4;
-                  this.BtnSearch.Text = "Tìm kiếm";
+                  this.BtnSearch.Text = "TÌM KIẾM";
                   this.BtnSearch.UseVisualStyleBackColor = true;
                   this.BtnSearch.Click += new System.EventHandler(this.BtnSearch_Click);
                   // 
@@ -376,11 +377,11 @@
                   this.groupBox1.Controls.Add(this.label11);
                   this.groupBox1.Controls.Add(this.label12);
                   this.groupBox1.Controls.Add(this.label14);
-                  this.groupBox1.Location = new System.Drawing.Point(11, 48);
+                  this.groupBox1.Location = new System.Drawing.Point(11, 71);
                   this.groupBox1.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
                   this.groupBox1.Name = "groupBox1";
                   this.groupBox1.Padding = new System.Windows.Forms.Padding(2, 3, 2, 3);
-                  this.groupBox1.Size = new System.Drawing.Size(1280, 180);
+                  this.groupBox1.Size = new System.Drawing.Size(1280, 157);
                   this.groupBox1.TabIndex = 14;
                   this.groupBox1.TabStop = false;
                   this.groupBox1.Text = "Tìm kiếm phụ kiện";
@@ -388,9 +389,10 @@
                   // ChkIsSale
                   // 
                   this.ChkIsSale.AutoSize = true;
+                  this.ChkIsSale.Font = new System.Drawing.Font("Segoe UI Variable Display Semil", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
                   this.ChkIsSale.Location = new System.Drawing.Point(946, 112);
                   this.ChkIsSale.Name = "ChkIsSale";
-                  this.ChkIsSale.Size = new System.Drawing.Size(170, 26);
+                  this.ChkIsSale.Size = new System.Drawing.Size(196, 31);
                   this.ChkIsSale.TabIndex = 14;
                   this.ChkIsSale.Text = "Đang khuyến mãi";
                   this.ChkIsSale.UseVisualStyleBackColor = true;
@@ -398,9 +400,10 @@
                   // ChkIsInStock
                   // 
                   this.ChkIsInStock.AutoSize = true;
+                  this.ChkIsInStock.Font = new System.Drawing.Font("Segoe UI Variable Display Semil", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
                   this.ChkIsInStock.Location = new System.Drawing.Point(946, 49);
                   this.ChkIsInStock.Name = "ChkIsInStock";
-                  this.ChkIsInStock.Size = new System.Drawing.Size(111, 26);
+                  this.ChkIsInStock.Size = new System.Drawing.Size(126, 31);
                   this.ChkIsInStock.TabIndex = 13;
                   this.ChkIsInStock.Text = "Còn hàng";
                   this.ChkIsInStock.UseVisualStyleBackColor = true;
@@ -412,14 +415,14 @@
                   this.BtnCancel.Name = "BtnCancel";
                   this.BtnCancel.Size = new System.Drawing.Size(120, 38);
                   this.BtnCancel.TabIndex = 12;
-                  this.BtnCancel.Text = "Huỷ";
+                  this.BtnCancel.Text = "HỦY";
                   this.BtnCancel.UseVisualStyleBackColor = true;
                   this.BtnCancel.Click += new System.EventHandler(this.BtnCancel_Click);
                   // 
                   // CbxCategoryFilter
                   // 
                   this.CbxCategoryFilter.FormattingEnabled = true;
-                  this.CbxCategoryFilter.Location = new System.Drawing.Point(636, 110);
+                  this.CbxCategoryFilter.Location = new System.Drawing.Point(651, 110);
                   this.CbxCategoryFilter.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
                   this.CbxCategoryFilter.Name = "CbxCategoryFilter";
                   this.CbxCategoryFilter.Size = new System.Drawing.Size(264, 30);
@@ -427,17 +430,18 @@
                   // 
                   // label8
                   // 
+                  this.label8.Font = new System.Drawing.Font("Segoe UI Variable Display Semil", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
                   this.label8.Location = new System.Drawing.Point(14, 50);
                   this.label8.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
                   this.label8.Name = "label8";
-                  this.label8.Size = new System.Drawing.Size(109, 28);
+                  this.label8.Size = new System.Drawing.Size(124, 36);
                   this.label8.TabIndex = 9;
                   this.label8.Text = "Mã phụ kiện";
                   // 
                   // CbxBrandFilter
                   // 
                   this.CbxBrandFilter.FormattingEnabled = true;
-                  this.CbxBrandFilter.Location = new System.Drawing.Point(636, 47);
+                  this.CbxBrandFilter.Location = new System.Drawing.Point(651, 50);
                   this.CbxBrandFilter.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
                   this.CbxBrandFilter.Name = "CbxBrandFilter";
                   this.CbxBrandFilter.Size = new System.Drawing.Size(264, 30);
@@ -463,28 +467,31 @@
                   // 
                   // label11
                   // 
-                  this.label11.Location = new System.Drawing.Point(514, 112);
+                  this.label11.Font = new System.Drawing.Font("Segoe UI Variable Display Semil", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+                  this.label11.Location = new System.Drawing.Point(494, 112);
                   this.label11.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
                   this.label11.Name = "label11";
-                  this.label11.Size = new System.Drawing.Size(118, 28);
+                  this.label11.Size = new System.Drawing.Size(153, 36);
                   this.label11.TabIndex = 3;
                   this.label11.Text = "Loại phụ kiện kiện";
                   // 
                   // label12
                   // 
-                  this.label12.Location = new System.Drawing.Point(514, 47);
+                  this.label12.Font = new System.Drawing.Font("Segoe UI Variable Display Semil", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+                  this.label12.Location = new System.Drawing.Point(494, 49);
                   this.label12.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
                   this.label12.Name = "label12";
-                  this.label12.Size = new System.Drawing.Size(109, 31);
+                  this.label12.Size = new System.Drawing.Size(124, 39);
                   this.label12.TabIndex = 2;
                   this.label12.Text = "Hãng";
                   // 
                   // label14
                   // 
+                  this.label14.Font = new System.Drawing.Font("Segoe UI Variable Display Semil", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
                   this.label14.Location = new System.Drawing.Point(13, 107);
                   this.label14.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
                   this.label14.Name = "label14";
-                  this.label14.Size = new System.Drawing.Size(109, 28);
+                  this.label14.Size = new System.Drawing.Size(142, 36);
                   this.label14.TabIndex = 0;
                   this.label14.Text = "Tên phụ kiện";
                   // 
@@ -524,12 +531,24 @@
                   this.AccessoryCategoryManagement.Text = "Quản lý loại phụ kiện";
                   this.AccessoryCategoryManagement.Click += new System.EventHandler(this.AccessoryCategoryManagement_Click);
                   // 
+                  // label9
+                  // 
+                  this.label9.AutoSize = true;
+                  this.label9.Font = new System.Drawing.Font("Segoe UI Variable Display Semil", 23F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+                  this.label9.ForeColor = System.Drawing.Color.Crimson;
+                  this.label9.Location = new System.Drawing.Point(490, 16);
+                  this.label9.Name = "label9";
+                  this.label9.Size = new System.Drawing.Size(277, 52);
+                  this.label9.TabIndex = 16;
+                  this.label9.Text = "KHO PHỤ KIỆN";
+                  // 
                   // AccessoryManagement
                   // 
                   this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 22F);
                   this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
                   this.BackColor = System.Drawing.Color.SkyBlue;
                   this.ClientSize = new System.Drawing.Size(1302, 781);
+                  this.Controls.Add(this.label9);
                   this.Controls.Add(this.groupBox1);
                   this.Controls.Add(this.AccessoryInfoContainer);
                   this.Controls.Add(this.DgvAccessories);
@@ -599,5 +618,6 @@
         private System.Windows.Forms.ToolStripMenuItem AccessoryBrandManagement;
         private System.Windows.Forms.ToolStripMenuItem AccessoryCategoryManagement;
         private System.Windows.Forms.Button button1;
-    }
+            private System.Windows.Forms.Label label9;
+      }
 }
