@@ -23,7 +23,7 @@
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
-                  System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+                  System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
                   this.DgvAccessoryCart = new System.Windows.Forms.DataGridView();
                   this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
                   this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -56,14 +56,14 @@
             this.Column5,
             this.Column6,
             this.Column7});
-                  dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-                  dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-                  dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI Variable Display Semib", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-                  dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-                  dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.DarkTurquoise;
-                  dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-                  dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-                  this.DgvAccessoryCart.DefaultCellStyle = dataGridViewCellStyle2;
+                  dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+                  dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
+                  dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI Variable Display Semib", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+                  dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
+                  dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.DarkTurquoise;
+                  dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+                  dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+                  this.DgvAccessoryCart.DefaultCellStyle = dataGridViewCellStyle1;
                   this.DgvAccessoryCart.Location = new System.Drawing.Point(12, 221);
                   this.DgvAccessoryCart.Name = "DgvAccessoryCart";
                   this.DgvAccessoryCart.ReadOnly = true;
@@ -135,7 +135,7 @@
                   // 
                   // label1
                   // 
-                  this.label1.Location = new System.Drawing.Point(12, 9);
+                  this.label1.Location = new System.Drawing.Point(12, 3);
                   this.label1.Name = "label1";
                   this.label1.Size = new System.Drawing.Size(127, 34);
                   this.label1.TabIndex = 2;
@@ -144,7 +144,7 @@
                   // 
                   // DtpDeliveryDate
                   // 
-                  this.DtpDeliveryDate.Location = new System.Drawing.Point(478, 40);
+                  this.DtpDeliveryDate.Location = new System.Drawing.Point(444, 155);
                   this.DtpDeliveryDate.Name = "DtpDeliveryDate";
                   this.DtpDeliveryDate.Size = new System.Drawing.Size(310, 30);
                   this.DtpDeliveryDate.TabIndex = 3;
@@ -152,17 +152,18 @@
                   // label2
                   // 
                   this.label2.AutoSize = true;
-                  this.label2.Location = new System.Drawing.Point(474, 15);
+                  this.label2.Font = new System.Drawing.Font("Segoe UI Variable Display Semib", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+                  this.label2.Location = new System.Drawing.Point(469, 95);
                   this.label2.Name = "label2";
-                  this.label2.Size = new System.Drawing.Size(191, 22);
+                  this.label2.Size = new System.Drawing.Size(249, 30);
                   this.label2.TabIndex = 4;
                   this.label2.Text = "Ngày giao hàng dự kiến";
                   // 
                   // BtnBuy
                   // 
-                  this.BtnBuy.Location = new System.Drawing.Point(866, 175);
+                  this.BtnBuy.Location = new System.Drawing.Point(821, 134);
                   this.BtnBuy.Name = "BtnBuy";
-                  this.BtnBuy.Size = new System.Drawing.Size(121, 40);
+                  this.BtnBuy.Size = new System.Drawing.Size(166, 51);
                   this.BtnBuy.TabIndex = 5;
                   this.BtnBuy.Text = "Mua";
                   this.BtnBuy.UseVisualStyleBackColor = true;
@@ -170,8 +171,7 @@
                   // 
                   // reportViewer1
                   // 
-                  this.reportViewer1.Dock = System.Windows.Forms.DockStyle.Fill;
-                  this.reportViewer1.Location = new System.Drawing.Point(0, 0);
+                  this.reportViewer1.Location = new System.Drawing.Point(32, 461);
                   this.reportViewer1.Name = "reportViewer1";
                   this.reportViewer1.ServerReport.BearerToken = null;
                   this.reportViewer1.Size = new System.Drawing.Size(1000, 604);
