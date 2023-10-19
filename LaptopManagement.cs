@@ -184,7 +184,7 @@ namespace Final {
                 DgvLaptops.Rows[index].Cells[1].Value = item.LaptopName;
                 DgvLaptops.Rows[index].Cells[2].Value = item.LaptopBrand.BrandName;
                 DgvLaptops.Rows[index].Cells[3].Value = item.SellPrice;
-                DgvLaptops.Rows[index].Cells[4].Value = item.Sale.ToString();
+                DgvLaptops.Rows[index].Cells[4].Value = item.Sale.ToString() + "%";
                 DgvLaptops.Rows[index].Cells[5].Value = item.Quantity.ToString();
             }
         }
