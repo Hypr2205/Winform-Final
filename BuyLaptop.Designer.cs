@@ -23,7 +23,7 @@
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
-                  System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+                  System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
                   this.LbTitle = new System.Windows.Forms.Label();
                   this.DgvLaptops = new System.Windows.Forms.DataGridView();
                   this.LaptopIDCell = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -52,7 +52,7 @@
                   this.label9 = new System.Windows.Forms.Label();
                   this.BtnCancel = new System.Windows.Forms.Button();
                   this.label3 = new System.Windows.Forms.Label();
-                  this.CbxCategoryFilter = new System.Windows.Forms.ComboBox();
+                  this.CbBrandFilter = new System.Windows.Forms.ComboBox();
                   this.ChkIsSale = new System.Windows.Forms.CheckBox();
                   this.BtnFilter = new System.Windows.Forms.Button();
                   this.label2 = new System.Windows.Forms.Label();
@@ -93,14 +93,14 @@
             this.SellPriceCell,
             this.SaleCell,
             this.QuantityCell});
-                  dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-                  dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-                  dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI Variable Display Semib", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-                  dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-                  dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.DarkTurquoise;
-                  dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-                  dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-                  this.DgvLaptops.DefaultCellStyle = dataGridViewCellStyle2;
+                  dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+                  dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
+                  dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI Variable Display Semib", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+                  dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
+                  dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.DarkTurquoise;
+                  dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+                  dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+                  this.DgvLaptops.DefaultCellStyle = dataGridViewCellStyle1;
                   this.DgvLaptops.Location = new System.Drawing.Point(458, 243);
                   this.DgvLaptops.Name = "DgvLaptops";
                   this.DgvLaptops.ReadOnly = true;
@@ -304,7 +304,7 @@
                   this.FilterContainer.Controls.Add(this.label9);
                   this.FilterContainer.Controls.Add(this.BtnCancel);
                   this.FilterContainer.Controls.Add(this.label3);
-                  this.FilterContainer.Controls.Add(this.CbxCategoryFilter);
+                  this.FilterContainer.Controls.Add(this.CbBrandFilter);
                   this.FilterContainer.Controls.Add(this.ChkIsSale);
                   this.FilterContainer.Controls.Add(this.BtnFilter);
                   this.FilterContainer.Controls.Add(this.label2);
@@ -360,18 +360,13 @@
                   this.label3.TabIndex = 7;
                   this.label3.Text = "Hãng";
                   // 
-                  // CbxCategoryFilter
+                  // CbBrandFilter
                   // 
-                  this.CbxCategoryFilter.FormattingEnabled = true;
-                  this.CbxCategoryFilter.Items.AddRange(new object[] {
-            "Dưới 15 triệu",
-            "Từ 15 đến 20 triệu",
-            "Từ 20 đến 30 triệu",
-            "Trên 30 triệu"});
-                  this.CbxCategoryFilter.Location = new System.Drawing.Point(642, 26);
-                  this.CbxCategoryFilter.Name = "CbxCategoryFilter";
-                  this.CbxCategoryFilter.Size = new System.Drawing.Size(236, 30);
-                  this.CbxCategoryFilter.TabIndex = 6;
+                  this.CbBrandFilter.FormattingEnabled = true;
+                  this.CbBrandFilter.Location = new System.Drawing.Point(642, 26);
+                  this.CbBrandFilter.Name = "CbBrandFilter";
+                  this.CbBrandFilter.Size = new System.Drawing.Size(236, 30);
+                  this.CbBrandFilter.TabIndex = 6;
                   // 
                   // ChkIsSale
                   // 
@@ -470,7 +465,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox TbNameFilter;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.ComboBox CbxCategoryFilter;
+        private System.Windows.Forms.ComboBox CbBrandFilter;
         private System.Windows.Forms.Button BtnCancel;
         private System.Windows.Forms.Button BtnAddToCart;
         private System.Windows.Forms.Label label8;

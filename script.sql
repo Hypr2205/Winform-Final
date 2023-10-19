@@ -240,3 +240,18 @@ INSERT INTO AccessoryCategory values
 (6, N'Loa'),
 (7, N'Lót Chuột'),
 (8, N'Tản Nhiệt')
+INSERT INTO Laptop VALUES
+('ASUSRS15',N'Asus Rog Strix G15GL',26900000,10,1,10),
+('ASUSRS17',N'Asus Rog Strix G17RM',25600000,5,1,10),
+('ASUSRS14',N'Asus Rog Strix G14RX',27600000,5,1,10),
+('ASUSRZ15',N'Asus Rog Zephyrus G15LM',34500000,20,1,10),
+('ASUSSX17',N'Asus Rog Zephyrus G17RM',29990000,10,1,10),
+('ASUSSX14',N'Asus Rog Zephyrus G14RA',31299000,0,1,10),
+('ACERNT5',N'Acer Nitro 5',21920000,0,6,10),
+('ACERPH300',N'Acer Predator Helios 300',25990000,0,6,10),
+('ACERN5T',N'Acer Nitro 5 Tiger',28900000,0,6,10),
+('ACERPNX16',N'Acer Nitro 16 Phoenix',29990000,0,6,10),
+('ASUSZD17',N'Asus Rog Zephyrus Duo Pro 17',117990000,10,1,10),
+('LENOVOLS5',N'Lenovo Legion Slim 5',22900000,0,5,10),
+('LENOVOL5',N'Lenovo Legion 5',22950000,0,5,10)
+
