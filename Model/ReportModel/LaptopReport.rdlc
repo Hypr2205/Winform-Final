@@ -83,7 +83,7 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox1</rd:DefaultName>
-            <Left>0.00003in</Left>
+            <Top>0.02777in</Top>
             <Height>0.45in</Height>
             <Width>2.81667in</Width>
             <Style>
@@ -135,7 +135,7 @@
             </Paragraphs>
             <rd:DefaultName>Textbox1</rd:DefaultName>
             <Top>0.51944in</Top>
-            <Height>0.81389in</Height>
+            <Height>1.08889in</Height>
             <Width>9.425in</Width>
             <ZIndex>1</ZIndex>
             <Style>
@@ -173,7 +173,6 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox4</rd:DefaultName>
-            <Top>0.01389in</Top>
             <Left>7.11667in</Left>
             <Height>0.43611in</Height>
             <Width>2.30833in</Width>
@@ -701,7 +700,6 @@
                             <PaddingBottom>2pt</PaddingBottom>
                           </Style>
                         </Textbox>
-                        <rd:Selected>true</rd:Selected>
                       </CellContents>
                     </TablixCell>
                     <TablixCell>
@@ -986,7 +984,7 @@
               </TablixMembers>
             </TablixRowHierarchy>
             <DataSetName>LaptopDataSet</DataSetName>
-            <Top>1.40277in</Top>
+            <Top>1.66388in</Top>
             <Left>0.00003in</Left>
             <Height>1.18334in</Height>
             <Width>9.42497in</Width>
@@ -997,11 +995,89 @@
               </Border>
             </Style>
           </Tablix>
+          <Textbox Name="Textbox12">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>Ngày giao dự kiến: </Value>
+                    <Style>
+                      <FontFamily>Segoe UI Variable Display Semib</FontFamily>
+                      <FontSize>14pt</FontSize>
+                    </Style>
+                  </TextRun>
+                  <TextRun>
+                    <Value>=Parameters!DeliveryDate.Value</Value>
+                    <Style>
+                      <FontFamily>Segoe UI Variable Display Semib</FontFamily>
+                      <FontSize>14pt</FontSize>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>Textbox4</rd:DefaultName>
+            <Top>1.25833in</Top>
+            <Left>3.55in</Left>
+            <Height>0.35in</Height>
+            <Width>3.2in</Width>
+            <ZIndex>4</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+          <Textbox Name="Textbox8">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>Ghi chú:</Value>
+                    <Style>
+                      <FontFamily>Segoe UI Variable Display Semib</FontFamily>
+                    </Style>
+                  </TextRun>
+                  <TextRun>
+                    <Value>=Parameters!Note.Value</Value>
+                    <Style>
+                      <FontFamily>Segoe UI Variable Display Semib</FontFamily>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>Textbox8</rd:DefaultName>
+            <Top>2.88889in</Top>
+            <Left>0.00003in</Left>
+            <Height>1.24724in</Height>
+            <Width>9.425in</Width>
+            <ZIndex>5</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
         </ReportItems>
-        <Height>2.70001in</Height>
+        <Height>4.21668in</Height>
         <Style />
       </Body>
-      <Width>9.425in</Width>
+      <Width>9.45in</Width>
       <Page>
         <LeftMargin>1in</LeftMargin>
         <RightMargin>1in</RightMargin>
@@ -1020,6 +1096,14 @@
       <DataType>String</DataType>
       <Prompt>ReportParameter1</Prompt>
     </ReportParameter>
+    <ReportParameter Name="DeliveryDate">
+      <DataType>String</DataType>
+      <Prompt>ReportParameter1</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="Note">
+      <DataType>String</DataType>
+      <Prompt>ReportParameter1</Prompt>
+    </ReportParameter>
   </ReportParameters>
   <ReportParametersLayout>
     <GridLayoutDefinition>
@@ -1035,6 +1119,16 @@
           <ColumnIndex>1</ColumnIndex>
           <RowIndex>0</RowIndex>
           <ParameterName>InvoiceID</ParameterName>
+        </CellDefinition>
+        <CellDefinition>
+          <ColumnIndex>2</ColumnIndex>
+          <RowIndex>0</RowIndex>
+          <ParameterName>DeliveryDate</ParameterName>
+        </CellDefinition>
+        <CellDefinition>
+          <ColumnIndex>3</ColumnIndex>
+          <RowIndex>0</RowIndex>
+          <ParameterName>Note</ParameterName>
         </CellDefinition>
       </CellDefinitions>
     </GridLayoutDefinition>
