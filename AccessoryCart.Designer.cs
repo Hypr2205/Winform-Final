@@ -135,6 +135,7 @@
             // 
             // label1
             // 
+            this.label1.Font = new System.Drawing.Font("Segoe UI Variable Display Semib", 13.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(12, 3);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(127, 34);
@@ -144,7 +145,8 @@
             // 
             // DtpDeliveryDate
             // 
-            this.DtpDeliveryDate.Location = new System.Drawing.Point(444, 155);
+            this.DtpDeliveryDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.DtpDeliveryDate.Location = new System.Drawing.Point(468, 43);
             this.DtpDeliveryDate.Name = "DtpDeliveryDate";
             this.DtpDeliveryDate.Size = new System.Drawing.Size(310, 30);
             this.DtpDeliveryDate.TabIndex = 3;
@@ -152,10 +154,10 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Segoe UI Variable Display Semib", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(469, 95);
+            this.label2.Font = new System.Drawing.Font("Segoe UI Variable Display Semib", 13.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(462, 3);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(249, 30);
+            this.label2.Size = new System.Drawing.Size(258, 31);
             this.label2.TabIndex = 4;
             this.label2.Text = "Ngày giao hàng dự kiến";
             // 

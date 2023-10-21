@@ -111,7 +111,7 @@
             this.BtnSellHistory.Font = new System.Drawing.Font("Segoe UI Variable Display Semib", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnSellHistory.Image = global::Final.Properties.Resources.trolley;
             this.BtnSellHistory.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.BtnSellHistory.Location = new System.Drawing.Point(803, 247);
+            this.BtnSellHistory.Location = new System.Drawing.Point(856, 226);
             this.BtnSellHistory.Name = "BtnSellHistory";
             this.BtnSellHistory.Size = new System.Drawing.Size(329, 176);
             this.BtnSellHistory.TabIndex = 2;
