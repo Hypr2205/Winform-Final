@@ -55,9 +55,10 @@ namespace Final {
             var selectedItem = (LaptopInvoice)CbxLaptopInvoices.SelectedItem;
             var invoice = context.LaptopInvoices.FirstOrDefault(i => i.InvoiceID == selectedItem.InvoiceID);
             var orders = context.LaptopOrders.Where(o => o.InvoiceID == selectedItem.InvoiceID).ToList();
-            ReportParameter[] param = new ReportParameter[2];
+            ReportParameter[] param = new ReportParameter[4];
             param[0] = new ReportParameter("InvoiceID", invoice.InvoiceID);
             param[1] = new ReportParameter("OrderDate", string.Format("Ngày mua: " + invoice.OrderDate.ToString("dd/MM/yyyy")));
+            param[2] = new ReportParameter("DeliveryDate", invoice.DeliveryDate.ToString("dd/MM/yyyy"));
 
             reportViewer1.LocalReport.ReportPath = "./Model/ReportModel/LaptopReport.rdlc";
             reportViewer1.LocalReport.SetParameters(param);
@@ -72,9 +73,10 @@ namespace Final {
             var selectedItem = (AccessoryInvoice)CbxAccessoryInvoices.SelectedItem;
             var invoice = context.AccessoryInvoices.FirstOrDefault(i => i.InvoiceID == selectedItem.InvoiceID);
             var orders = context.AccessoryOrders.Where(o => o.InvoiceID == selectedItem.InvoiceID).ToList();
-            ReportParameter[] param = new ReportParameter[2];
+            ReportParameter[] param = new ReportParameter[4];
             param[0] = new ReportParameter("InvoiceID", invoice.InvoiceID);
             param[1] = new ReportParameter("OrderDate", string.Format("Ngày mua: " + invoice.OrderDate.ToString("dd/MM/yyyy")));
+            param[2] = new ReportParameter("DeliveryDate", invoice.DeliveryDate.ToString("dd/MM/yyyy"));
 
             reportViewer1.LocalReport.ReportPath = "./Model/ReportModel/AccessoryReport.rdlc";
             reportViewer1.LocalReport.SetParameters(param);

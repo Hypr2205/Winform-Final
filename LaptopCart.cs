@@ -107,11 +107,10 @@ namespace Final {
             reportViewer1.Visible = true;
             var invoice = context.LaptopInvoices.FirstOrDefault(i => i.InvoiceID == id);
             var orders = context.LaptopOrders.Where(o => o.InvoiceID == id).ToList();
-            ReportParameter[] param = new ReportParameter[4];
+            ReportParameter[] param = new ReportParameter[3];
             param[0] = new ReportParameter("InvoiceID", invoice.InvoiceID);
             param[1] = new ReportParameter("OrderDate", string.Format("Ngày mua: " + invoice.OrderDate.ToString("dd/MM/yyyy")));
             param[2] = new ReportParameter("DeliveryDate", invoice.DeliveryDate.ToString("dd/MM/yyyy"));
-            param[3] = new ReportParameter("Note", invoice.Note.ToString());
 
             reportViewer1.LocalReport.ReportPath = "./Model/ReportModel/LaptopReport.rdlc";
             reportViewer1.LocalReport.SetParameters(param);

@@ -25,13 +25,13 @@
         private void InitializeComponent() {
             this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.BtnExport = new System.Windows.Forms.Button();
             this.CbxAccessoryInvoices = new System.Windows.Forms.ComboBox();
             this.CbxLaptopInvoices = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.ChkAccessoryInvoice = new System.Windows.Forms.CheckBox();
             this.ChkLaptopInvoice = new System.Windows.Forms.CheckBox();
-            this.BtnExport = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -61,6 +61,16 @@
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Lịch sử đơn hàng";
+            // 
+            // BtnExport
+            // 
+            this.BtnExport.Location = new System.Drawing.Point(375, 160);
+            this.BtnExport.Name = "BtnExport";
+            this.BtnExport.Size = new System.Drawing.Size(75, 33);
+            this.BtnExport.TabIndex = 6;
+            this.BtnExport.Text = "In";
+            this.BtnExport.UseVisualStyleBackColor = true;
+            this.BtnExport.Click += new System.EventHandler(this.BtnExport_Click);
             // 
             // CbxAccessoryInvoices
             // 
@@ -115,16 +125,6 @@
             this.ChkLaptopInvoice.TabIndex = 0;
             this.ChkLaptopInvoice.Text = "Đơn bán laptop";
             this.ChkLaptopInvoice.UseVisualStyleBackColor = true;
-            // 
-            // BtnExport
-            // 
-            this.BtnExport.Location = new System.Drawing.Point(375, 160);
-            this.BtnExport.Name = "BtnExport";
-            this.BtnExport.Size = new System.Drawing.Size(75, 33);
-            this.BtnExport.TabIndex = 6;
-            this.BtnExport.Text = "In";
-            this.BtnExport.UseVisualStyleBackColor = true;
-            this.BtnExport.Click += new System.EventHandler(this.BtnExport_Click);
             // 
             // OrderHistory
             // 
