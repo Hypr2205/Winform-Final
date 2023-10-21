@@ -251,8 +251,8 @@ namespace Final {
             var row = DgvAccessories.Rows[e.RowIndex];
             TbAccessoryID.Text = row.Cells[0].Value.ToString();
             TbAccessoryName.Text = row.Cells[1].Value.ToString();
-            CbxAccessoryBrand.SelectedValue = row.Cells[2].Value.ToString();
-            CbxAccessoryCategory.SelectedValue = row.Cells[3].Value.ToString();
+            CbxAccessoryBrand.Text = row.Cells[2].Value.ToString();
+            CbxAccessoryCategory.Text = row.Cells[3].Value.ToString();
             TbPrice.Text = row.Cells[4].Value.ToString();
             TbSale.Text = row.Cells[5].Value.ToString();
             TbQuantity.Text = row.Cells[6].Value.ToString();
