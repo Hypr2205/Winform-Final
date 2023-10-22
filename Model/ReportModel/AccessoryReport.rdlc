@@ -145,7 +145,6 @@
             </Paragraphs>
             <rd:DefaultName>Textbox1</rd:DefaultName>
             <Top>0.49167in</Top>
-            <Left>0in</Left>
             <Height>0.83334in</Height>
             <Width>10.06668in</Width>
             <ZIndex>1</ZIndex>
@@ -1119,10 +1118,6 @@
       <DataType>String</DataType>
       <Prompt>ReportParameter1</Prompt>
     </ReportParameter>
-    <ReportParameter Name="Note">
-      <DataType>String</DataType>
-      <Prompt>ReportParameter1</Prompt>
-    </ReportParameter>
   </ReportParameters>
   <ReportParametersLayout>
     <GridLayoutDefinition>
@@ -1143,11 +1138,6 @@
           <ColumnIndex>2</ColumnIndex>
           <RowIndex>0</RowIndex>
           <ParameterName>DeliveryDate</ParameterName>
-        </CellDefinition>
-        <CellDefinition>
-          <ColumnIndex>3</ColumnIndex>
-          <RowIndex>0</RowIndex>
-          <ParameterName>Note</ParameterName>
         </CellDefinition>
       </CellDefinitions>
     </GridLayoutDefinition>
