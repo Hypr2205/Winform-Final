@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Final.Model.LoginModel;
+using System;
 using System.Windows.Forms;
 
 namespace Final {
@@ -7,7 +8,20 @@ namespace Final {
             InitializeComponent();
         }
 
-        private void Main_Load(object sender, EventArgs e) { }
+        private void Main_Load(object sender, EventArgs e) {
+            switch (Login.model.Role) {
+                case UserRole.EMPLOYEE:
+                    BtnAccessoryManagement.Enabled = false;
+                    BtnLaptopMangement.Enabled = false;
+                    BtnSellHistory.Enabled = false;
+                    break;
+                case UserRole.ADMIN:
+                    BtnAccessoryManagement.Enabled = true;
+                    BtnLaptopMangement.Enabled = true;
+                    BtnSellHistory.Enabled = true;
+                    break;
+            }
+        }
 
         private void BtnChooseLaptop_Click(object sender, EventArgs e) {
             var buyLaptopForm = new BuyLaptop();
@@ -68,7 +82,5 @@ namespace Final {
         private void BuyAccessory_FormClosed(object sender, FormClosedEventArgs e) {
             Show();
         }
-
-
     }
 }

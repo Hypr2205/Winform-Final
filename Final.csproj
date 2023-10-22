@@ -103,6 +103,12 @@
     <Compile Include="LaptopCart.Designer.cs">
       <DependentUpon>LaptopCart.cs</DependentUpon>
     </Compile>
+    <Compile Include="Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Login.Designer.cs">
+      <DependentUpon>Login.cs</DependentUpon>
+    </Compile>
     <Compile Include="Model\AccessoryModel\Accessory.cs" />
     <Compile Include="Model\AccessoryModel\AccessoryBrand.cs" />
     <Compile Include="Model\AccessoryModel\AccessoryCategory.cs" />
@@ -117,6 +123,10 @@
     <Compile Include="Model\LaptopModel\LaptopContext.cs" />
     <Compile Include="Model\LaptopModel\LaptopInvoice.cs" />
     <Compile Include="Model\LaptopModel\LaptopOrder.cs" />
+    <Compile Include="Model\LoginModel\Login.cs" />
+    <Compile Include="Model\LoginModel\LoginContext.cs" />
+    <Compile Include="Model\LoginModel\UserModel.cs" />
+    <Compile Include="Model\LoginModel\UserRole.cs" />
     <Compile Include="Model\ReportModel\AccessoryReport.cs" />
     <Compile Include="Model\ReportModel\LaptopReport.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
@@ -181,6 +191,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="LaptopManagement.resx">
       <DependentUpon>LaptopManagement.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Login.resx">
+      <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Main.resx">
       <DependentUpon>Main.cs</DependentUpon>
