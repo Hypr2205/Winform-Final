@@ -1,4 +1,4 @@
-namespace Final.Model.LaptopModel
+namespace Final.Model.AccessoryModel
 {
     using System;
     using System.Collections.Generic;
@@ -6,17 +6,16 @@ namespace Final.Model.LaptopModel
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    [Table("LaptopInvoice")]
-    public partial class LaptopInvoice
+    [Table("Invoice")]
+    public partial class Invoice
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public LaptopInvoice()
+        public Invoice()
         {
-            LaptopOrders = new HashSet<LaptopOrder>();
+            AccessoryOrders = new HashSet<AccessoryOrder>();
         }
 
-        [Key]
-        [StringLength(10)]
+        [StringLength(6)]
         public string InvoiceID { get; set; }
 
         public DateTime OrderDate { get; set; }
@@ -27,6 +26,6 @@ namespace Final.Model.LaptopModel
         public string Note { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<LaptopOrder> LaptopOrders { get; set; }
+        public virtual ICollection<AccessoryOrder> AccessoryOrders { get; set; }
     }
 }

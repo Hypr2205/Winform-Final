@@ -30,9 +30,9 @@ namespace Final.Model.LaptopModel
 
         public int Quantity { get; set; }
 
+        public virtual LaptopBrand LaptopBrand { get; set; }
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<LaptopOrder> LaptopOrders { get; set; }
-
-        public virtual LaptopBrand LaptopBrand { get; set; }
     }
 }

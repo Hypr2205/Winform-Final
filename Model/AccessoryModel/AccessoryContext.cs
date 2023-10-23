@@ -1,4 +1,7 @@
+using System;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity;
+using System.Linq;
 
 namespace Final.Model.AccessoryModel {
     public partial class AccessoryContext : DbContext {
@@ -9,8 +12,8 @@ namespace Final.Model.AccessoryModel {
         public virtual DbSet<Accessory> Accessories { get; set; }
         public virtual DbSet<AccessoryBrand> AccessoryBrands { get; set; }
         public virtual DbSet<AccessoryCategory> AccessoryCategories { get; set; }
-        public virtual DbSet<AccessoryInvoice> AccessoryInvoices { get; set; }
         public virtual DbSet<AccessoryOrder> AccessoryOrders { get; set; }
+        public virtual DbSet<Invoice> Invoices { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder) {
             modelBuilder.Entity<Accessory>()
@@ -36,15 +39,6 @@ namespace Final.Model.AccessoryModel {
                 .WithRequired(e => e.AccessoryCategory)
                 .WillCascadeOnDelete(false);
 
-            modelBuilder.Entity<AccessoryInvoice>()
-                .Property(e => e.InvoiceID)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<AccessoryInvoice>()
-                .HasMany(e => e.AccessoryOrders)
-                .WithRequired(e => e.AccessoryInvoice)
-                .WillCascadeOnDelete(false);
-
             modelBuilder.Entity<AccessoryOrder>()
                 .Property(e => e.InvoiceID)
                 .IsUnicode(false);
@@ -60,6 +54,15 @@ namespace Final.Model.AccessoryModel {
             modelBuilder.Entity<AccessoryOrder>()
                 .Property(e => e.BuyPrice)
                 .HasPrecision(18, 0);
+
+            modelBuilder.Entity<Invoice>()
+                .Property(e => e.InvoiceID)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<Invoice>()
+                .HasMany(e => e.AccessoryOrders)
+                .WithRequired(e => e.Invoice)
+                .WillCascadeOnDelete(false);
         }
     }
 }

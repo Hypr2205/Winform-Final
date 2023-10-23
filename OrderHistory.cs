@@ -17,8 +17,8 @@ namespace Final {
             try {
                 var lapContext = new LaptopContext();
                 var accessoryContext = new AccessoryContext();
-                FillLaptopInvoiceBox(lapContext.LaptopInvoices.ToList());
-                FillAccessoryInvoiceBox(accessoryContext.AccessoryInvoices.ToList());
+                FillLaptopInvoiceBox(lapContext.Invoices.ToList());
+                FillAccessoryInvoiceBox(accessoryContext.Invoices.ToList());
             } catch (Exception ex) {
                 MessageBox.Show(ex.Message);
             }
@@ -36,14 +36,14 @@ namespace Final {
             }
         }
 
-        private void FillLaptopInvoiceBox(List<LaptopInvoice> laptopInvoices) {
+        private void FillLaptopInvoiceBox(List<Model.LaptopModel.Invoice> laptopInvoices) {
             CbxLaptopInvoices.DataSource = laptopInvoices;
             CbxLaptopInvoices.DisplayMember = "InvoiceID";
             CbxLaptopInvoices.ValueMember = "InvoiceID";
             CbxLaptopInvoices.SelectedIndex = -1;
         }
 
-        private void FillAccessoryInvoiceBox(List<AccessoryInvoice> accessoryInvoices) {
+        private void FillAccessoryInvoiceBox(List<Model.AccessoryModel.Invoice> accessoryInvoices) {
             CbxAccessoryInvoices.DataSource = accessoryInvoices;
             CbxAccessoryInvoices.DisplayMember = "InvoiceID";
             CbxAccessoryInvoices.ValueMember = "InvoiceID";
@@ -52,8 +52,8 @@ namespace Final {
 
         private void ExportLaptopInvoices() {
             var context = new LaptopContext();
-            var selectedItem = (LaptopInvoice)CbxLaptopInvoices.SelectedItem;
-            var invoice = context.LaptopInvoices.FirstOrDefault(i => i.InvoiceID == selectedItem.InvoiceID);
+            var selectedItem = (Model.LaptopModel.Invoice)CbxLaptopInvoices.SelectedItem;
+            var invoice = context.Invoices.FirstOrDefault(i => i.InvoiceID == selectedItem.InvoiceID);
             var orders = context.LaptopOrders.Where(o => o.InvoiceID == selectedItem.InvoiceID).ToList();
             ReportParameter[] param = new ReportParameter[4];
             param[0] = new ReportParameter("InvoiceID", invoice.InvoiceID);
@@ -70,8 +70,8 @@ namespace Final {
 
         private void ExportAccessoryInvoices() {
             var context = new AccessoryContext();
-            var selectedItem = (AccessoryInvoice)CbxAccessoryInvoices.SelectedItem;
-            var invoice = context.AccessoryInvoices.FirstOrDefault(i => i.InvoiceID == selectedItem.InvoiceID);
+            var selectedItem = (Model.AccessoryModel.Invoice)CbxAccessoryInvoices.SelectedItem;
+            var invoice = context.Invoices.FirstOrDefault(i => i.InvoiceID == selectedItem.InvoiceID);
             var orders = context.AccessoryOrders.Where(o => o.InvoiceID == selectedItem.InvoiceID).ToList();
             ReportParameter[] param = new ReportParameter[4];
             param[0] = new ReportParameter("InvoiceID", invoice.InvoiceID);

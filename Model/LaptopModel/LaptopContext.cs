@@ -1,4 +1,7 @@
+using System;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity;
+using System.Linq;
 
 namespace Final.Model.LaptopModel {
     public partial class LaptopContext : DbContext {
@@ -6,12 +9,21 @@ namespace Final.Model.LaptopModel {
             : base("name=LaptopContext") {
         }
 
+        public virtual DbSet<Invoice> Invoices { get; set; }
         public virtual DbSet<Laptop> Laptops { get; set; }
         public virtual DbSet<LaptopBrand> LaptopBrands { get; set; }
-        public virtual DbSet<LaptopInvoice> LaptopInvoices { get; set; }
         public virtual DbSet<LaptopOrder> LaptopOrders { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder) {
+            modelBuilder.Entity<Invoice>()
+                .Property(e => e.InvoiceID)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<Invoice>()
+                .HasMany(e => e.LaptopOrders)
+                .WithRequired(e => e.Invoice)
+                .WillCascadeOnDelete(false);
+
             modelBuilder.Entity<Laptop>()
                 .Property(e => e.LaptopID)
                 .IsUnicode(false);
@@ -28,15 +40,6 @@ namespace Final.Model.LaptopModel {
             modelBuilder.Entity<LaptopBrand>()
                 .HasMany(e => e.Laptops)
                 .WithRequired(e => e.LaptopBrand)
-                .WillCascadeOnDelete(false);
-
-            modelBuilder.Entity<LaptopInvoice>()
-                .Property(e => e.InvoiceID)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<LaptopInvoice>()
-                .HasMany(e => e.LaptopOrders)
-                .WithRequired(e => e.LaptopInvoice)
                 .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<LaptopOrder>()

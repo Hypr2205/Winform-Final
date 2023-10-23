@@ -207,6 +207,7 @@ namespace Final {
 
         private void BtnCancel_Click(object sender, EventArgs e) {
             ClearFilter();
+            LaptopManagement_Load(sender, e);
         }
 
         private void ClearFilter() {

@@ -47,7 +47,7 @@ namespace Final {
         }
 
         private void BtnBuy_Click(object sender, EventArgs e) {
-            LaptopInvoice invoice = new LaptopInvoice();
+            var invoice = new Invoice();
             invoice.InvoiceID = GenerateRandomString(6);
             invoice.Note = TbNote.Text;
             invoice.OrderDate = DateTime.Now;
@@ -81,7 +81,7 @@ namespace Final {
                             CartList.laptopCart.Remove(item);
                         }
                     }
-                    context.LaptopInvoices.Add(invoice);
+                    context.Invoices.Add(invoice);
                     context.SaveChanges();
                     trans.Commit();
                 } catch {
@@ -105,7 +105,7 @@ namespace Final {
 
         private void ShowReport(LaptopContext context, string id) {
             reportViewer1.Visible = true;
-            var invoice = context.LaptopInvoices.FirstOrDefault(i => i.InvoiceID == id);
+            var invoice = context.Invoices.FirstOrDefault(i => i.InvoiceID == id);
             var orders = context.LaptopOrders.Where(o => o.InvoiceID == id).ToList();
             ReportParameter[] param = new ReportParameter[3];
             param[0] = new ReportParameter("InvoiceID", invoice.InvoiceID);

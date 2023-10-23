@@ -95,7 +95,7 @@
             this.DgvLaptops.RowHeadersWidth = 51;
             this.DgvLaptops.RowTemplate.Height = 24;
             this.DgvLaptops.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.DgvLaptops.Size = new System.Drawing.Size(888, 536);
+            this.DgvLaptops.Size = new System.Drawing.Size(888, 510);
             this.DgvLaptops.TabIndex = 0;
             this.DgvLaptops.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvLaptops_CellContentClick);
             // 
@@ -160,7 +160,7 @@
             this.LaptopInfoContainer.Controls.Add(this.label1);
             this.LaptopInfoContainer.Location = new System.Drawing.Point(13, 330);
             this.LaptopInfoContainer.Name = "LaptopInfoContainer";
-            this.LaptopInfoContainer.Size = new System.Drawing.Size(467, 536);
+            this.LaptopInfoContainer.Size = new System.Drawing.Size(467, 520);
             this.LaptopInfoContainer.TabIndex = 1;
             this.LaptopInfoContainer.TabStop = false;
             this.LaptopInfoContainer.Text = "Thông tin Laptop";
@@ -168,7 +168,7 @@
             // BtnRefresh
             // 
             this.BtnRefresh.Image = global::Final.Properties.Resources.icons8_refresh_32;
-            this.BtnRefresh.Location = new System.Drawing.Point(32, 477);
+            this.BtnRefresh.Location = new System.Drawing.Point(32, 461);
             this.BtnRefresh.Name = "BtnRefresh";
             this.BtnRefresh.Size = new System.Drawing.Size(60, 50);
             this.BtnRefresh.TabIndex = 12;
@@ -177,7 +177,7 @@
             // 
             // TbQuantity
             // 
-            this.TbQuantity.Location = new System.Drawing.Point(179, 430);
+            this.TbQuantity.Location = new System.Drawing.Point(179, 413);
             this.TbQuantity.Name = "TbQuantity";
             this.TbQuantity.Size = new System.Drawing.Size(269, 30);
             this.TbQuantity.TabIndex = 11;
@@ -187,7 +187,7 @@
             // 
             this.BtnDelete.Image = global::Final.Properties.Resources.icons8_delete_32;
             this.BtnDelete.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnDelete.Location = new System.Drawing.Point(363, 477);
+            this.BtnDelete.Location = new System.Drawing.Point(363, 461);
             this.BtnDelete.Name = "BtnDelete";
             this.BtnDelete.Size = new System.Drawing.Size(85, 50);
             this.BtnDelete.TabIndex = 2;
@@ -200,7 +200,7 @@
             // 
             this.BtnEdit.Image = global::Final.Properties.Resources.icons8_update_32;
             this.BtnEdit.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnEdit.Location = new System.Drawing.Point(179, 477);
+            this.BtnEdit.Location = new System.Drawing.Point(179, 461);
             this.BtnEdit.Name = "BtnEdit";
             this.BtnEdit.Size = new System.Drawing.Size(169, 50);
             this.BtnEdit.TabIndex = 4;
@@ -211,7 +211,7 @@
             // 
             // TbSale
             // 
-            this.TbSale.Location = new System.Drawing.Point(179, 367);
+            this.TbSale.Location = new System.Drawing.Point(179, 342);
             this.TbSale.Name = "TbSale";
             this.TbSale.Size = new System.Drawing.Size(269, 30);
             this.TbSale.TabIndex = 10;
@@ -219,7 +219,7 @@
             // 
             // TbPrice
             // 
-            this.TbPrice.Location = new System.Drawing.Point(179, 296);
+            this.TbPrice.Location = new System.Drawing.Point(179, 261);
             this.TbPrice.Name = "TbPrice";
             this.TbPrice.Size = new System.Drawing.Size(269, 30);
             this.TbPrice.TabIndex = 9;
@@ -228,14 +228,14 @@
             // CbxLaptopCategory
             // 
             this.CbxLaptopCategory.FormattingEnabled = true;
-            this.CbxLaptopCategory.Location = new System.Drawing.Point(179, 228);
+            this.CbxLaptopCategory.Location = new System.Drawing.Point(179, 187);
             this.CbxLaptopCategory.Name = "CbxLaptopCategory";
             this.CbxLaptopCategory.Size = new System.Drawing.Size(269, 30);
             this.CbxLaptopCategory.TabIndex = 8;
             // 
             // TbLaptopName
             // 
-            this.TbLaptopName.Location = new System.Drawing.Point(179, 149);
+            this.TbLaptopName.Location = new System.Drawing.Point(179, 112);
             this.TbLaptopName.Name = "TbLaptopName";
             this.TbLaptopName.Size = new System.Drawing.Size(269, 30);
             this.TbLaptopName.TabIndex = 7;
@@ -243,7 +243,7 @@
             // 
             // TblaptopID
             // 
-            this.TblaptopID.Location = new System.Drawing.Point(179, 83);
+            this.TblaptopID.Location = new System.Drawing.Point(179, 42);
             this.TblaptopID.Name = "TblaptopID";
             this.TblaptopID.Size = new System.Drawing.Size(269, 30);
             this.TblaptopID.TabIndex = 6;
@@ -251,7 +251,7 @@
             // 
             // label6
             // 
-            this.label6.Location = new System.Drawing.Point(28, 430);
+            this.label6.Location = new System.Drawing.Point(28, 411);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(95, 32);
             this.label6.TabIndex = 5;
@@ -260,7 +260,7 @@
             // 
             // label5
             // 
-            this.label5.Location = new System.Drawing.Point(28, 367);
+            this.label5.Location = new System.Drawing.Point(28, 340);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(128, 32);
             this.label5.TabIndex = 4;
@@ -269,7 +269,7 @@
             // 
             // label4
             // 
-            this.label4.Location = new System.Drawing.Point(28, 296);
+            this.label4.Location = new System.Drawing.Point(28, 261);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(95, 32);
             this.label4.TabIndex = 3;
@@ -278,7 +278,7 @@
             // 
             // label3
             // 
-            this.label3.Location = new System.Drawing.Point(28, 228);
+            this.label3.Location = new System.Drawing.Point(28, 187);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(95, 32);
             this.label3.TabIndex = 2;
@@ -287,7 +287,7 @@
             // 
             // label2
             // 
-            this.label2.Location = new System.Drawing.Point(19, 147);
+            this.label2.Location = new System.Drawing.Point(19, 112);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(95, 32);
             this.label2.TabIndex = 1;
@@ -296,7 +296,7 @@
             // 
             // label1
             // 
-            this.label1.Location = new System.Drawing.Point(19, 81);
+            this.label1.Location = new System.Drawing.Point(19, 42);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(95, 32);
             this.label1.TabIndex = 0;
@@ -419,7 +419,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 22F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.SkyBlue;
-            this.ClientSize = new System.Drawing.Size(1385, 862);
+            this.ClientSize = new System.Drawing.Size(1385, 845);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.filterContainer);
             this.Controls.Add(this.LaptopInfoContainer);

@@ -45,6 +45,6 @@ namespace Final.Model.AccessoryModel
 
         public virtual Accessory Accessory { get; set; }
 
-        public virtual AccessoryInvoice AccessoryInvoice { get; set; }
+        public virtual Invoice Invoice { get; set; }
     }
 }

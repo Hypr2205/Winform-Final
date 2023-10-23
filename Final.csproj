@@ -113,15 +113,15 @@
     <Compile Include="Model\AccessoryModel\AccessoryBrand.cs" />
     <Compile Include="Model\AccessoryModel\AccessoryCategory.cs" />
     <Compile Include="Model\AccessoryModel\AccessoryContext.cs" />
-    <Compile Include="Model\AccessoryModel\AccessoryInvoice.cs" />
     <Compile Include="Model\AccessoryModel\AccessoryOrder.cs" />
+    <Compile Include="Model\AccessoryModel\Invoice.cs" />
     <Compile Include="Model\DTO\AccessoryCartDto.cs" />
     <Compile Include="Model\DTO\CartList.cs" />
     <Compile Include="Model\DTO\LaptopCartDto.cs" />
+    <Compile Include="Model\LaptopModel\Invoice.cs" />
     <Compile Include="Model\LaptopModel\Laptop.cs" />
     <Compile Include="Model\LaptopModel\LaptopBrand.cs" />
     <Compile Include="Model\LaptopModel\LaptopContext.cs" />
-    <Compile Include="Model\LaptopModel\LaptopInvoice.cs" />
     <Compile Include="Model\LaptopModel\LaptopOrder.cs" />
     <Compile Include="Model\LoginModel\Login.cs" />
     <Compile Include="Model\LoginModel\LoginContext.cs" />
@@ -258,9 +258,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\icons8-delete-32.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="script.sql" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

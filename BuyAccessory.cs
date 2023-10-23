@@ -177,6 +177,7 @@ namespace Final {
             CbxCategoryFilter.SelectedIndex = -1;
             ChkInStock.Checked = false;
             ChkIsSale.Checked = false;
+            BuyAccessory_Load(sender, e);
         }
 
         private void BtnRefresh_Click(object sender, EventArgs e) {

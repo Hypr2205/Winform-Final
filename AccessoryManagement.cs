@@ -245,6 +245,7 @@ namespace Final {
 
         private void BtnCancel_Click(object sender, EventArgs e) {
             ClearFilter();
+            AccessoryManagement_Load(sender, e);
         }
 
         private void DgvAccessories_CellContentClick(object sender, DataGridViewCellEventArgs e) {

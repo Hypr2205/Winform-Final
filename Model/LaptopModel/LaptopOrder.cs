@@ -11,7 +11,7 @@ namespace Final.Model.LaptopModel
     {
         [Key]
         [Column(Order = 0)]
-        [StringLength(10)]
+        [StringLength(6)]
         public string InvoiceID { get; set; }
 
         [Key]
@@ -39,8 +39,8 @@ namespace Final.Model.LaptopModel
 
         public int BuyQuantity { get; set; }
 
-        public virtual Laptop Laptop { get; set; }
+        public virtual Invoice Invoice { get; set; }
 
-        public virtual LaptopInvoice LaptopInvoice { get; set; }
+        public virtual Laptop Laptop { get; set; }
     }
 }

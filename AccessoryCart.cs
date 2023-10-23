@@ -44,7 +44,7 @@ namespace Final {
         }
 
         private void BtnBuy_Click(object sender, EventArgs e) {
-            var invoice = new AccessoryInvoice();
+            var invoice = new Invoice();
             invoice.InvoiceID = GenerateRandomString(6);
             invoice.Note = TbNote.Text;
             invoice.OrderDate = DateTime.Now;
@@ -84,7 +84,7 @@ namespace Final {
                         }
                     }
 
-                    context.AccessoryInvoices.Add(invoice);
+                    context.Invoices.Add(invoice);
                     context.SaveChanges();
                     ShowReport(context, invoice.InvoiceID);
                     trans.Commit();
@@ -113,7 +113,7 @@ namespace Final {
 
         private void ShowReport(AccessoryContext context, string id) {
             reportViewer1.Visible = true;
-            var invoice = context.AccessoryInvoices.FirstOrDefault(i => i.InvoiceID == id);
+            var invoice = context.Invoices.FirstOrDefault(i => i.InvoiceID == id);
             var orders = context.AccessoryOrders.Where(o => o.InvoiceID == id).ToList();
             ReportParameter[] param = new ReportParameter[3];
             param[0] = new ReportParameter("InvoiceID", invoice.InvoiceID);
