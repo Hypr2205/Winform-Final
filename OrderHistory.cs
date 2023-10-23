@@ -27,9 +27,9 @@ namespace Final {
 
         private void BtnExport_Click(object sender, System.EventArgs e) {
             reportViewer1.Visible = true;
-            if (ChkLaptopInvoice.Checked) {
+            if (RbtLaptopInvoice.Checked) {
                 ExportLaptopInvoices();
-            } else if (ChkAccessoryInvoice.Checked) {
+            } else if (RbtAccessoryInvoice.Checked) {
                 ExportAccessoryInvoices();
             } else {
                 MessageBox.Show("Vui lòng chọn loại hoá đơn!");
@@ -55,7 +55,7 @@ namespace Final {
             var selectedItem = (Model.LaptopModel.Invoice)CbxLaptopInvoices.SelectedItem;
             var invoice = context.Invoices.FirstOrDefault(i => i.InvoiceID == selectedItem.InvoiceID);
             var orders = context.LaptopOrders.Where(o => o.InvoiceID == selectedItem.InvoiceID).ToList();
-            ReportParameter[] param = new ReportParameter[4];
+            ReportParameter[] param = new ReportParameter[3];
             param[0] = new ReportParameter("InvoiceID", invoice.InvoiceID);
             param[1] = new ReportParameter("OrderDate", string.Format("Ngày mua: " + invoice.OrderDate.ToString("dd/MM/yyyy")));
             param[2] = new ReportParameter("DeliveryDate", invoice.DeliveryDate.ToString("dd/MM/yyyy"));
@@ -73,7 +73,7 @@ namespace Final {
             var selectedItem = (Model.AccessoryModel.Invoice)CbxAccessoryInvoices.SelectedItem;
             var invoice = context.Invoices.FirstOrDefault(i => i.InvoiceID == selectedItem.InvoiceID);
             var orders = context.AccessoryOrders.Where(o => o.InvoiceID == selectedItem.InvoiceID).ToList();
-            ReportParameter[] param = new ReportParameter[4];
+            ReportParameter[] param = new ReportParameter[3];
             param[0] = new ReportParameter("InvoiceID", invoice.InvoiceID);
             param[1] = new ReportParameter("OrderDate", string.Format("Ngày mua: " + invoice.OrderDate.ToString("dd/MM/yyyy")));
             param[2] = new ReportParameter("DeliveryDate", invoice.DeliveryDate.ToString("dd/MM/yyyy"));

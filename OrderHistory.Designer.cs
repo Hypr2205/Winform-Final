@@ -30,8 +30,8 @@
             this.CbxLaptopInvoices = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.ChkAccessoryInvoice = new System.Windows.Forms.CheckBox();
-            this.ChkLaptopInvoice = new System.Windows.Forms.CheckBox();
+            this.RbtLaptopInvoice = new System.Windows.Forms.RadioButton();
+            this.RbtAccessoryInvoice = new System.Windows.Forms.RadioButton();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -48,13 +48,13 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.RbtAccessoryInvoice);
             this.groupBox1.Controls.Add(this.BtnExport);
+            this.groupBox1.Controls.Add(this.RbtLaptopInvoice);
             this.groupBox1.Controls.Add(this.CbxAccessoryInvoices);
             this.groupBox1.Controls.Add(this.CbxLaptopInvoices);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Controls.Add(this.ChkAccessoryInvoice);
-            this.groupBox1.Controls.Add(this.ChkLaptopInvoice);
             this.groupBox1.Location = new System.Drawing.Point(237, 13);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(491, 199);
@@ -106,25 +106,27 @@
             this.label1.TabIndex = 2;
             this.label1.Text = "Mã đơn hàng";
             // 
-            // ChkAccessoryInvoice
+            // RbtLaptopInvoice
             // 
-            this.ChkAccessoryInvoice.AutoSize = true;
-            this.ChkAccessoryInvoice.Location = new System.Drawing.Point(41, 128);
-            this.ChkAccessoryInvoice.Name = "ChkAccessoryInvoice";
-            this.ChkAccessoryInvoice.Size = new System.Drawing.Size(167, 26);
-            this.ChkAccessoryInvoice.TabIndex = 1;
-            this.ChkAccessoryInvoice.Text = "Đơn bán phụ kiện";
-            this.ChkAccessoryInvoice.UseVisualStyleBackColor = true;
+            this.RbtLaptopInvoice.AutoSize = true;
+            this.RbtLaptopInvoice.Location = new System.Drawing.Point(41, 71);
+            this.RbtLaptopInvoice.Name = "RbtLaptopInvoice";
+            this.RbtLaptopInvoice.Size = new System.Drawing.Size(149, 26);
+            this.RbtLaptopInvoice.TabIndex = 2;
+            this.RbtLaptopInvoice.TabStop = true;
+            this.RbtLaptopInvoice.Text = "Đơn bán laptop";
+            this.RbtLaptopInvoice.UseVisualStyleBackColor = true;
             // 
-            // ChkLaptopInvoice
+            // RbtAccessoryInvoice
             // 
-            this.ChkLaptopInvoice.AutoSize = true;
-            this.ChkLaptopInvoice.Location = new System.Drawing.Point(41, 71);
-            this.ChkLaptopInvoice.Name = "ChkLaptopInvoice";
-            this.ChkLaptopInvoice.Size = new System.Drawing.Size(150, 26);
-            this.ChkLaptopInvoice.TabIndex = 0;
-            this.ChkLaptopInvoice.Text = "Đơn bán laptop";
-            this.ChkLaptopInvoice.UseVisualStyleBackColor = true;
+            this.RbtAccessoryInvoice.AutoSize = true;
+            this.RbtAccessoryInvoice.Location = new System.Drawing.Point(41, 128);
+            this.RbtAccessoryInvoice.Name = "RbtAccessoryInvoice";
+            this.RbtAccessoryInvoice.Size = new System.Drawing.Size(166, 26);
+            this.RbtAccessoryInvoice.TabIndex = 7;
+            this.RbtAccessoryInvoice.TabStop = true;
+            this.RbtAccessoryInvoice.Text = "Đơn bán phụ kiện";
+            this.RbtAccessoryInvoice.UseVisualStyleBackColor = true;
             // 
             // OrderHistory
             // 
@@ -150,12 +152,12 @@
 
         private Microsoft.Reporting.WinForms.ReportViewer reportViewer1;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.CheckBox ChkAccessoryInvoice;
-        private System.Windows.Forms.CheckBox ChkLaptopInvoice;
         private System.Windows.Forms.ComboBox CbxAccessoryInvoices;
         private System.Windows.Forms.ComboBox CbxLaptopInvoices;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button BtnExport;
+        private System.Windows.Forms.RadioButton RbtLaptopInvoice;
+        private System.Windows.Forms.RadioButton RbtAccessoryInvoice;
     }
 }
