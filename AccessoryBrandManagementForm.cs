@@ -94,15 +94,19 @@ namespace Final {
         private void BtnDelete_Click(object sender, EventArgs e) {
             var context = new AccessoryContext();
             var find = context.AccessoryBrands.FirstOrDefault(b => b.BrandID.ToString() == TbID.Text);
-            if (find != null) {
-                context.AccessoryBrands.Remove(find);
-                context.SaveChanges();
-                MessageBox.Show(@"Xoá thành công");
-                FillDataView(context.AccessoryBrands.ToList());
-                ClearInput();
-            } else {
-                MessageBox.Show(@"Không có hãng tồn tại");
-            }
+                  try {
+                        if (find != null) {
+                              context.AccessoryBrands.Remove(find);
+                              context.SaveChanges();
+                              MessageBox.Show(@"Xoá thành công");
+                              FillDataView(context.AccessoryBrands.ToList());
+                              ClearInput();
+                        } else {
+                              MessageBox.Show(@"Không có hãng tồn tại");
+                        }
+                  } catch {
+                        MessageBox.Show("Không thể xóa vì đang có sản phẩm thuộc hãng tồn tại");
+                  }
         }
 
         private void FillDataView(List<AccessoryBrand> brands) {

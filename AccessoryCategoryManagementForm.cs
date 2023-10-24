@@ -90,15 +90,19 @@ namespace Final {
         private void BtnDelete_Click(object sender, System.EventArgs e) {
             var context = new AccessoryContext();
             var find = context.AccessoryCategories.FirstOrDefault(b => b.CategoryID.ToString() == TbId.Text);
-            if (find != null) {
-                context.AccessoryCategories.Remove(find);
-                context.SaveChanges();
-                MessageBox.Show(@"Xoá thành công");
-                FillDataView(context.AccessoryCategories.ToList());
-                ClearInput();
-            } else {
-                MessageBox.Show(@"Không có hãng tồn tại");
-            }
+                  try {
+                        if (find != null) {
+                              context.AccessoryCategories.Remove(find);
+                              context.SaveChanges();
+                              MessageBox.Show(@"Xoá thành công");
+                              FillDataView(context.AccessoryCategories.ToList());
+                              ClearInput();
+                        } else {
+                              MessageBox.Show(@"Không có hãng tồn tại");
+                        }
+                  } catch {
+                        MessageBox.Show("Không thể xóa vì đang cóp sản phẩm thuộc loại phụ kiện này tồn tại");
+                  }
         }
 
         private void AccessoryCategoryManagementForm_Load(object sender, System.EventArgs e) {
