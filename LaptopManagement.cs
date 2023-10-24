@@ -127,7 +127,7 @@ namespace Final {
             }
         }
 
-        private void DgvLaptops_CellContentClick(object sender, DataGridViewCellEventArgs e) {
+        private void DgvLaptops_CellClick(object sender, DataGridViewCellEventArgs e) {
             var lapId = DgvLaptops.Rows[e.RowIndex].Cells[0].Value.ToString();
             var context = new LaptopContext();
             var find = context.Laptops.FirstOrDefault(l => l.LaptopID == lapId);

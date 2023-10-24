@@ -97,7 +97,7 @@
             this.DgvLaptops.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.DgvLaptops.Size = new System.Drawing.Size(888, 510);
             this.DgvLaptops.TabIndex = 0;
-            this.DgvLaptops.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvLaptops_CellContentClick);
+            this.DgvLaptops.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvLaptops_CellClick);
             // 
             // Column1
             // 

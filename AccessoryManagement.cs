@@ -248,7 +248,7 @@ namespace Final {
             AccessoryManagement_Load(sender, e);
         }
 
-        private void DgvAccessories_CellContentClick(object sender, DataGridViewCellEventArgs e) {
+        private void DgvAccessories_CellClick(object sender, DataGridViewCellEventArgs e) {
             var row = DgvAccessories.Rows[e.RowIndex];
             TbAccessoryID.Text = row.Cells[0].Value.ToString();
             TbAccessoryName.Text = row.Cells[1].Value.ToString();

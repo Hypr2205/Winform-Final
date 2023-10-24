@@ -71,15 +71,6 @@ namespace Final {
             }
         }
 
-        private void DgvAccessories_CellContentClick(object sender, DataGridViewCellEventArgs e) {
-            var row = DgvAccessories.Rows[e.RowIndex];
-            TbAccessoryID.Text = row.Cells[0].Value.ToString();
-            TbAccessoryName.Text = row.Cells[1].Value.ToString();
-            TbCategoryName.Text = row.Cells[2].Value.ToString();
-            TbBrandName.Text = row.Cells[3].Value.ToString();
-            TbPrice.Text = row.Cells[4].Value.ToString();
-        }
-
         private void TbBuyQuantity_Enter(object sender, EventArgs e) {
             if (TbBuyQuantity.Text == @"Số lượng mua") {
                 TbBuyQuantity.Text = string.Empty;
@@ -193,6 +184,15 @@ namespace Final {
 
         private void Cart_FormClosed(object sender, FormClosedEventArgs e) {
             Show();
+        }
+
+        private void DgvAccessories_CellClick(object sender, DataGridViewCellEventArgs e) {
+            var row = DgvAccessories.Rows[e.RowIndex];
+            TbAccessoryID.Text = row.Cells[0].Value.ToString();
+            TbAccessoryName.Text = row.Cells[1].Value.ToString();
+            TbCategoryName.Text = row.Cells[2].Value.ToString();
+            TbBrandName.Text = row.Cells[3].Value.ToString();
+            TbPrice.Text = row.Cells[4].Value.ToString();
         }
     }
 }

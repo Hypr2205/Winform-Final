@@ -69,7 +69,7 @@
                   this.DgvAccessoryBrands.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
                   this.DgvAccessoryBrands.Size = new System.Drawing.Size(506, 253);
                   this.DgvAccessoryBrands.TabIndex = 0;
-                  this.DgvAccessoryBrands.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvAccessoryBrands_CellContentClick);
+                  this.DgvAccessoryBrands.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvAccessoryBrands_CellClick);
                   // 
                   // Column1
                   // 

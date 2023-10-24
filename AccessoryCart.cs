@@ -36,7 +36,7 @@ namespace Final {
             }
         }
 
-        private void DgvAccessoryCart_CellContentClick(object sender, DataGridViewCellEventArgs e) {
+        private void DgvAccessoryCart_CellClick(object sender, DataGridViewCellEventArgs e) {
             if (e.RowIndex >= 0 && e.ColumnIndex == 6)
                 // Chuyển đổi trạng thái của ô checkbox
                 if (DgvAccessoryCart.Rows[e.RowIndex].Cells[6] is DataGridViewCheckBoxCell cell)

@@ -106,7 +106,7 @@ namespace Final {
             this.DgvAccessories.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.DgvAccessories.Size = new System.Drawing.Size(1193, 563);
             this.DgvAccessories.TabIndex = 0;
-            this.DgvAccessories.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvAccessories_CellContentClick);
+            this.DgvAccessories.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvAccessories_CellClick);
             // 
             // Column1
             // 

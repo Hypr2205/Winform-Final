@@ -72,7 +72,7 @@
             this.DgvAccessoryCart.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.DgvAccessoryCart.Size = new System.Drawing.Size(975, 376);
             this.DgvAccessoryCart.TabIndex = 0;
-            this.DgvAccessoryCart.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvAccessoryCart_CellContentClick);
+            this.DgvAccessoryCart.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvAccessoryCart_CellClick);
             // 
             // Column1
             // 

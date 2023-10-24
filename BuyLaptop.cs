@@ -46,7 +46,7 @@ namespace Final {
             }
         }
 
-        private void DgvLaptops_CellContentClick(object sender, DataGridViewCellEventArgs e) {
+        private void DgvLaptops_CellClick(object sender, DataGridViewCellEventArgs e) {
             var row = DgvLaptops.Rows[e.RowIndex];
             TbLaptopID.Text = row.Cells[0].Value.ToString();
             TbLaptopName.Text = row.Cells[1].Value.ToString();

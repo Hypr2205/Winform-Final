@@ -19,7 +19,7 @@ namespace Final {
             }
         }
 
-        private void DgvAccessoryBrands_CellContentClick(object sender, DataGridViewCellEventArgs e) {
+        private void DgvAccessoryBrands_CellClick(object sender, DataGridViewCellEventArgs e) {
             var id = DgvAccessoryBrands.Rows[e.RowIndex].Cells[0].Value.ToString();
             AccessoryContext context = new AccessoryContext();
             var find = context.AccessoryBrands.FirstOrDefault(b => b.BrandID.ToString() == id);
