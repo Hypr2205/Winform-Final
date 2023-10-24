@@ -193,6 +193,7 @@ namespace Final {
             TbCategoryName.Text = row.Cells[2].Value.ToString();
             TbBrandName.Text = row.Cells[3].Value.ToString();
             TbPrice.Text = row.Cells[4].Value.ToString();
+            TbSale.Text = row.Cells[5].Value.ToString();
         }
     }
 }

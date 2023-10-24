@@ -26,7 +26,7 @@ namespace Final {
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.DgvAccessories = new System.Windows.Forms.DataGridView();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -37,6 +37,8 @@ namespace Final {
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.LbTitle = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.TbSale = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
             this.BtnRefresh = new System.Windows.Forms.Button();
             this.TbBuyQuantity = new System.Windows.Forms.TextBox();
             this.BtnAddToCart = new System.Windows.Forms.Button();
@@ -90,21 +92,21 @@ namespace Final {
             this.Column5,
             this.Column7,
             this.Column6});
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI Variable Display Semib", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.DarkTurquoise;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.DgvAccessories.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI Variable Display Semib", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.DarkTurquoise;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.DgvAccessories.DefaultCellStyle = dataGridViewCellStyle2;
             this.DgvAccessories.Location = new System.Drawing.Point(438, 293);
             this.DgvAccessories.Name = "DgvAccessories";
             this.DgvAccessories.ReadOnly = true;
             this.DgvAccessories.RowHeadersWidth = 51;
             this.DgvAccessories.RowTemplate.Height = 24;
             this.DgvAccessories.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.DgvAccessories.Size = new System.Drawing.Size(1193, 563);
+            this.DgvAccessories.Size = new System.Drawing.Size(949, 491);
             this.DgvAccessories.TabIndex = 0;
             this.DgvAccessories.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvAccessories_CellClick);
             // 
@@ -161,7 +163,7 @@ namespace Final {
             // 
             this.LbTitle.Font = new System.Drawing.Font("Segoe UI Variable Display Semib", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LbTitle.ForeColor = System.Drawing.Color.Crimson;
-            this.LbTitle.Location = new System.Drawing.Point(518, 12);
+            this.LbTitle.Location = new System.Drawing.Point(404, 9);
             this.LbTitle.Name = "LbTitle";
             this.LbTitle.Size = new System.Drawing.Size(627, 53);
             this.LbTitle.TabIndex = 2;
@@ -170,6 +172,8 @@ namespace Final {
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.TbSale);
+            this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.BtnRefresh);
             this.groupBox1.Controls.Add(this.TbBuyQuantity);
             this.groupBox1.Controls.Add(this.BtnAddToCart);
@@ -185,15 +189,32 @@ namespace Final {
             this.groupBox1.Controls.Add(this.TbAccessoryID);
             this.groupBox1.Location = new System.Drawing.Point(12, 274);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(420, 582);
+            this.groupBox1.Size = new System.Drawing.Size(420, 511);
             this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Thông tin sản phẩm";
             // 
+            // TbSale
+            // 
+            this.TbSale.Location = new System.Drawing.Point(152, 387);
+            this.TbSale.Name = "TbSale";
+            this.TbSale.ReadOnly = true;
+            this.TbSale.Size = new System.Drawing.Size(253, 30);
+            this.TbSale.TabIndex = 13;
+            this.TbSale.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label6
+            // 
+            this.label6.Location = new System.Drawing.Point(6, 390);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(118, 30);
+            this.label6.TabIndex = 12;
+            this.label6.Text = "KHUYẾN MÃI";
+            // 
             // BtnRefresh
             // 
             this.BtnRefresh.Image = global::Final.Properties.Resources.icons8_refresh_32;
-            this.BtnRefresh.Location = new System.Drawing.Point(358, 518);
+            this.BtnRefresh.Location = new System.Drawing.Point(358, 463);
             this.BtnRefresh.Name = "BtnRefresh";
             this.BtnRefresh.Size = new System.Drawing.Size(56, 35);
             this.BtnRefresh.TabIndex = 11;
@@ -202,7 +223,7 @@ namespace Final {
             // 
             // TbBuyQuantity
             // 
-            this.TbBuyQuantity.Location = new System.Drawing.Point(193, 521);
+            this.TbBuyQuantity.Location = new System.Drawing.Point(195, 463);
             this.TbBuyQuantity.Name = "TbBuyQuantity";
             this.TbBuyQuantity.Size = new System.Drawing.Size(147, 30);
             this.TbBuyQuantity.TabIndex = 10;
@@ -212,7 +233,7 @@ namespace Final {
             // 
             // BtnAddToCart
             // 
-            this.BtnAddToCart.Location = new System.Drawing.Point(10, 521);
+            this.BtnAddToCart.Location = new System.Drawing.Point(6, 458);
             this.BtnAddToCart.Name = "BtnAddToCart";
             this.BtnAddToCart.Size = new System.Drawing.Size(166, 39);
             this.BtnAddToCart.TabIndex = 9;
@@ -222,7 +243,7 @@ namespace Final {
             // 
             // label5
             // 
-            this.label5.Location = new System.Drawing.Point(6, 423);
+            this.label5.Location = new System.Drawing.Point(6, 312);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(118, 30);
             this.label5.TabIndex = 7;
@@ -230,7 +251,7 @@ namespace Final {
             // 
             // label4
             // 
-            this.label4.Location = new System.Drawing.Point(6, 237);
+            this.label4.Location = new System.Drawing.Point(6, 168);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(149, 30);
             this.label4.TabIndex = 6;
@@ -238,7 +259,7 @@ namespace Final {
             // 
             // label3
             // 
-            this.label3.Location = new System.Drawing.Point(6, 153);
+            this.label3.Location = new System.Drawing.Point(6, 105);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(149, 30);
             this.label3.TabIndex = 5;
@@ -247,7 +268,7 @@ namespace Final {
             // 
             // label2
             // 
-            this.label2.Location = new System.Drawing.Point(6, 325);
+            this.label2.Location = new System.Drawing.Point(6, 240);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(149, 30);
             this.label2.TabIndex = 5;
@@ -255,7 +276,7 @@ namespace Final {
             // 
             // label1
             // 
-            this.label1.Location = new System.Drawing.Point(6, 81);
+            this.label1.Location = new System.Drawing.Point(6, 45);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(149, 30);
             this.label1.TabIndex = 4;
@@ -263,7 +284,7 @@ namespace Final {
             // 
             // TbPrice
             // 
-            this.TbPrice.Location = new System.Drawing.Point(152, 423);
+            this.TbPrice.Location = new System.Drawing.Point(152, 312);
             this.TbPrice.Name = "TbPrice";
             this.TbPrice.ReadOnly = true;
             this.TbPrice.Size = new System.Drawing.Size(253, 30);
@@ -272,7 +293,7 @@ namespace Final {
             // 
             // TbCategoryName
             // 
-            this.TbCategoryName.Location = new System.Drawing.Point(152, 237);
+            this.TbCategoryName.Location = new System.Drawing.Point(152, 168);
             this.TbCategoryName.Name = "TbCategoryName";
             this.TbCategoryName.ReadOnly = true;
             this.TbCategoryName.Size = new System.Drawing.Size(253, 30);
@@ -281,7 +302,7 @@ namespace Final {
             // 
             // TbAccessoryName
             // 
-            this.TbAccessoryName.Location = new System.Drawing.Point(152, 154);
+            this.TbAccessoryName.Location = new System.Drawing.Point(152, 106);
             this.TbAccessoryName.Name = "TbAccessoryName";
             this.TbAccessoryName.ReadOnly = true;
             this.TbAccessoryName.Size = new System.Drawing.Size(253, 30);
@@ -290,7 +311,7 @@ namespace Final {
             // 
             // TbBrandName
             // 
-            this.TbBrandName.Location = new System.Drawing.Point(152, 325);
+            this.TbBrandName.Location = new System.Drawing.Point(152, 240);
             this.TbBrandName.Name = "TbBrandName";
             this.TbBrandName.ReadOnly = true;
             this.TbBrandName.Size = new System.Drawing.Size(253, 30);
@@ -299,7 +320,7 @@ namespace Final {
             // 
             // TbAccessoryID
             // 
-            this.TbAccessoryID.Location = new System.Drawing.Point(152, 78);
+            this.TbAccessoryID.Location = new System.Drawing.Point(152, 45);
             this.TbAccessoryID.Name = "TbAccessoryID";
             this.TbAccessoryID.ReadOnly = true;
             this.TbAccessoryID.Size = new System.Drawing.Size(253, 30);
@@ -325,7 +346,7 @@ namespace Final {
             this.groupBox2.Controls.Add(this.label7);
             this.groupBox2.Location = new System.Drawing.Point(12, 68);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(1619, 186);
+            this.groupBox2.Size = new System.Drawing.Size(1375, 165);
             this.groupBox2.TabIndex = 4;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Lọc sản phẩm";
@@ -442,7 +463,7 @@ namespace Final {
             this.Cart});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1643, 28);
+            this.menuStrip1.Size = new System.Drawing.Size(1399, 28);
             this.menuStrip1.TabIndex = 5;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -458,7 +479,7 @@ namespace Final {
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 22F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.SkyBlue;
-            this.ClientSize = new System.Drawing.Size(1643, 868);
+            this.ClientSize = new System.Drawing.Size(1399, 796);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.LbTitle);
@@ -523,5 +544,7 @@ namespace Final {
         private System.Windows.Forms.Button BtnRefresh;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem Cart;
+        private System.Windows.Forms.TextBox TbSale;
+        private System.Windows.Forms.Label label6;
     }
 }
