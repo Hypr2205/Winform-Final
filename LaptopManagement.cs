@@ -102,24 +102,10 @@ namespace Final {
             try {
                 var context = new LaptopContext();
                 var find = context.Laptops.FirstOrDefault(a => a.LaptopID == TblaptopID.Text);
-                var isValidQuantity = int.TryParse(TbQuantity.Text, out var quantity);
                 if (find == null) return;
-                if (find.Quantity == 0) {
-                    MessageBox.Show("Không thể xoá sản phẩm này!");
-                    return;
-                } else if (isValidQuantity && quantity < find.Quantity) {
-                    MessageBox.Show("Số lượng xoá không hợp lệ!");
-                    return;
-                } else {
-                    var dialogResult = MessageBox.Show("Bạn có muốn xoá ?", "YES/NO", MessageBoxButtons.YesNo);
-                    if (dialogResult == DialogResult.Yes) {
-                        find.Quantity -= quantity;
-                    } else {
-                        return;
-                    }
-                }
-
+                context.Laptops.Remove(find);
                 context.SaveChanges();
+                FillDataView(context.Laptops.ToList());
                 ClearInput();
                 MessageBox.Show("Xoá thành công");
             } catch (Exception ex) {
